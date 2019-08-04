@@ -1,20 +1,37 @@
 import React, { ChangeEvent } from "react";
 import styled from "styled-components";
 
-import { IFormation } from "../../constants/model";
+import { IPlayer, IPosition } from "../../constants/model";
 
 interface IProps {
-  formation: IFormation;
+  players: IPlayer[];
+  editPlayer: (
+    id: string,
+    nName: string,
+    nNum: number,
+    nPosition: IPosition,
+  ) => void;
 }
 
-const Squad = ({ formation }: IProps) => {
+const Squad = ({ players, editPlayer }: IProps) => {
   return (
     <Wrapper>
       <div>
         <PositionList>
-          {formation.players.map(player => (
+          {players.map(player => (
             <li>
-              <Input value={player.name} />
+              <Input
+                spellCheck={false}
+                value={player.name}
+                onChange={event =>
+                  editPlayer(
+                    player.id,
+                    event.target.value,
+                    player.num,
+                    player.position,
+                  )
+                }
+              />
             </li>
           ))}
         </PositionList>

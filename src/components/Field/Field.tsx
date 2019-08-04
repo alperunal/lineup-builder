@@ -2,12 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import Grass from "../../assets/images/grass.png";
 import Player from "../Player/Player";
-import { IFormation } from "../../constants/model";
+import { IFormation, IPlayer } from "../../constants/model";
 
 interface IProps {
   width: number;
   height: number;
-  formation: IFormation;
+  players: IPlayer[];
+  mainColor: string;
+  secondaryColor: string;
+  numberColor: string;
 }
 
 interface IWrapperProps {
@@ -18,7 +21,10 @@ interface IWrapperProps {
 const Field: React.FC<IProps> = ({
   width,
   height,
-  formation: { players, mainColor, secondaryColor, numberColor },
+  players,
+  mainColor,
+  secondaryColor,
+  numberColor,
 }: IProps) => {
   return (
     <Wrapper w={width} h={height}>

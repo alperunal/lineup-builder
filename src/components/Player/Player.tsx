@@ -14,7 +14,7 @@ interface IProps {
 interface IStyleProps {
   mainColor: string;
   secondaryColor: string;
-  numberColor?: string;
+  numberColor: string;
   x: number;
   y: number;
 }
@@ -41,7 +41,7 @@ const Player = ({
       secondaryColor={secondaryColor}
       numberColor={numberColor}
     >
-      <Num>
+      <Num numberColor={numberColor}>
         <span contentEditable>{num}</span>
       </Num>
       <Name>
@@ -69,7 +69,7 @@ const Wrapper = styled.div`
 const Num = styled.div`
   font-size: 16px;
   font-weight: bold;
-  color: #fff;
+  color: ${({ numberColor }: { numberColor: string }) => numberColor};
 `;
 
 const Name = styled.div`

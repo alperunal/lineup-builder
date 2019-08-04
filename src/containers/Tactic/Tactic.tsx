@@ -5,9 +5,10 @@ import ColorPicker from "../../components/UI/ColorPicker/ColorPicker";
 import Field from "../../components/Field/Field";
 import Squad from "../../components/Squad/Squad";
 import exampleformation from "../../assets/data/example.json";
+import { IPosition } from "../../constants/model";
 
 const Tactic = () => {
-  const [formation, setFormation] = useState(exampleformation);
+  // const [formation, setFormation] = useState(exampleformation);
   const [name, setName] = useState("Default");
   const [mainColor, setMainColor] = useState("#a32638");
   const [secondaryColor, setSecondaryColor] = useState("#fcb514");
@@ -114,14 +115,48 @@ const Tactic = () => {
     },
   ]);
 
+  const editPlayer = (
+    id: string,
+    nName: string,
+    nNum: number,
+    nPosition: IPosition,
+  ) => {
+    setPlayers(
+      players.map(player => {
+        if (player.id === id) {
+          return {
+            name: nName,
+            num: nNum,
+            id,
+            position: nPosition,
+          };
+        } else {
+          return player;
+        }
+      }),
+    );
+  };
+
   return (
     <div>
       <TacticField>
-        <Field width={580} height={710} formation={formation} />
+        <Field
+          width={580}
+          height={710}
+          players={players}
+          mainColor={mainColor}
+          secondaryColor={secondaryColor}
+          numberColor={numberColor}
+        />
         <Options>
           <FormField>
             <Label htmlFor="tacticName">Tactic Name</Label>
-            <Input id="tacticName" type="text" value={name} />
+            <Input
+              id="tacticName"
+              type="text"
+              value={name}
+              onChange={event => setName(event.target.value)}
+            />
           </FormField>
           <ColorOptions>
             <ColorOption>
@@ -140,7 +175,7 @@ const Tactic = () => {
               <ColorPicker color={numberColor} setColor={setNumberColor} />
             </ColorOption>
           </ColorOptions>
-          <Squad formation={formation} />
+          <Squad players={players} editPlayer={editPlayer} />
         </Options>
       </TacticField>
     </div>
