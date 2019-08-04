@@ -37,10 +37,10 @@ const Player = ({
       numberColor={numberColor}
     >
       <Num numberColor={numberColor}>
-        <span contentEditable>{num}</span>
+        <span>{num}</span>
       </Num>
       <Name>
-        <span contentEditable>{name}</span>
+        <span>{name}</span>
       </Name>
     </Wrapper>
   );
