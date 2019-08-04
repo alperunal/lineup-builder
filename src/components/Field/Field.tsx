@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Grass from "../../assets/images/grass.png";
+import Player from "../Player/Player";
+import { IFormation } from "../../constants/model";
 
 interface IProps {
   width: number;
   height: number;
-  formation: string;
+  formation: IFormation;
 }
 
 interface IWrapperProps {
@@ -13,8 +15,11 @@ interface IWrapperProps {
   h: number;
 }
 
-const Field: React.FC<IProps> = ({ width, height }: IProps) => {
-  console.log(width, height);
+const Field: React.FC<IProps> = ({
+  width,
+  height,
+  formation: { players, mainColor, secondaryColor, numberColor },
+}: IProps) => {
   return (
     <Wrapper w={width} h={height}>
       <FieldLines>
@@ -26,6 +31,18 @@ const Field: React.FC<IProps> = ({ width, height }: IProps) => {
         <MiddleLine />
         <MiddleCircle />
       </FieldLines>
+      {players.map(player => (
+        <Player
+          key={player.id}
+          name={player.name}
+          num={player.num}
+          x={player.position.x}
+          y={player.position.y}
+          mainColor={mainColor}
+          secondaryColor={secondaryColor}
+          numberColor={numberColor}
+        />
+      ))}
     </Wrapper>
   );
 };

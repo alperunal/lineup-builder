@@ -1,35 +1,31 @@
 import React, { ChangeEvent } from "react";
 import styled from "styled-components";
 
+import { IFormation } from "../../constants/model";
+
 interface IProps {
-  formation: string;
-  setFormation: (formation: string) => void;
+  formation: IFormation;
 }
 
-const Squad = ({ formation, setFormation }: IProps) => {
+const Squad = ({ formation }: IProps) => {
   return (
     <Wrapper>
       <div>
-        <Select
-          onChange={(event: ChangeEvent<HTMLSelectElement>) =>
-            setFormation(event.target.value)
-          }
-          value={formation}
-        >
-          <option value="4-4-2">4-4-2</option>
-          <option value="4-2-3-1">4-2-3-1</option>
-          <option value="4-3-3">4-3-3</option>
-          <option value="3-5-2">3-5-2</option>
-        </Select>
+        <PositionList>
+          {formation.players.map(player => (
+            <li>
+              <Input value={player.name} />
+            </li>
+          ))}
+        </PositionList>
       </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  width: 500px;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 10px;
 `;
 
 const Select = styled.select`
@@ -42,6 +38,30 @@ const Select = styled.select`
   border-radius: 5px;
   font-family: "Roboto";
   font-size: 20px;
+`;
+
+const Input = styled.input`
+  width: 300px;
+  padding-left: 10px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-family: "Roboto";
+  font-size: 20px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+
+  &::placeholder {
+    color: #ddd;
+  }
+`;
+
+const PositionList = styled.ul`
+  list-style-type: none;
+  margin: 20px 0 0 0;
+  padding: 0;
 `;
 
 export default Squad;

@@ -1,0 +1,108 @@
+{
+  "id": "2136127basbfhsdf",
+  "name": "Galatasaray 2000",
+  "mainColor": "#a32638",
+  "secondaryColor": "#fcb514",
+  "numberColor": "#fff",
+  "players": [
+    {
+      "id": "1",
+      "num": 1,
+      "name": "Taffarel",
+      "position": {
+        "x": 270,
+        "y": 640
+      }
+    },
+    {
+      "id": "2",
+      "num": 57,
+      "name": "Hakan",
+      "position": {
+        "x": 90,
+        "y": 540
+      }
+    },
+    {
+      "id": "3",
+      "num": 3,
+      "name": "Bulent",
+      "position": {
+        "x": 210,
+        "y": 540
+      }
+    },
+    {
+      "id": "4",
+      "num": 4,
+      "name": "Popescu",
+      "position": {
+        "x": 330,
+        "y": 540
+      }
+    },
+    {
+      "id": "5",
+      "num": 35,
+      "name": "Capone",
+      "position": {
+        "x": 450,
+        "y": 540
+      }
+    },
+    {
+      "id": "6",
+      "num": 11,
+      "name": "Hasan",
+      "position": {
+        "x": 90,
+        "y": 240
+      }
+    },
+    {
+      "id": "7",
+      "num": 5,
+      "name": "Emre",
+      "position": {
+        "x": 190,
+        "y": 380
+      }
+    },
+    {
+      "id": "8",
+      "num": 7,
+      "name": "Okan",
+      "position": {
+        "x": 350,
+        "y": 380
+      }
+    },
+    {
+      "id": "9",
+      "num": 22,
+      "name": "Umit",
+      "position": {
+        "x": 450,
+        "y": 240
+      }
+    },
+    {
+      "id": "10",
+      "num": 10,
+      "name": "Hagi",
+      "position": {
+        "x": 270,
+        "y": 240
+      }
+    },
+    {
+      "id": "11",
+      "num": 9,
+      "name": "Jardel",
+      "position": {
+        "x": 270,
+        "y": 70
+      }
+    }
+  ]
+}
