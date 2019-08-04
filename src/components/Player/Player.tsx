@@ -19,11 +19,6 @@ interface IStyleProps {
   y: number;
 }
 
-const isValidNumber = (num: string): boolean => {
-  const playerNum = parseInt(num, 10);
-  return playerNum > 0 && playerNum < 100;
-};
-
 const Player = ({
   name,
   num,

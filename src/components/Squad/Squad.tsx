@@ -14,13 +14,20 @@ interface IProps {
 }
 
 const Squad = ({ players, editPlayer }: IProps) => {
+  const isValidNumber = (num: string): boolean => {
+    const playerNum = parseInt(num, 10);
+    return playerNum > 0 && playerNum < 100;
+  };
+
   return (
     <Wrapper>
       <div>
         <PositionList>
           {players.map(player => (
-            <li>
+            <PositionListItem>
               <Input
+                type="text"
+                style={{ width: "80%", marginRight: "5px" }}
                 spellCheck={false}
                 value={player.name}
                 onChange={event =>
@@ -32,7 +39,20 @@ const Squad = ({ players, editPlayer }: IProps) => {
                   )
                 }
               />
-            </li>
+              <Input
+                type="number"
+                style={{ width: "20%" }}
+                value={player.num}
+                onChange={event =>
+                  editPlayer(
+                    player.id,
+                    player.name,
+                    parseInt(event.target.value ? event.target.value : "0", 10),
+                    player.position,
+                  )
+                }
+              />
+            </PositionListItem>
           ))}
         </PositionList>
       </div>
@@ -43,6 +63,7 @@ const Squad = ({ players, editPlayer }: IProps) => {
 const Wrapper = styled.div`
   box-sizing: border-box;
   padding: 10px;
+  max-width: 320px;
 `;
 
 const Select = styled.select`
@@ -58,7 +79,7 @@ const Select = styled.select`
 `;
 
 const Input = styled.input`
-  width: 300px;
+  /* width: 300px; */
   padding-left: 10px;
   height: 40px;
   background: rgba(0, 0, 0, 0.5);
@@ -79,6 +100,10 @@ const PositionList = styled.ul`
   list-style-type: none;
   margin: 20px 0 0 0;
   padding: 0;
+`;
+
+const PositionListItem = styled.li`
+  display: flex;
 `;
 
 export default Squad;
