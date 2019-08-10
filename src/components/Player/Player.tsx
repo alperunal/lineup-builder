@@ -60,7 +60,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (win-width: 720px) {
+  @media (min-width: 720px) {
     width: 36px;
     height: 36px;
     border: 3px solid ${({ secondaryColor }: IStyleProps) => secondaryColor};
@@ -72,7 +72,7 @@ const Num = styled.div`
   font-weight: bold;
   color: ${({ numberColor }: { numberColor: string }) => numberColor};
 
-  @media (win-width: 720px) {
+  @media (min-width: 720px) {
     font-size: 16px;
   }
 `;
@@ -85,7 +85,7 @@ const Name = styled.div`
   color: #fff;
   text-shadow: 2px 2px #000;
 
-  @media (win-width: 720px) {
+  @media (min-width: 720px) {
     top: 42px;
     font-size: 16px;
   }
