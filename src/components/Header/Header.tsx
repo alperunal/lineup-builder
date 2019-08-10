@@ -38,6 +38,12 @@ const HeaderContent = styled.div`
   font-size: 24px;
   line-height: 37px;
   color: #ffffff;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 720px) {
+    display: block;
+  }
 `;
 
 const Logo = styled.div`
