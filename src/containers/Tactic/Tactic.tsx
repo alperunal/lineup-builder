@@ -217,7 +217,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  width: 300px;
+  /* width: 300px; */
   padding-left: 10px;
   height: 40px;
   background: rgba(0, 0, 0, 0.5);

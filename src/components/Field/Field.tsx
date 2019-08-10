@@ -55,9 +55,15 @@ const Field: React.FC<IProps> = ({
 
 const Wrapper = styled.div`
   position: relative;
-  height: ${(props: IWrapperProps) => `${props.h}px`};
-  width: ${(props: IWrapperProps) => `${props.w}px`};
+  height: 500px;
+  max-height: ${(props: IWrapperProps) => `${props.h}px`};
+  width: 100%;
+  max-width: ${(props: IWrapperProps) => `${props.w}px`};
   background-color: #1b7e45;
+
+  @media (min-width: 720px) {
+    height: ${(props: IWrapperProps) => `${props.h}px`};
+  }
 `;
 
 const GrassTexture = styled.div`
@@ -89,7 +95,7 @@ const GoalLine = styled.div`
 const PenaltyLine = styled.div`
   position: absolute;
   width: 44%;
-  height: 16%;
+  height: 14%;
   border: solid 3px rgba(255, 255, 255, 0.5);
   border-bottom: ${({ bottom }: { bottom?: boolean }) =>
     bottom ? "none" : ""};
