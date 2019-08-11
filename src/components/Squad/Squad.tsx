@@ -24,7 +24,7 @@ const Squad = ({ players, editPlayer }: IProps) => {
       <div>
         <PositionList>
           {players.map(player => (
-            <PositionListItem>
+            <PositionListItem key={player.id}>
               <Input
                 type="text"
                 style={{ width: "80%", marginRight: "5px" }}
