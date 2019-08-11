@@ -1,12 +1,11 @@
 Voet
 ===
-![build](https://img.shields.io/appveyor/ci/:user/:repo.svg)
+Simple Football Formation Builder.
 
-## Table of Contents
+[![Build Status](https://travis-ci.org/alperunal/voet.svg?branch=master)](https://travis-ci.org/alperunal/voet)
 
-[TOC]
-
-## How to run?
+How to run?
+---
 
 If you are a total beginner to this, start here!
 
