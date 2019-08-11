@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Grass from "../../assets/images/grass.png";
+// import Grass from "../../assets/images/grass.png";
 import Player from "../Player/Player";
-import { IFormation, IPlayer } from "../../constants/model";
+import { IPlayer } from "../../constants/model";
 
 interface IProps {
   width: number;
@@ -68,7 +68,6 @@ const Wrapper = styled.div`
 
 const GrassTexture = styled.div`
   position: absolute;
-  background-image: 'url(${Grass})';
   background-repeat: repeat;
   background-size: 75px 75px;
   background-position: -20px -20px;

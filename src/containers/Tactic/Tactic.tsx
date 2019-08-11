@@ -115,12 +115,7 @@ const Tactic = () => {
     },
   ]);
 
-  const editPlayer = (
-    id: string,
-    nName: string,
-    nNum: number,
-    nPosition: IPosition,
-  ) => {
+  const editPlayer = (id: string, nName: string, nNum: number, nPosition: IPosition) => {
     setPlayers(
       players.map(player => {
         if (player.id === id) {

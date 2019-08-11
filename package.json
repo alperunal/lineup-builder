@@ -21,6 +21,7 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "@types/enzyme": "^3.10.1",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.15",
@@ -28,6 +29,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-redux": "^7.1.1",
     "@types/styled-components": "^4.1.16",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
     "enzyme": "^3.10.0",
@@ -63,7 +65,6 @@
     ],
     "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
-      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.ts",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.ts"
     },
     "setupFilesAfterEnv": [
