@@ -55,7 +55,9 @@ const Wrapper = styled.div`
   left: 0;
   border: 2px solid ${({ secondaryColor }: IStyleProps) => secondaryColor};
   background-color: ${({ mainColor }: IStyleProps) => mainColor};
-  transform: ${({ x, y }: IStyleProps) => `translate(${x}px, ${y}px)`};
+  left: ${({ x }: IStyleProps) => `${x}%`};
+  top: ${({ y }: IStyleProps) => `${y}%`};
+  transform: ${({ x, y }: IStyleProps) => `translate(-${x}%, -${y}%)`};
   display: flex;
   justify-content: center;
   align-items: center;

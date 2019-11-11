@@ -19,8 +19,8 @@ const Tactic = () => {
       num: 1,
       name: "Taffarel",
       position: {
-        x: 270,
-        y: 640,
+        x: 50,
+        y: 90,
       },
     },
     {
@@ -28,8 +28,8 @@ const Tactic = () => {
       num: 57,
       name: "Hakan",
       position: {
-        x: 90,
-        y: 540,
+        x: 15,
+        y: 70,
       },
     },
     {
@@ -37,8 +37,8 @@ const Tactic = () => {
       num: 3,
       name: "Bulent",
       position: {
-        x: 210,
-        y: 540,
+        x: 40,
+        y: 70,
       },
     },
     {
@@ -46,8 +46,8 @@ const Tactic = () => {
       num: 4,
       name: "Popescu",
       position: {
-        x: 330,
-        y: 540,
+        x: 60,
+        y: 70,
       },
     },
     {
@@ -55,8 +55,8 @@ const Tactic = () => {
       num: 35,
       name: "Capone",
       position: {
-        x: 450,
-        y: 540,
+        x: 85,
+        y: 70,
       },
     },
     {
@@ -64,8 +64,8 @@ const Tactic = () => {
       num: 11,
       name: "Hasan",
       position: {
-        x: 90,
-        y: 240,
+        x: 10,
+        y: 30,
       },
     },
     {
@@ -73,8 +73,8 @@ const Tactic = () => {
       num: 5,
       name: "Emre",
       position: {
-        x: 190,
-        y: 380,
+        x: 35,
+        y: 50,
       },
     },
     {
@@ -82,8 +82,8 @@ const Tactic = () => {
       num: 7,
       name: "Okan",
       position: {
-        x: 350,
-        y: 380,
+        x: 65,
+        y: 50,
       },
     },
     {
@@ -91,8 +91,8 @@ const Tactic = () => {
       num: 22,
       name: "Umit",
       position: {
-        x: 450,
-        y: 240,
+        x: 90,
+        y: 30,
       },
     },
     {
@@ -100,8 +100,8 @@ const Tactic = () => {
       num: 10,
       name: "Hagi",
       position: {
-        x: 270,
-        y: 240,
+        x: 50,
+        y: 25,
       },
     },
     {
@@ -109,8 +109,8 @@ const Tactic = () => {
       num: 9,
       name: "Jardel",
       position: {
-        x: 270,
-        y: 70,
+        x: 50,
+        y: 10,
       },
     },
   ]);
@@ -190,6 +190,11 @@ const Options = styled.div`
   box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   margin-bottom: 2rem;
+  margin-top: 20px;
+
+  @media(min-width: 768px) {
+    margin-top: 0;
+  }
 `;
 
 const ColorOptions = styled.div`
@@ -212,7 +217,6 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  /* width: 300px; */
   padding-left: 10px;
   height: 40px;
   background: rgba(0, 0, 0, 0.5);
