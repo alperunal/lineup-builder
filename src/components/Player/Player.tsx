@@ -2,6 +2,7 @@ import React from "react";
 import { Wrapper, Num, Name } from './style';
 
 interface IProps {
+  id: string;
   name: string;
   num: number;
   x: number;
@@ -9,6 +10,7 @@ interface IProps {
   mainColor: string;
   secondaryColor: string;
   numberColor?: string;
+  handleDragStart: (event: React.DragEvent) => void; 
 }
 
 const Player = ({
@@ -19,6 +21,8 @@ const Player = ({
   mainColor,
   secondaryColor,
   numberColor,
+  handleDragStart,
+  id
 }: IProps) => {
   return (
     <Wrapper
@@ -27,8 +31,9 @@ const Player = ({
       mainColor={mainColor}
       secondaryColor={secondaryColor}
       numberColor={numberColor}
-      draggable={true}
-      onDragStart={(event) => {console.log('dragging', event)}}
+      draggable
+      onDragStart={handleDragStart}
+      id={id}
     >
       <Num numberColor={numberColor}>
         <span>{num}</span>
