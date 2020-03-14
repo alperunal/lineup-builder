@@ -120,17 +120,47 @@ const Tactic = () => {
       players.map(player => {
         if (player.id === id) {
           return {
-            name: nName,
-            num: nNum,
+            name: nName ? nName : player.name,
+            num: nNum ? nNum : player.num,
             id,
-            position: nPosition,
+            position: nPosition ? nPosition : player.position,
           };
         } else {
           return player;
         }
       }),
     );
+    console.log(players);
   };
+
+  const move = (event: React.MouseEvent) => {
+    console.log(event.clientX, event.clientY);
+
+  }
+
+  const drop = (event: React.DragEvent) => {
+    event.preventDefault();
+    console.log('drop', event);
+    console.log('coords', relativeCoords(event));
+    const data = event.dataTransfer.getData("playerId");
+    console.log('player', data);
+    editPlayer(data, null, null, relativeCoords(event));
+  }
+
+  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
+    console.log('drag', event);
+    const target =  (event.target as HTMLDivElement);
+    console.log(target);
+    const currentTarget =  (event.currentTarget as HTMLDivElement);
+    event.dataTransfer.setData("playerId", target.id);
+  }
+
+  const relativeCoords = (event: any) => {
+    const bounds = event.target.getBoundingClientRect();
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
+    return {x: parseInt((x*100/bounds.width).toFixed(1), 10), y: parseInt((y*100/bounds.height).toFixed(1), 10)};
+  }
 
   return (
     <div>
@@ -142,6 +172,9 @@ const Tactic = () => {
           mainColor={mainColor}
           secondaryColor={secondaryColor}
           numberColor={numberColor}
+          move={move}
+          drop={drop}
+          handleDragStart={handleDragStart}
         />
         <Options>
           <FormField>
