@@ -31,11 +31,22 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: false,
             },
           },
           // sass-loader
           { loader: "sass-loader" },
+        ],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
         ],
       },
       {
@@ -58,6 +69,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./public/index.html",
       filename: "./index.html",
+      favicon: "./public/favicon.ico",
     }),
     new webpack.ProvidePlugin({
       React: "react",

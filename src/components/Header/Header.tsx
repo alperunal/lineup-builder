@@ -1,21 +1,21 @@
-import React from "react";
-import Container from "../UI/Container/Container";
-import { HeaderBar, HeaderContent, Logo, LogoText } from './style';
+import React from 'react';
+import Container from '../UI/Container/Container';
+import './Header.scss';
 
 const Header = () => {
-  return (
-    <div>
-      <HeaderBar>
-        <Container>
-          <HeaderContent>
-            <Logo>
-              <LogoText>Voet.</LogoText>
-            </Logo>
-          </HeaderContent>
-        </Container>
-      </HeaderBar>
-    </div>
-  );
+    return (
+        <div className="header">
+            <div className="header__bar">
+                <Container>
+                    <div className="header__content">
+                        <div className="header__logo">
+                            <div className="header__logo-text">Voet.</div>
+                        </div>
+                    </div>
+                </Container>
+            </div>
+        </div>
+    );
 };
 
 export default Header;

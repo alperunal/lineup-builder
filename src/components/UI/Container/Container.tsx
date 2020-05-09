@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = ({ children }) => {
-  return <ContainerDiv>{children}</ContainerDiv>;
+    return <ContainerDiv>{children}</ContainerDiv>;
 };
 
 const ContainerDiv = styled.div`
-  max-width: 950px;
-  width: 100%;
-  margin: auto;
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
 `;
 
 export default Container;
