@@ -1,7 +1,7 @@
 import React from 'react';
 import { IPlayer, IPosition } from '../../constants/model';
-import './Squad.scss';
 import { Input } from '../../style/VoetUI';
+import './Squad.scss';
 
 interface IProps {
     players: IPlayer[];
