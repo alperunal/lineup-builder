@@ -1,8 +1,7 @@
 import React from 'react';
-import { Wrapper, Num, Name } from './style';
+import './Player.scss';
 
 interface IProps {
-    id: string;
     name: string;
     num: number;
     x: number;
@@ -13,16 +12,30 @@ interface IProps {
     handleDragStart: (event: React.DragEvent) => void;
 }
 
-const Player = ({ name, num, x, y, mainColor, secondaryColor, numberColor, handleDragStart, id }: IProps) => {
+const Player = ({ name, num, x, y, mainColor, secondaryColor, numberColor, handleDragStart }: IProps) => {
     return (
-        <Wrapper x={x} y={y} mainColor={mainColor} secondaryColor={secondaryColor} numberColor={numberColor} draggable onDragStart={handleDragStart} id={id}>
-            <Num numberColor={numberColor}>
+        <div
+            className="player"
+            style={{
+                backgroundColor: mainColor,
+                border: `2px solid ${secondaryColor}`,
+                left: `${x}px`,
+                top: `${y}px`,
+            }}
+            onDragStart={handleDragStart}
+        >
+            <div
+                className="player__num"
+                style={{
+                    color: numberColor,
+                }}
+            >
                 <span>{num}</span>
-            </Num>
-            <Name>
+            </div>
+            <div className="player__name">
                 <span>{name}</span>
-            </Name>
-        </Wrapper>
+            </div>
+        </div>
     );
 };
 

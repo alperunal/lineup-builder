@@ -1,0 +1,42 @@
+.player {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-15px, -15px);
+
+    @media (min-width: 720px) {
+        width: 30px;
+        height: 30px;
+    }
+
+    &__num {
+        font-size: 12px;
+        font-weight: bold;
+
+        @media (min-width: 720px) {
+            font-size: 16px;
+        }
+    }
+
+    &__name {
+        position: absolute;
+        top: 30px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 2px 2px #000;
+        white-space: nowrap;
+
+        @media (min-width: 720px) {
+            top: 35px;
+            font-size: 15px;
+        }
+    }
+}
