@@ -32,7 +32,6 @@ const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryC
             {players.map(player => (
                 <Player
                     key={player.id}
-                    id={player.id}
                     name={player.name}
                     num={player.num}
                     x={player.position.x}
