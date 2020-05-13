@@ -10,9 +10,10 @@ interface IProps {
     secondaryColor: string;
     numberColor?: string;
     handleDragStart: (event: React.DragEvent) => void;
+    id: string;
 }
 
-const Player = ({ name, num, x, y, mainColor, secondaryColor, numberColor, handleDragStart }: IProps) => {
+const Player = ({ name, num, x, y, mainColor, secondaryColor, numberColor, handleDragStart, id }: IProps) => {
     return (
         <div
             className="player"
@@ -23,6 +24,8 @@ const Player = ({ name, num, x, y, mainColor, secondaryColor, numberColor, handl
                 top: `${y}px`,
             }}
             onDragStart={handleDragStart}
+            id={id}
+            draggable
         >
             <div
                 className="player__num"
