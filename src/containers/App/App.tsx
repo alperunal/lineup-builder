@@ -1,6 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-
 import Header from '../../components/Header/Header';
 import Container from '../../components/UI/Container/Container';
 import Tactic from '../Tactic/Tactic';
@@ -11,18 +9,14 @@ const App = () => {
         <div>
             <Header />
             <Container>
-                <Content>
+                <div style={{ marginTop: '50px' }}>
                     <Card>
                         <Tactic />
                     </Card>
-                </Content>
+                </div>
             </Container>
         </div>
     );
 };
-
-const Content = styled.div`
-    margin-top: 50px;
-`;
 
 export default App;

@@ -1,4 +1,5 @@
 import React from 'react';
+import Draggable from 'react-draggable';
 import './Player.scss';
 
 interface IProps {
@@ -9,37 +10,44 @@ interface IProps {
     mainColor: string;
     secondaryColor: string;
     numberColor?: string;
-    handleDragStart: (event: React.DragEvent) => void;
     id: string;
+    handleDrop: (event: any) => void;
 }
 
-const Player = ({ name, num, x, y, mainColor, secondaryColor, numberColor, handleDragStart, id }: IProps) => {
+function Player({ name, num, x, y, mainColor, secondaryColor, numberColor, id, handleDrop }: IProps) {
     return (
-        <div
-            className="player"
-            style={{
-                backgroundColor: mainColor,
-                border: `2px solid ${secondaryColor}`,
-                left: `${x}px`,
-                top: `${y}px`,
+        <Draggable
+            bounds={{
+                left: 0,
+                top: 0,
+                right: 320,
+                bottom: 470,
             }}
-            onDragStart={handleDragStart}
-            id={id}
-            draggable
+            defaultPosition={{x, y}}
+            onStop={handleDrop}
         >
             <div
-                className="player__num"
+                className="player"
                 style={{
-                    color: numberColor,
+                    backgroundColor: mainColor,
+                    border: `2px solid ${secondaryColor}`,
                 }}
+                id={id}
             >
-                <span>{num}</span>
+                <div
+                    className="player__num"
+                    style={{
+                        color: numberColor,
+                    }}
+                >
+                    <span>{num}</span>
+                </div>
+                <div className="player__name">
+                    <span>{name}</span>
+                </div>
             </div>
-            <div className="player__name">
-                <span>{name}</span>
-            </div>
-        </div>
+        </Draggable>
     );
-};
+}
 
 export default Player;

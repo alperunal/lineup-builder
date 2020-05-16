@@ -10,12 +10,10 @@ interface IProps {
     mainColor: string;
     secondaryColor: string;
     numberColor: string;
-    move: (event: any) => void;
-    drop: (event: React.DragEvent) => void;
-    handleDragStart: (event: React.DragEvent) => void;
+    handleDrop: (event: any) => void;
 }
 
-const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryColor, numberColor, move, drop, handleDragStart }: IProps) => {
+const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryColor, numberColor, handleDrop }: IProps) => {
     return (
         <div
             className="field"
@@ -23,9 +21,6 @@ const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryC
                 maxHeight: `${height}px`,
                 maxWidth: `${width}px`,
             }}
-            onDrop={drop}
-            onDragOver={(event: React.DragEvent) => event.preventDefault()}
-            onMouseMove={move}
         >
             <div className="field__field-lines">
                 <div className="field__grass-texture" />
@@ -58,21 +53,22 @@ const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryC
                 <div className="field__middle-line" />
                 <div className="field__middle-circle" />
             </div>
-            <div className="field__drag-layer" />
-            {players.map(player => (
-                <Player
-                    key={player.id}
-                    id={player.id}
-                    name={player.name}
-                    num={player.num}
-                    x={player.position.x}
-                    y={player.position.y}
-                    mainColor={mainColor}
-                    secondaryColor={secondaryColor}
-                    numberColor={numberColor}
-                    handleDragStart={handleDragStart}
-                />
-            ))}
+            <div className="field__drag-layer">
+                {players.map(player => (
+                    <Player
+                        key={player.id}
+                        id={player.id}
+                        name={player.name}
+                        num={player.num}
+                        x={player.position.x}
+                        y={player.position.y}
+                        mainColor={mainColor}
+                        secondaryColor={secondaryColor}
+                        numberColor={numberColor}
+                        handleDrop={handleDrop}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
