@@ -1,8 +1,7 @@
 import React from 'react';
-// import Grass from "../../assets/images/grass.png";
 import Player from '../Player/Player';
 import { IPlayer } from '../../constants/model';
-import { Wrapper, FieldLines, GrassTexture, GoalLine, PenaltyLine, MiddleLine, MiddleCircle, DragLayer } from './style';
+import './Field.scss';
 
 interface IProps {
     width: number;
@@ -18,17 +17,48 @@ interface IProps {
 
 const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryColor, numberColor, move, drop, handleDragStart }: IProps) => {
     return (
-        <Wrapper w={width} h={height} onDrop={drop} onDragOver={(event: React.DragEvent) => event.preventDefault()} onMouseMove={move}>
-            <FieldLines>
-                <GrassTexture />
-                <GoalLine />
-                <GoalLine bottom />
-                <PenaltyLine />
-                <PenaltyLine bottom />
-                <MiddleLine />
-                <MiddleCircle />
-            </FieldLines>
-            <DragLayer />
+        <div
+            className="field"
+            style={{
+                maxHeight: `${height}px`,
+                maxWidth: `${width}px`,
+            }}
+            onDrop={drop}
+            onDragOver={(event: React.DragEvent) => event.preventDefault()}
+            onMouseMove={move}
+        >
+            <div className="field__field-lines">
+                <div className="field__grass-texture" />
+                <div
+                    className="field__goal-line"
+                    style={{
+                        top: '-2px',
+                    }}
+                />
+                <div
+                    className="field__goal-line"
+                    style={{
+                        bottom: '-2px'
+                    }}
+                />
+                <div
+                    className="field__penalty-line"
+                    style={{
+                        borderTop: 'none',
+                        top: 0,
+                    }}
+                />
+                <div
+                    className="field__penalty-line"
+                    style={{
+                        borderBottom: 'none',
+                        bottom: 0,
+                    }}
+                />
+                <div className="field__middle-line" />
+                <div className="field__middle-circle" />
+            </div>
+            <div className="field__drag-layer" />
             {players.map(player => (
                 <Player
                     key={player.id}
@@ -43,7 +73,7 @@ const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryC
                     handleDragStart={handleDragStart}
                 />
             ))}
-        </Wrapper>
+        </div>
     );
 };
 
