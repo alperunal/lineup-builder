@@ -33,32 +33,10 @@ const Tactic = () => {
         );
     }
 
-    function move(event: React.MouseEvent) {
-        // move
+    function handleDrop(event: any) {
+        // drop event handler
     }
-
-    function drop(event: React.DragEvent) {
-        event.preventDefault();
-        const data = event.dataTransfer.getData('playerId');
-        editPlayer(data, null, null, relativeCoords(event));
-    }
-
-    function handleDragStart(event: React.DragEvent<HTMLDivElement>) {
-        const target = event.target as HTMLDivElement;
-        const currentTarget = event.currentTarget as HTMLDivElement;
-        event.dataTransfer.setData('playerId', target.id);
-    }
-
-    function relativeCoords(event: any) {
-        const bounds = event.target.getBoundingClientRect();
-        const x = event.clientX - bounds.left;
-        const y = event.clientY - bounds.top;
-        return {
-            x,
-            y,
-        };
-    }
-
+    
     return (
         <div className="tactic">
             <div className="tactic__tactic-field">
@@ -70,9 +48,7 @@ const Tactic = () => {
                         mainColor={mainColor}
                         secondaryColor={secondaryColor}
                         numberColor={numberColor}
-                        move={move}
-                        drop={drop}
-                        handleDragStart={handleDragStart}
+                        handleDrop={handleDrop}
                     />
                 </Card>
                 <div className="tactic__options">

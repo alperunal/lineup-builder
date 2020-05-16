@@ -15,11 +15,11 @@
     "react-dnd": "^9.4.0",
     "react-dnd-html5-backend": "^9.4.0",
     "react-dom": "16.8.4",
+    "react-draggable": "^4.4.2",
     "react-redux": "7.1.0",
     "react-scripts": "^3.4.1",
     "reactcss": "^1.2.3",
     "redux": "4.0.1",
-    "styled-components": "4.3.2",
     "tslint": "^5.18.0"
   },
   "devDependencies": {

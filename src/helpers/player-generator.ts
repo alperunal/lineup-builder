@@ -4,7 +4,7 @@ import { IPlayer } from "../constants/model";
 export function generate(type): string {
     switch (type) {
         case 'name':
-            return `${Faker.name.lastName()} ${Faker.name.firstName().slice(0, 1)}`;
+            return `${Faker.name.lastName()}`;
         case 'team':
             return `${Faker.company.companySuffix()}`;
         case 'number':
@@ -17,48 +17,48 @@ export function generate(type): string {
 export function generateData(): IPlayer[] {
     const positions = [
         {
-            x: 175,
-            y: 450,
+            x: 160,
+            y: 435,
         },
         {
-            x: 290,
-            y: 380,
+            x: 275,
+            y: 350,
         },
         {
-            x: 215,
-            y: 380,
-        },
-        {
-            x: 135,
-            y: 380,
-        },
-        {
-            x: 60,
-            y: 380,
-        },
-        {
-            x: 310,
-            y: 230,
-        },
-        {
-            x: 225,
-            y: 250,
+            x: 200,
+            y: 365,
         },
         {
             x: 120,
-            y: 250,
+            y: 365,
         },
         {
-            x: 40,
+            x: 45,
+            y: 350,
+        },
+        {
+            x: 295,
             y: 230,
         },
         {
-            x: 175,
-            y: 150,
+            x: 210,
+            y: 250,
         },
         {
-            x: 175,
-            y: 70,
+            x: 105,
+            y: 250,
+        },
+        {
+            x: 25,
+            y: 230,
+        },
+        {
+            x: 160,
+            y: 140,
+        },
+        {
+            x: 160,
+            y: 60,
         }
     ];
     const players: IPlayer[] = [];
