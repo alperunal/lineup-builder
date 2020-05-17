@@ -1,14 +1,17 @@
 import Faker from 'faker';
 import { IPlayer } from "../constants/model";
 
-export function generate(type): string {
+function generate(type): string {
     switch (type) {
         case 'name':
             return `${Faker.name.lastName()}`;
         case 'team':
             return `${Faker.company.companySuffix()}`;
         case 'number':
-            return Faker.random.number(99).toString();
+            return Faker.random.number({
+                min: 1,
+                max: 25,
+            }).toString();
         default:
             return Faker.random.number(99).toString();
     }

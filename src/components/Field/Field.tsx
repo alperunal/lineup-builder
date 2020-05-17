@@ -10,10 +10,10 @@ interface IProps {
     mainColor: string;
     secondaryColor: string;
     numberColor: string;
-    handleDrop: (event: any) => void;
+    id: string;
 }
 
-const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryColor, numberColor, handleDrop }: IProps) => {
+const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryColor, numberColor, id }: IProps) => {
     return (
         <div
             className="field"
@@ -21,6 +21,7 @@ const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryC
                 maxHeight: `${height}px`,
                 maxWidth: `${width}px`,
             }}
+            id={id}
         >
             <div className="field__field-lines">
                 <div className="field__grass-texture" />
@@ -65,7 +66,6 @@ const Field: React.FC<IProps> = ({ width, height, players, mainColor, secondaryC
                         mainColor={mainColor}
                         secondaryColor={secondaryColor}
                         numberColor={numberColor}
-                        handleDrop={handleDrop}
                     />
                 ))}
             </div>

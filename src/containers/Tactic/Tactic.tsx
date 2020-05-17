@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-
+import classnames from 'classnames';
 import ColorPicker from '../../components/UI/ColorPicker/ColorPicker';
 import Field from '../../components/Field/Field';
 import Squad from '../../components/Squad/Squad';
 import { IPosition } from '../../constants/model';
 import { GROUND } from '../../constants/constants';
-import {generateData} from '../../helpers/player-generator';
+import { generateData } from '../../helpers/player-generator';
+import { capture, save, load } from '../../helpers/actions';
+import { Card, Input, Button } from '../../style/VoetUI';
 import './Tactic.scss';
-import { Card, Input } from '../../style/VoetUI';
 
 const Tactic = () => {
     const [name, setName] = useState('Default');
@@ -33,8 +34,16 @@ const Tactic = () => {
         );
     }
 
-    function handleDrop(event: any) {
-        // drop event handler
+    function downloadImage() {
+        capture(document.getElementById('field'));
+    }
+
+    function saveTactic() {
+        save(name, mainColor, secondaryColor, numberColor, players);
+    }
+
+    function loadTactic() {
+        load(setName, setMainColor, setSecondaryColor, setNumberColor, setPlayers);
     }
     
     return (
@@ -48,8 +57,49 @@ const Tactic = () => {
                         mainColor={mainColor}
                         secondaryColor={secondaryColor}
                         numberColor={numberColor}
-                        handleDrop={handleDrop}
+                        id="field"
                     />
+                    <div className="tactic__actions">
+                        <Button
+                            className={
+                                classnames(
+                                    'button',
+                                    'button--success',
+                                    'tactic__action-button',
+                                    'tactic__action-button--save-image'
+                                )
+                            }
+                            onClick={downloadImage}
+                        >
+                            Download as Image
+                        </Button>
+                        <Button
+                            className={
+                                classnames(
+                                    'button',
+                                    'button--warning',
+                                    'tactic__action-button',
+                                    'tactic__action-button--save-image'
+                                )
+                            }
+                            onClick={saveTactic}
+                        >
+                            Save Tactic
+                        </Button>
+                        <Button
+                            className={
+                                classnames(
+                                    'button',
+                                    'button--danger',
+                                    'tactic__action-button',
+                                    'tactic__action-button--save-image'
+                                )
+                            }
+                            onClick={loadTactic}
+                        >
+                            Load Tactic
+                        </Button>
+                    </div>
                 </Card>
                 <div className="tactic__options">
                     <div className="tactic__form-field">

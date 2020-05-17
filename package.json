@@ -1,6 +1,6 @@
 {
   "name": "voet",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "",
   "keywords": [],
   "main": "src/index.tsx",
@@ -9,6 +9,7 @@
     "classnames": "^2.2.6",
     "faker": "^4.1.0",
     "global": "^4.4.0",
+    "html2canvas": "^1.0.0-rc.5",
     "node-sass": "^4.12.0",
     "react": "16.8.4",
     "react-color": "^2.17.3",

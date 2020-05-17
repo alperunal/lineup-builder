@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Draggable from 'react-draggable';
 import './Player.scss';
 
@@ -11,10 +11,9 @@ interface IProps {
     secondaryColor: string;
     numberColor?: string;
     id: string;
-    handleDrop: (event: any) => void;
 }
 
-function Player({ name, num, x, y, mainColor, secondaryColor, numberColor, id, handleDrop }: IProps) {
+function Player({ name, num, x, y, mainColor, secondaryColor, numberColor, id }: IProps) {
     return (
         <Draggable
             bounds={{
@@ -24,7 +23,6 @@ function Player({ name, num, x, y, mainColor, secondaryColor, numberColor, id, h
                 bottom: 470,
             }}
             defaultPosition={{x, y}}
-            onStop={handleDrop}
         >
             <div
                 className="player"
