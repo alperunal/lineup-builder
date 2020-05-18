@@ -9,7 +9,7 @@ export interface IFormation {
 
 export interface IPlayer {
     id: string;
-    num: number;
+    num: string;
     name: string;
     position: IPosition;
 }

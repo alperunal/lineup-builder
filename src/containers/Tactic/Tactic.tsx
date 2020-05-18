@@ -17,7 +17,7 @@ const Tactic = () => {
     const [numberColor, setNumberColor] = useState('#ffffff');
     const [players, setPlayers] = useState(generateData());
 
-    function editPlayer(id: string, nName: string, nNum: number, nPosition: IPosition) {
+    function editPlayer(id: string, nName: string, nNum: string, nPosition: IPosition) {
         setPlayers(
             players.map(player => {
                 if (player.id === id) {

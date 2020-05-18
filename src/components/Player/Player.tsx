@@ -4,7 +4,7 @@ import './Player.scss';
 
 interface IProps {
     name: string;
-    num: number;
+    num: string;
     x: number;
     y: number;
     mainColor: string;

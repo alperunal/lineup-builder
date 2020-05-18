@@ -69,7 +69,7 @@ export function generateData(): IPlayer[] {
         const player: IPlayer = {
             id: Faker.random.alphaNumeric(5),
             name: generate('name'),
-            num: parseInt(generate('number'), 10),
+            num: generate('number'),
             position: positions.pop(),
         };
         players.push(player);
