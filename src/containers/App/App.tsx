@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import Container from '../../components/UI/Container/Container';
+import Footer from '../../components/Footer/Footer';
 import Tactic from '../Tactic/Tactic';
 import { Card } from '../../style/VoetUI';
 
@@ -14,6 +15,7 @@ const App = () => {
                         <Tactic />
                     </Card>
                 </div>
+                <Footer />
             </Container>
         </div>
     );
