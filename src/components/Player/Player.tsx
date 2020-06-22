@@ -13,7 +13,9 @@ interface IProps {
     id: string;
 }
 
-function Player({ name, num, x, y, mainColor, secondaryColor, numberColor, id }: IProps) {
+function Player({
+    name, num, x, y, mainColor, secondaryColor, numberColor, id,
+}: IProps) {
     return (
         <Draggable
             bounds={{
@@ -22,7 +24,7 @@ function Player({ name, num, x, y, mainColor, secondaryColor, numberColor, id }:
                 right: 320,
                 bottom: 470,
             }}
-            defaultPosition={{x, y}}
+            defaultPosition={{ x, y }}
         >
             <div
                 className="player"

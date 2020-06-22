@@ -23,5 +23,6 @@
         "noImplicitAny": true,
         "module": "es6",
         "allowJs": true,
+        "baseUrl": "src"
     }
 }

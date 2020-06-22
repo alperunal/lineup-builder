@@ -5,7 +5,7 @@ function getPlayerPositions() {
     const players = document.getElementsByClassName('player');
     const positions = [];
 
-    for (let i=0; i<players.length; i++) {
+    for (let i = 0; i < players.length; i++) {
         try {
             const player = players[i] as HTMLElement;
             const styleStr = player.style.transform;
@@ -14,7 +14,7 @@ function getPlayerPositions() {
                 x: parseInt(position[0], 10),
                 y: parseInt(position[1], 10),
             });
-        } catch(error) {
+        } catch (error) {
             console.log(error);
         }
     }
@@ -25,12 +25,12 @@ export function capture(element: HTMLElement) {
     return html2canvas(element).then((canvas: HTMLCanvasElement) => {
         const link = document.createElement('a');
         link.download = 'tactic.png';
-        link.href = canvas.toDataURL("image/png");
+        link.href = canvas.toDataURL('image/png');
         link.click();
     });
 }
 
-export function save(name: string = 'default', mainColor: string, secondaryColor: string, numberColor: string, players: IPlayer[]) {
+export function save(name = 'default', mainColor: string, secondaryColor: string, numberColor: string, players: IPlayer[]) {
     const positions = getPlayerPositions();
 
     const data: ITactic = {
@@ -44,7 +44,7 @@ export function save(name: string = 'default', mainColor: string, secondaryColor
         players: players.map((player, index) => {
             player.position = positions[index];
             return player;
-        })
+        }),
     };
 
     const encodedData = btoa(JSON.stringify(data));
@@ -55,23 +55,22 @@ export function save(name: string = 'default', mainColor: string, secondaryColor
     link.click();
 }
 
-export function load
-    (
-        setName: (name: string) => void,
-        setMainColor: (color: string) => void,
-        setSecondaryColor: (color: string) => void,
-        setNumberColor: (color: string) => void,
-        setPlayers: (players: IPlayer[]) => void
-    ) {
+export function load(
+    setName: (name: string) => void,
+    setMainColor: (color: string) => void,
+    setSecondaryColor: (color: string) => void,
+    setNumberColor: (color: string) => void,
+    setPlayers: (players: IPlayer[]) => void,
+) {
     const input = document.createElement('input');
     input.onchange = () => {
         try {
-            if(input?.files?.length) {
+            if (input?.files?.length) {
                 const file = input.files[0];
                 const reader = new FileReader();
 
-                reader.onload = (() => {
-                    if(reader?.result) {
+                reader.onload = () => {
+                    if (reader?.result) {
                         const data = JSON.parse(atob(reader.result.toString()));
                         setName(data.name);
                         setMainColor(data.colors.mainColor);
@@ -79,15 +78,14 @@ export function load
                         setNumberColor(data.colors.numberColor);
                         setPlayers(data.players);
                     }
-                });
-        
+                };
+
                 reader.readAsText(file);
             }
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
-        
-    }
+    };
     input.type = 'file';
     input.click();
 }

@@ -8,7 +8,9 @@ interface IProps {
     children: React.ReactNode;
 }
 
-function Card({ title, customClass, children, type }: IProps) {
+const Card: React.FC<IProps> = ({
+    title, customClass, children, type,
+}: IProps) => {
     return (
         <div
             className={classnames(customClass, 'card', {

@@ -1,17 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
 
-function Tag(props: any) {
-    return (
-        <span
-            className={
-                classnames(
-                    'tag',
-                    props.customClass
-                )
-            }
-        >{props.children}</span>
-    )
+interface IProps {
+    customClass: string;
+    children: React.ReactNode;
+}
+
+const Tag: React.FC<IProps> = ({ customClass, children }: IProps) => {
+    return <span className={classnames('tag', customClass)}>{children}</span>;
 }
 
 export default Tag;

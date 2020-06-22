@@ -1,19 +1,21 @@
 import Faker from 'faker';
-import { IPlayer } from "../constants/model";
+import { IPlayer } from '../constants/model';
 
 function generate(type: string): string {
     switch (type) {
-        case 'name':
-            return `${Faker.name.lastName()}`;
-        case 'team':
-            return `${Faker.company.companySuffix()}`;
-        case 'number':
-            return Faker.random.number({
+    case 'name':
+        return `${Faker.name.lastName()}`;
+    case 'team':
+        return `${Faker.company.companySuffix()}`;
+    case 'number':
+        return Faker.random
+            .number({
                 min: 1,
                 max: 25,
-            }).toString();
-        default:
-            return Faker.random.number(99).toString();
+            })
+            .toString();
+    default:
+        return Faker.random.number(99).toString();
     }
 }
 
@@ -62,15 +64,15 @@ export function generateData(): IPlayer[] {
         {
             x: 160,
             y: 60,
-        }
+        },
     ];
     const players: IPlayer[] = [];
-    for(let i=0; i<11; i++) {
+    for (let i = 0; i < 11; i++) {
         const player: IPlayer = {
             id: Faker.random.alphaNumeric(5),
             name: generate('name'),
             num: generate('number'),
-            position: positions.pop() || {x: 0, y: 0},
+            position: positions.pop() || { x: 0, y: 0 },
         };
         players.push(player);
     }

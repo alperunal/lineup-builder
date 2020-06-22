@@ -18,7 +18,7 @@ const ColorPicker = ({ color, setColor }: IProps) => {
             {displayColorPicker ? (
                 <div className="color-picker__popover">
                     <div className="color-picker__cover" onClick={() => setDisplayColorPicker(false)} />
-                    <SketchPicker color={color} onChange={selectedColor => setColor(selectedColor.hex)} />
+                    <SketchPicker color={color} onChange={(selectedColor) => setColor(selectedColor.hex)} />
                 </div>
             ) : null}
         </div>

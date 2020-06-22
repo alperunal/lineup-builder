@@ -4,4 +4,6 @@ import Button from './Button/Button';
 import List from './List/List';
 import Tag from './Tag/Tag';
 
-export { Card, Input, Button, List, Tag };
+export {
+    Card, Input, Button, List, Tag,
+};

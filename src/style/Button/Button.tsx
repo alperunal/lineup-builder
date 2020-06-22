@@ -6,7 +6,7 @@ interface IProps {
     styleType?: string;
 }
 
-function Button(props: React.ButtonHTMLAttributes<HTMLButtonElement> & IProps) {
+const Button: React.FC<IProps> = (props: React.ButtonHTMLAttributes<HTMLButtonElement> & IProps) => {
     const { styleType, children, customClass } = props;
 
     return (

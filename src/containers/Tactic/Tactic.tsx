@@ -19,7 +19,7 @@ const Tactic = () => {
 
     function editPlayer(id: string, nName: string, nNum: string, nPosition: IPosition) {
         setPlayers(
-            players.map(player => {
+            players.map((player) => {
                 if (player.id === id) {
                     return {
                         name: nName !== null ? nName : player.name,
@@ -27,16 +27,15 @@ const Tactic = () => {
                         id,
                         position: nPosition !== null ? nPosition : player.position,
                     };
-                } else {
-                    return player;
                 }
+                return player;
             }),
         );
     }
 
     function downloadImage() {
         const field = document.getElementById('field');
-        if(field) {
+        if (field) {
             capture(field);
         }
     }
@@ -48,65 +47,29 @@ const Tactic = () => {
     function loadTactic() {
         load(setName, setMainColor, setSecondaryColor, setNumberColor, setPlayers);
     }
-    
+
     return (
         <div className="tactic">
             <div className="tactic__tactic-field">
                 <Card customClass="tactic__field-wrapper">
-                    <Field
-                        width={GROUND.width}
-                        height={GROUND.height}
-                        players={players}
-                        mainColor={mainColor}
-                        secondaryColor={secondaryColor}
-                        numberColor={numberColor}
-                        id="field"
-                    />
+                    <Field width={GROUND.width} height={GROUND.height} players={players} mainColor={mainColor} secondaryColor={secondaryColor} numberColor={numberColor} id="field" />
                     <div className="tactic__actions">
-                        <Button
-                            className={
-                                classnames(
-                                    'button',
-                                    'button--success',
-                                    'tactic__action-button',
-                                    'tactic__action-button--save-image'
-                                )
-                            }
-                            onClick={downloadImage}
-                        >
+                        <Button className={classnames('button', 'button--success', 'tactic__action-button', 'tactic__action-button--save-image')} onClick={downloadImage}>
                             Download as Image
                         </Button>
-                        <Button
-                            className={
-                                classnames(
-                                    'button',
-                                    'button--warning',
-                                    'tactic__action-button',
-                                    'tactic__action-button--save-image'
-                                )
-                            }
-                            onClick={saveTactic}
-                        >
+                        <Button className={classnames('button', 'button--warning', 'tactic__action-button', 'tactic__action-button--save-image')} onClick={saveTactic}>
                             Save Tactic
                         </Button>
-                        <Button
-                            className={
-                                classnames(
-                                    'button',
-                                    'button--danger',
-                                    'tactic__action-button',
-                                    'tactic__action-button--save-image'
-                                )
-                            }
-                            onClick={loadTactic}
-                        >
+                        <Button className={classnames('button', 'button--danger', 'tactic__action-button', 'tactic__action-button--save-image')} onClick={loadTactic}>
                             Load Tactic
                         </Button>
                     </div>
                 </Card>
                 <div className="tactic__options">
                     <div className="tactic__form-field">
-                        <label className="tactic__label" htmlFor="tacticName">Tactic Name</label>
+                        <label className="tactic__label" htmlFor="tacticName">
+                            Tactic Name
+                        </label>
                         <Input className="tactic__input" id="tacticName" type="text" value={name} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)} />
                     </div>
                     <div className="tactic__color-options">
