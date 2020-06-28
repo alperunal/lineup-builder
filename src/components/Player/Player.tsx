@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Draggable from 'react-draggable';
 import './Player.scss';
 

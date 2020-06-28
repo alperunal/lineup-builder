@@ -1,4 +1,6 @@
 import React from 'react';
+import { hot } from "react-hot-loader/root";
+
 import Header from '../../components/Header/Header';
 import Container from '../../components/UI/Container/Container';
 import Footer from '../../components/Footer/Footer';
@@ -21,4 +23,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default hot(App);
