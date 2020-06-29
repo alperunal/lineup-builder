@@ -70,7 +70,7 @@ export function generateData(): IPlayer[] {
             id: Faker.random.alphaNumeric(5),
             name: generate('name'),
             num: generate('number'),
-            position: positions.pop(),
+            position: positions.pop() || {x: 0, y: 0},
         };
         players.push(player);
     }

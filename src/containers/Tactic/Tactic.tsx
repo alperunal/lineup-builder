@@ -35,7 +35,10 @@ const Tactic = () => {
     }
 
     function downloadImage() {
-        capture(document.getElementById('field'));
+        const field = document.getElementById('field');
+        if(field) {
+            capture(field);
+        }
     }
 
     function saveTactic() {
@@ -104,7 +107,7 @@ const Tactic = () => {
                 <div className="tactic__options">
                     <div className="tactic__form-field">
                         <label className="tactic__label" htmlFor="tacticName">Tactic Name</label>
-                        <Input className="tactic__input" id="tacticName" type="text" value={name} onChange={event => setName(event.target.value)} />
+                        <Input className="tactic__input" id="tacticName" type="text" value={name} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)} />
                     </div>
                     <div className="tactic__color-options">
                         <div className="tactic__color-option">

@@ -65,19 +65,28 @@ export function load
     ) {
     const input = document.createElement('input');
     input.onchange = () => {
-        const file = input.files[0];
-        const reader = new FileReader();
+        try {
+            if(input?.files?.length) {
+                const file = input.files[0];
+                const reader = new FileReader();
 
-        reader.onload = (() => {
-            const data = JSON.parse(atob(reader.result.toString()));
-            setName(data.name);
-            setMainColor(data.colors.mainColor);
-            setSecondaryColor(data.colors.secondaryColor);
-            setNumberColor(data.colors.numberColor);
-            setPlayers(data.players);
-        });
-
-        reader.readAsText(file);
+                reader.onload = (() => {
+                    if(reader?.result) {
+                        const data = JSON.parse(atob(reader.result.toString()));
+                        setName(data.name);
+                        setMainColor(data.colors.mainColor);
+                        setSecondaryColor(data.colors.secondaryColor);
+                        setNumberColor(data.colors.numberColor);
+                        setPlayers(data.players);
+                    }
+                });
+        
+                reader.readAsText(file);
+            }
+        } catch(e) {
+            console.log(e);
+        }
+        
     }
     input.type = 'file';
     input.click();
