@@ -26,7 +26,7 @@ const Squad = ({ players, editPlayer }: IProps) => {
                                 type="text"
                                 style={{ width: '20%' }}
                                 value={player.num}
-                                maxlength="2"
+                                maxLength={2}
                                 onChange={event => editPlayer(player.id, player.name, event.target.value, player.position)}
                             />
                         </li>
