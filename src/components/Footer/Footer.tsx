@@ -7,9 +7,8 @@ const Footer = () => {
         <div className="footer">
             <Card>
                 <span>
-                    Made with love by Alper Unal.
+                    Made with ❤ by <a href="https://www.alperunal.com/">Alper Unal</a>
                 </span>
-                <p><a href="https://github.com/alperunal/voet">Github</a></p>
             </Card>
         </div>
     );
