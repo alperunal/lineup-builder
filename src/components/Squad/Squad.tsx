@@ -20,14 +20,14 @@ const Squad = ({ players, editPlayer }: IProps) => {
                                 style={{ width: '80%', marginRight: '5px' }}
                                 spellCheck={false}
                                 value={player.name}
-                                onChange={event => editPlayer(player.id, event.target.value, player.num, player.position)}
+                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, event.target.value, player.num, player.position)}
                             />
                             <Input
                                 type="text"
                                 style={{ width: '20%' }}
                                 value={player.num}
                                 maxLength={2}
-                                onChange={event => editPlayer(player.id, player.name, event.target.value, player.position)}
+                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, player.name, event.target.value, player.position)}
                             />
                         </li>
                     ))}
