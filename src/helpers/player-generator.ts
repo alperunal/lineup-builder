@@ -1,7 +1,7 @@
 import Faker from 'faker';
 import { IPlayer } from "../constants/model";
 
-function generate(type): string {
+function generate(type: string): string {
     switch (type) {
         case 'name':
             return `${Faker.name.lastName()}`;

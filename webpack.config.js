@@ -1,9 +1,24 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  entry: [
+    'react-hot-loader/patch',
+    './src/index.tsx'
+  ],
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+  },
+  devServer: {
+    contentBase: './dist'
   },
   module: {
     rules: [
@@ -59,14 +74,24 @@ module.exports = {
         use: "ts-loader",
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
-        exclude: /node_modules/,
-        use: ["file-loader?name=[name].[ext]"], // ?name=[name].[ext] is only necessary to preserve the original file name
+        test: /\.svg$/,
+        use: 'file-loader'
       },
+      {
+        test: /\.png$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              mimetype: 'image/png'
+            }
+          }
+        ]
+      }
     ],
   },
   plugins: [
-    new HtmlWebPackPlugin({
+    new HtmlWebpackPlugin({
       template: "./public/index.html",
       filename: "./index.html",
       favicon: "./public/favicon.ico",
