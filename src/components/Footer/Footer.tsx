@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.scss';
 import { Card } from '../../style/VoetUI';
 
-const Footer = () => (
+const Footer: React.FC = () => (
     <div className="footer">
         <Card>
             <span>

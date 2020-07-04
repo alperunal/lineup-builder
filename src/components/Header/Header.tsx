@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '../UI/Container/Container';
 import './Header.scss';
 
-const Header = () => (
+const Header: React.FC = () => (
     <div className="header">
         <div className="header__bar">
             <Container>

@@ -10,7 +10,7 @@ import { capture, save, load } from '../../helpers/actions';
 import { Card, Input, Button } from '../../style/VoetUI';
 import './Tactic.scss';
 
-const Tactic = () => {
+const Tactic: React.FC = () => {
     const [name, setName] = useState('Default');
     const [mainColor, setMainColor] = useState('#a32638');
     const [secondaryColor, setSecondaryColor] = useState('#fcb514');
@@ -54,13 +54,22 @@ const Tactic = () => {
                 <Card customClass="tactic__field-wrapper">
                     <Field width={GROUND.width} height={GROUND.height} players={players} mainColor={mainColor} secondaryColor={secondaryColor} numberColor={numberColor} id="field" />
                     <div className="tactic__actions">
-                        <Button className={classnames('button', 'button--success', 'tactic__action-button', 'tactic__action-button--save-image')} onClick={downloadImage}>
+                        <Button 
+                            customClass={classnames('button', 'button--success', 'tactic__action-button', 'tactic__action-button--save-image')}
+                            onClick={downloadImage}
+                        >
                             Download as Image
                         </Button>
-                        <Button className={classnames('button', 'button--warning', 'tactic__action-button', 'tactic__action-button--save-image')} onClick={saveTactic}>
+                        <Button
+                            customClass={classnames('button', 'button--warning', 'tactic__action-button', 'tactic__action-button--save-image')}
+                            onClick={saveTactic}
+                        >
                             Save Tactic
                         </Button>
-                        <Button className={classnames('button', 'button--danger', 'tactic__action-button', 'tactic__action-button--save-image')} onClick={loadTactic}>
+                        <Button
+                            customClass={classnames('button', 'button--danger', 'tactic__action-button', 'tactic__action-button--save-image')}
+                            onClick={loadTactic}
+                        >
                             Load Tactic
                         </Button>
                     </div>
@@ -70,7 +79,7 @@ const Tactic = () => {
                         <label className="tactic__label" htmlFor="tacticName">
                             Tactic Name
                         </label>
-                        <Input className="tactic__input" id="tacticName" type="text" value={name} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)} />
+                        <Input customClass="tactic__input" id="tacticName" type="text" value={name} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)} />
                     </div>
                     <div className="tactic__color-options">
                         <div className="tactic__color-option">

@@ -10,19 +10,17 @@ interface IProps {
 
 const Card: React.FC<IProps> = ({
     title, customClass, children, type,
-}: IProps) => {
-    return (
-        <div
-            className={classnames(customClass, 'card', {
-                'card--success': type === 'success',
-                'card--warning': type === 'warning',
-                'card--danger': type === 'danger',
-            })}
-        >
-            {title ? <div className="card__title">{title}</div> : null}
-            {children}
-        </div>
-    );
-}
+}: IProps) => (
+    <div
+        className={classnames(customClass, 'card', {
+            'card--success': type === 'success',
+            'card--warning': type === 'warning',
+            'card--danger': type === 'danger',
+        })}
+    >
+        {title ? <div className="card__title">{title}</div> : null}
+        {children}
+    </div>
+);
 
 export default Card;

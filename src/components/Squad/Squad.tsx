@@ -8,7 +8,7 @@ interface IProps {
     editPlayer: (id: string, nName: string, nNum: string, nPosition: IPosition) => void;
 }
 
-const Squad = ({ players, editPlayer }: IProps) => (
+const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
     <div className="squad">
         <div>
             <ul className="squad__position-list">

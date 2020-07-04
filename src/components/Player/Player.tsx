@@ -13,41 +13,39 @@ interface IProps {
     id: string;
 }
 
-function Player({
+const Player: React.FC<IProps> = ({
     name, num, x, y, mainColor, secondaryColor, numberColor, id,
-}: IProps) {
-    return (
-        <Draggable
-            bounds={{
-                left: 0,
-                top: 0,
-                right: 320,
-                bottom: 470,
+}: IProps) => (
+    <Draggable
+        bounds={{
+            left: 0,
+            top: 0,
+            right: 320,
+            bottom: 470,
+        }}
+        defaultPosition={{ x, y }}
+    >
+        <div
+            className="player"
+            style={{
+                backgroundColor: mainColor,
+                border: `2px solid ${secondaryColor}`,
             }}
-            defaultPosition={{ x, y }}
+            id={id}
         >
             <div
-                className="player"
+                className="player__num"
                 style={{
-                    backgroundColor: mainColor,
-                    border: `2px solid ${secondaryColor}`,
+                    color: numberColor,
                 }}
-                id={id}
             >
-                <div
-                    className="player__num"
-                    style={{
-                        color: numberColor,
-                    }}
-                >
-                    <span>{num}</span>
-                </div>
-                <div className="player__name">
-                    <span>{name}</span>
-                </div>
+                <span>{num}</span>
             </div>
-        </Draggable>
-    );
-}
+            <div className="player__name">
+                <span>{name}</span>
+            </div>
+        </div>
+    </Draggable>
+);
 
 export default Player;
