@@ -1,13 +1,14 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import classnames from 'classnames';
-import ColorPicker from '../../components/UI/ColorPicker/ColorPicker';
-import Field from '../../components/Field/Field';
-import Squad from '../../components/Squad/Squad';
-import { IPosition } from '../../constants/model';
-import { GROUND } from '../../constants/constants';
-import { generateData } from '../../helpers/player-generator';
-import { capture, save, load } from '../../helpers/actions';
-import { Card, Input, Button } from '../../style/VoetUI';
+import ColorPicker from 'components/UI/ColorPicker/ColorPicker';
+import Field from 'components/TacticBuilder/Field/Field';
+import Squad from 'components/TacticBuilder/Squad/Squad';
+import { IPosition } from 'constants/model';
+import { GROUND } from 'constants/constants';
+import { generateData } from 'helpers/player-generator';
+import { capture, save, load } from 'helpers/actions';
+import { Card, Input, Button } from 'components/UI';
 import './Tactic.scss';
 
 const Tactic: React.FC = () => {
@@ -54,7 +55,7 @@ const Tactic: React.FC = () => {
                 <Card customClass="tactic__field-wrapper">
                     <Field width={GROUND.width} height={GROUND.height} players={players} mainColor={mainColor} secondaryColor={secondaryColor} numberColor={numberColor} id="field" />
                     <div className="tactic__actions">
-                        <Button 
+                        <Button
                             customClass={classnames('button', 'button--success', 'tactic__action-button', 'tactic__action-button--save-image')}
                             onClick={downloadImage}
                         >

@@ -48,4 +48,8 @@ const Player: React.FC<IProps> = ({
     </Draggable>
 );
 
+Player.defaultProps = {
+    numberColor: '#FFFFFF',
+};
+
 export default Player;

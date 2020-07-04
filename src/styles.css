@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-@import './style/voet.css';
+@import url('../node_modules/normalize.css/normalize.css');
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Rubik', sans-serif !important;
+    font-family: 'Rubik', sans-serif;
 }
 
 a {
     text-decoration: none;
-    color: #3dd598;
+    color: #666;
 }

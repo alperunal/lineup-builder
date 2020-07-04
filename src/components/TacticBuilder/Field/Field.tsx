@@ -1,6 +1,6 @@
 import React from 'react';
-import Player from '../Player/Player';
-import { IPlayer } from '../../constants/model';
+import Player from 'components/TacticBuilder/Player/Player';
+import { IPlayer } from 'constants/model';
 import './Field.scss';
 
 interface IProps {

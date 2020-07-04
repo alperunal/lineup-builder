@@ -1,7 +1,7 @@
 import Faker from 'faker';
 import { IPlayer } from '../constants/model';
 
-function generate(type: string): string {
+export function generate(type: string): string {
     switch (type) {
     case 'name':
         return `${Faker.name.lastName()}`;
@@ -67,7 +67,7 @@ export function generateData(): IPlayer[] {
         },
     ];
     const players: IPlayer[] = [];
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 11; i += 1) {
         const player: IPlayer = {
             id: Faker.random.alphaNumeric(5),
             name: generate('name'),
