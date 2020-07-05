@@ -89,7 +89,8 @@
     },
     "setupFilesAfterEnv": [
       "./src/setupTests.ts"
-    ]
+    ],
+    "modulePaths": ["src"]
   },
   "browserslist": [
     ">0.2%",
