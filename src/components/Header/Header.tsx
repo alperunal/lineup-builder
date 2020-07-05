@@ -9,7 +9,9 @@ const Header: React.FC = () => (
         <Container>
             <div className="header__content">
                 <div>
-                    <img className="header__logo" src={imageSrc} alt="Voet" />
+                    <Link to="/">
+                        <img className="header__logo" src={imageSrc} alt="Voet" />
+                    </Link>
                 </div>
                 <nav className="nav">
                     <ul className="nav__list">

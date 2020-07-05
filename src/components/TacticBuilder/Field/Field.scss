@@ -3,7 +3,7 @@
     height: 500px;
     width: 100%;
     background-color: #1b7e45;
-    background-image: url('../../../assets/images/grass.png');
+    background-image: url('../../../assets/images/grass-tile.png');
 
     &__drag-layer {
         position: absolute;
@@ -21,8 +21,8 @@
     }
 
     &__field-lines {
-        width: 100%;
-        height: 100%;
+        width: 344px;
+        height: 494px;
         border: solid 3px rgba(255, 255, 255, 0.5);
         position: relative;
     }

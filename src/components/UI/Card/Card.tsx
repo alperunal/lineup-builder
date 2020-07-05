@@ -1,26 +1,50 @@
 import React from 'react';
 import classnames from 'classnames';
+import './Card.scss';
 
 interface IProps {
-    title?: string;
-    type?: string;
     customClass?: string;
-    children: React.ReactNode;
+    imageSrc?: string;
+    imageAlt?: string;
+    title?: string;
+    description?: string;
 }
 
 const Card: React.FC<IProps> = ({
-    title, customClass, children, type,
+    title, description, customClass, imageSrc, imageAlt,
 }: IProps) => (
     <div
-        className={classnames(customClass, 'card', {
-            'card--success': type === 'success',
-            'card--warning': type === 'warning',
-            'card--danger': type === 'danger',
-        })}
+        className={
+            classnames(
+                customClass,
+                'card',
+            )
+        }
     >
-        {title ? <div className="card__title">{title}</div> : null}
-        {children}
+        {imageSrc ? (
+            <img
+                src={imageSrc}
+                alt={imageAlt}
+                className="card__image"
+            />
+        ) : null}
+        <div className="card__info">
+            <div className="card__title">
+                {title}
+            </div>
+            <p className="card__description">
+                {description}
+            </p>
+        </div>
     </div>
 );
+
+Card.defaultProps = {
+    customClass: '',
+    imageSrc: '',
+    imageAlt: '',
+    title: '',
+    description: '',
+};
 
 export default Card;

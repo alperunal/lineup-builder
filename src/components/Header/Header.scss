@@ -9,13 +9,15 @@
     min-height: 65px;
     transition: box-shadow .1s ease 0s;
     box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
-    background-color: var(#ffffff);
+    background-color: #ffffff;
+    height: 64px;
 
     &__content {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        height: 100%;
     }
 
     &__logo {
