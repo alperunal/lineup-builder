@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import cn from 'classnames';
 import { IPlayer, IPosition } from 'constants/model';
 import GoalIcon from 'assets/icons/goal_icon.svg';
 import YellowIcon from 'assets/icons/yellow_card_icon.svg';
@@ -28,7 +28,7 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
                     <tr key={player.id}>
                         <td
                             className={
-                                classnames(
+                                cn(
                                     'player-table__name',
                                 )
                             }
@@ -44,7 +44,7 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
                         </td>
                         <td
                             className={
-                                classnames(
+                                cn(
                                     'player-table__no',
                                 )
                             }
@@ -60,7 +60,7 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
                         </td>
                         <td
                             className={
-                                classnames(
+                                cn(
                                     'player-table__icon',
                                 )
                             }
@@ -75,7 +75,7 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
                         </td>
                         <td
                             className={
-                                classnames(
+                                cn(
                                     'player-table__icon',
                                 )
                             }
@@ -90,7 +90,7 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
                         </td>
                         <td
                             className={
-                                classnames(
+                                cn(
                                     'player-table__icon',
                                 )
                             }
