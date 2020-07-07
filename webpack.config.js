@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: [
@@ -94,5 +95,6 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
+    new BundleAnalyzerPlugin(),
   ],
 };
