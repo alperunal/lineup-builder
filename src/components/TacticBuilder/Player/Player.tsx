@@ -1,6 +1,6 @@
 import React from 'react';
 import Draggable from 'react-draggable';
-import './Player.scss';
+import './Player.module.scss';
 
 interface IProps {
     name: string;
@@ -47,5 +47,9 @@ const Player: React.FC<IProps> = ({
         </div>
     </Draggable>
 );
+
+Player.defaultProps = {
+    numberColor: '#FFFFFF',
+};
 
 export default Player;

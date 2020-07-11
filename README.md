@@ -1,4 +1,4 @@
-Voet
+Voety
 ===
 Simple Football Formation Builder.
 
@@ -12,8 +12,8 @@ If you are a total beginner to this, start here!
 1. Install
 
     ```
-    git clone https://github.com/alperunal/voet.git
-    cd voet
+    git clone https://github.com/alperunal/voety.git
+    cd voety
     yarn install
     ```
 

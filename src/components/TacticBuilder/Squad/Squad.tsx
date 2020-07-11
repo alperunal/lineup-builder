@@ -1,7 +1,7 @@
 import React from 'react';
-import { IPlayer, IPosition } from '../../constants/model';
-import { Input } from '../../style/VoetUI';
-import './Squad.scss';
+import classnames from 'classnames';
+import { IPlayer, IPosition } from 'constants/model';
+import './Squad.module.scss';
 
 interface IProps {
     players: IPlayer[];
@@ -13,15 +13,23 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
         <div>
             <ul className="squad__position-list">
                 {players.map((player) => (
-                    <li className="squad__position-list-item" key={player.id}>
-                        <Input
+                    <li
+                        className={
+                            classnames(
+                                'squad__position-list-item',
+                                'form-group',
+                            )
+                        }
+                        key={player.id}
+                    >
+                        <input
                             type="text"
                             style={{ width: '80%', marginRight: '5px' }}
                             spellCheck={false}
                             value={player.name}
                             onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, event.target.value, player.num, player.position)}
                         />
-                        <Input
+                        <input
                             type="text"
                             style={{ width: '20%' }}
                             value={player.num}

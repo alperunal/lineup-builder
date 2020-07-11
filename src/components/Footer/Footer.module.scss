@@ -1,0 +1,37 @@
+.footer {
+    display: none;
+    background: #fafafa;
+    border-top: 1px solid #eaeaea;
+    width: 100%;
+
+    @media (min-width: 1200px) {
+        display: block;
+    }
+
+    &__logo {
+        display: flex;
+        text-align: center;
+        padding: 24px 0;
+        margin: auto;
+
+        img {
+            height: 35px;
+            width: auto;
+        }
+    }
+
+    &__copyright {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 0 48px 0;
+        margin: auto;
+        color: #666666;
+        font-size: 14px;
+
+        a {
+            color: #555;
+            font-weight: bold;
+        }
+    }
+}

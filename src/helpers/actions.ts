@@ -1,11 +1,11 @@
 import html2canvas from 'html2canvas';
-import { IPlayer, ITactic } from '../constants/model';
+import { IPlayer, ITactic, IPosition } from '../constants/model';
 
-function getPlayerPositions() {
+function getPlayerPositions(): IPosition[] {
     const players = document.getElementsByClassName('player');
     const positions = [];
 
-    for (let i = 0; i < players.length; i++) {
+    for (let i = 0; i < players.length; i += 1) {
         try {
             const player = players[i] as HTMLElement;
             const styleStr = player.style.transform;
@@ -21,7 +21,7 @@ function getPlayerPositions() {
     return positions;
 }
 
-export function capture(element: HTMLElement) {
+export function capture(element: HTMLElement): Promise<void | HTMLCanvasElement> {
     return html2canvas(element).then((canvas: HTMLCanvasElement) => {
         const link = document.createElement('a');
         link.download = 'tactic.png';
@@ -30,7 +30,7 @@ export function capture(element: HTMLElement) {
     });
 }
 
-export function save(name = 'default', mainColor: string, secondaryColor: string, numberColor: string, players: IPlayer[]) {
+export function save(name = 'default', mainColor: string, secondaryColor: string, numberColor: string, players: IPlayer[]): void {
     const positions = getPlayerPositions();
 
     const data: ITactic = {
@@ -50,7 +50,7 @@ export function save(name = 'default', mainColor: string, secondaryColor: string
     const encodedData = btoa(JSON.stringify(data));
 
     const link = document.createElement('a');
-    link.download = `voet_${name}.tac`;
+    link.download = `voety_${name}.tac`;
     link.href = `data:text/plain;charset=utf-8,${encodedData}`;
     link.click();
 }
@@ -61,7 +61,7 @@ export function load(
     setSecondaryColor: (color: string) => void,
     setNumberColor: (color: string) => void,
     setPlayers: (players: IPlayer[]) => void,
-) {
+): void {
     const input = document.createElement('input');
     input.onchange = () => {
         try {

@@ -9,16 +9,25 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      'react-dom': '@hot-loader/react-dom'
+      'react-dom': '@hot-loader/react-dom',
+      'api': path.resolve(__dirname, 'src/api/'),
+      'store': path.resolve(__dirname, 'src/store/'),
+      'constants': path.resolve(__dirname, 'src/constants/'),
+      'components': path.resolve(__dirname, 'src/components/'),
+      'containers': path.resolve(__dirname, 'src/containers/'),
+      'assets': path.resolve(__dirname, 'src/assets/'),
+      'helpers': path.resolve(__dirname, 'src/helpers/'),
     }
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -26,7 +35,7 @@ module.exports = {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
+            loader: 'html-loader',
           },
         ],
       },
@@ -34,23 +43,23 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
         test: /\.css$/,
         use: [
           // style-loader
-          { loader: "style-loader" },
+          { loader: 'style-loader' },
           // css-loader
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: false,
             },
           },
           // sass-loader
-          { loader: "sass-loader" },
+          { loader: 'sass-loader' },
         ],
       },
       {
@@ -66,38 +75,27 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"],
+        use: ['file-loader'],
       },
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: "ts-loader",
+        use: 'ts-loader',
       },
       {
         test: /\.svg$/,
         use: 'file-loader'
       },
-      {
-        test: /\.png$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
-      }
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "./index.html",
-      favicon: "./public/favicon.ico",
+      template: './public/index.html',
+      filename: './index.html',
+      favicon: './public/favicon.ico',
     }),
     new webpack.ProvidePlugin({
-      React: "react",
+      React: 'react',
     }),
   ],
 };

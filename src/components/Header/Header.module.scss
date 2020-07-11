@@ -1,0 +1,44 @@
+.header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    z-index: 101;
+    min-height: 65px;
+    transition: box-shadow .1s ease 0s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
+    background-color: #ffffff;
+    height: 64px;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__logo {
+        height: 35px;
+        width: auto;
+    }
+
+    .nav {
+        &__list {
+            list-style-type: none;
+            display: flex;
+        }
+
+        &__list-item {
+            text-decoration: none;
+            transition: color .2s ease-in-out;
+            text-transform: capitalize;
+            color: #666666;
+            border: 0;
+            font-size: 14px;
+            padding: 10px;
+        }
+    }
+}
