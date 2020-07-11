@@ -1,11 +1,12 @@
 {
-  "name": "voet",
-  "version": "1.3.0",
+  "name": "voety",
+  "version": "2.0.0",
   "description": "Football Formation Builder",
   "keywords": [],
   "main": "src/index.tsx",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "faker": "^4.1.0",
     "html2canvas": "^1.0.0-rc.5",
@@ -90,7 +91,9 @@
     "setupFilesAfterEnv": [
       "./src/setupTests.ts"
     ],
-    "modulePaths": ["src"]
+    "modulePaths": [
+      "src"
+    ]
   },
   "browserslist": [
     ">0.2%",

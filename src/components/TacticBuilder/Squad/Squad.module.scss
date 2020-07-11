@@ -1,7 +1,5 @@
 .squad {
     box-sizing: border-box;
-    padding: 10px;
-    max-width: 400px;
 
     &__position-list {
         list-style-type: none;
@@ -11,5 +9,6 @@
 
     &__position-list-item {
         display: flex;
+        flex-direction: row;
     }
 }

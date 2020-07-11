@@ -1,7 +1,10 @@
 import React from 'react';
 import Player from 'components/TacticBuilder/Player/Player';
 import { IPlayer } from 'constants/model';
-import './Field.scss';
+import grassTile from 'assets/tiles/grass-tile.png';
+import wetGrassTile from 'assets/tiles/wet-grass-tile.png';
+import dryGrassTile from 'assets/tiles/dry-grass-tile.png';
+import './Field.module.scss';
 
 interface IProps {
     width: number;
@@ -10,17 +13,34 @@ interface IProps {
     mainColor: string;
     secondaryColor: string;
     numberColor: string;
+    fieldType: string;
     id: string;
 }
 
+function getFieldStyle(fieldType: string) {
+    switch (fieldType) {
+    case 'hard':
+        return 'none';
+    case 'grass':
+        return `url('${grassTile}')`;
+    case 'dry-grass':
+        return `url('${dryGrassTile}')`;
+    case 'wet-grass':
+        return `url('${wetGrassTile}')`;
+    default:
+        return `url('${grassTile}')`;
+    }
+}
+
 const Field: React.FC<IProps> = ({
-    width, height, players, mainColor, secondaryColor, numberColor, id,
+    width, height, players, mainColor, secondaryColor, numberColor, id, fieldType,
 }: IProps) => (
     <div
         className="field"
         style={{
             maxHeight: `${height}px`,
             maxWidth: `${width}px`,
+            backgroundImage: getFieldStyle(fieldType),
         }}
         id={id}
     >

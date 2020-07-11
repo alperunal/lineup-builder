@@ -1,6 +1,7 @@
 import React from 'react';
+import classnames from 'classnames';
 import { IPlayer, IPosition } from 'constants/model';
-import './Squad.scss';
+import './Squad.module.scss';
 
 interface IProps {
     players: IPlayer[];
@@ -12,7 +13,15 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
         <div>
             <ul className="squad__position-list">
                 {players.map((player) => (
-                    <li className="squad__position-list-item" key={player.id}>
+                    <li
+                        className={
+                            classnames(
+                                'squad__position-list-item',
+                                'form-group',
+                            )
+                        }
+                        key={player.id}
+                    >
                         <input
                             type="text"
                             style={{ width: '80%', marginRight: '5px' }}

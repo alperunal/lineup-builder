@@ -9,12 +9,14 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      'api': path.resolve(__dirname, 'src/api/'),
       'store': path.resolve(__dirname, 'src/store/'),
       'constants': path.resolve(__dirname, 'src/constants/'),
       'components': path.resolve(__dirname, 'src/components/'),
@@ -24,7 +26,8 @@ module.exports = {
     }
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    historyApiFallback: true
   },
   module: {
     rules: [

@@ -3,7 +3,11 @@
     height: 500px;
     width: 100%;
     background-color: #1b7e45;
-    background-image: url('../../../assets/images/grass-tile.png');
+    overflow: auto;
+
+    @media(min-width: 350px) {
+        overflow: hidden;
+    }
 
     &__drag-layer {
         position: absolute;

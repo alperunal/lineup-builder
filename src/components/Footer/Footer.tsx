@@ -1,7 +1,7 @@
 import React from 'react';
-import './Footer.scss';
 import { Container } from 'components/UI';
 import imageSrc from 'assets/images/logo.png';
+import './Footer.module.scss';
 
 const Footer: React.FC = () => (
     <footer className="footer">
@@ -11,7 +11,7 @@ const Footer: React.FC = () => (
             </div>
             <div className="footer__copyright">
                 <span className="footer__copyright-text">
-                    Copyright © 2020 Voet. All rights reserved.
+                    Copyright © 2020 Voety. All rights reserved.
                 </span>
                 <span className="footer__made-by">
                     Made with ❤ by

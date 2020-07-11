@@ -6,19 +6,18 @@ interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     styleType?: string;
 }
 
-const Button: React.FC<IProps> = ({styleType, children, customClass, ...props}) => {
-    return (
-        <button
-            className={classnames(customClass, 'button', {
-                'button--success': styleType === 'success',
-                'button--warning': styleType === 'warning',
-                'button--danger': styleType === 'danger',
-            })}
-            {...props}
-        >
-            {children}
-        </button>
-    );
-};
+const Button: React.FC<IProps> = ({styleType, children, customClass, ...props}) => (
+    <button
+        className={
+            classnames(
+                customClass,
+                'button'
+            )
+        }
+        {...props}
+    >
+        {children}
+    </button>
+);
 
 export default Button;

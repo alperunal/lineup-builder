@@ -2,7 +2,7 @@ import React from 'react';
 import imageSrc from 'assets/images/logo.png';
 import { Link } from 'react-router-dom';
 import Container from '../UI/Container/Container';
-import './Header.scss';
+import './Header.module.scss';
 
 const Header: React.FC = () => (
     <header className="header">
@@ -10,7 +10,7 @@ const Header: React.FC = () => (
             <div className="header__content">
                 <div>
                     <Link to="/">
-                        <img className="header__logo" src={imageSrc} alt="Voet" />
+                        <img className="header__logo" src={imageSrc} alt="Voety" />
                     </Link>
                 </div>
                 <nav className="nav">
@@ -21,9 +21,9 @@ const Header: React.FC = () => (
                         <li className="nav__list-item">
                             <Link to="/tactic">Tactic Builder</Link>
                         </li>
-                        <li className="nav__list-item">
+                        {/* <li className="nav__list-item">
                             <Link to="teams">Teams</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
             </div>
