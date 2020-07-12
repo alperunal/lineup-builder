@@ -51,7 +51,7 @@ const Tactic: React.FC = () => {
     return (
         <div className="tactic">
             <Container>
-                <h1 className="heading">Tactic Builder</h1>
+                <h1 className="heading">Lineup Builder</h1>
                 <div className="tactic__tactic-field">
                     <div className="tactic__field-wrapper">
                         <Field
@@ -93,12 +93,12 @@ const Tactic: React.FC = () => {
                     </div>
                     <div className="options">
                         <div className="options__header">
-                            <h3>Tactic Options</h3>
+                            <h3>Lineup Options</h3>
                         </div>
                         <div className="options__content">
                             <div className="form-group">
                                 <label className="label" htmlFor="tacticName">
-                                    Tactic Name
+                                    Lineup Name
                                     <input
                                         className="input"
                                         id="tacticName"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import { Container, Card } from 'components/UI';
 import heroImgSrc from 'assets/images/hero.png';
 import footballImgSrc from 'assets/images/football.jpg';
@@ -13,12 +14,25 @@ const Home: React.FC = () => (
             <Container>
                 <div className="hero__items">
                     <div className="hero__item">
-                        <h1>Build Your Line-up</h1>
+                        <h1>
+                            <FormattedMessage
+                                id="home.slogan"
+                                defaultMessage="Build Your Lineup"
+                            />
+                        </h1>
                         <p className="hero__description">
-                            Create your own Football formation using Voety Tactic Builder.
-                            Customize and share it using image download, save and load features.
+                            <FormattedMessage
+                                id="home.description"
+                                defaultMessage="Create your own Football formation using Voety Lineup Builder.
+                                Customize and share it using image download, save and load features."
+                            />
                         </p>
-                        <Link to="/tactic" className="hero__button">Build Now</Link>
+                        <Link to="/tactic" className="hero__button">
+                            <FormattedMessage
+                                id="home.buildnow"
+                                defaultMessage="Build Now"
+                            />
+                        </Link>
                     </div>
                     <div className="hero__item hero__item--right">
                         <img src={heroImgSrc} alt="lineup" />
