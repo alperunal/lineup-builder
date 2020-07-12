@@ -5,12 +5,13 @@
       "baseUrl": "./",
       "paths": {
         "api/*": ["src/api/*"],
-        "store/*": ["src/store/*"],
-        "constants/*": ["src/constants/*"],
-        "components/*": ["src/components/*"],
-        "containers/*": ["src/containers/*"],
         "assets/*": ["src/assets/*"],
-        "helpers/*": ["src/helpers/*"]
+        "components/*": ["src/components/*"],
+        "constants/*": ["src/constants/*"],
+        "containers/*": ["src/containers/*"],
+        "helpers/*": ["src/helpers/*"],
+        "languages/*": ["src/languages/*"],
+        "store/*": ["src/store/*"]
       }
     },
     "exclude": ["node_modules", "dist"]

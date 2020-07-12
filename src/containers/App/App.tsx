@@ -6,17 +6,13 @@ import Header from 'components/Header/Header';
 import Home from 'components/Home/Home';
 import Footer from 'components/Footer/Footer';
 import Tactic from 'containers/Tactic/Tactic';
-import { Card } from 'components/UI';
 
 const App: React.FC = () => (
     <Router>
         <Header />
         <div>
             <Switch>
-                <Route path="/teams">
-                    Teams
-                </Route>
-                <Route path="/tactic">
+                <Route path="/lineup">
                     <Tactic />
                 </Route>
                 <Route path="/">

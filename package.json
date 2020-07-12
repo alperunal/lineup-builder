@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
+    "eslint-plugin-formatjs": "^2.3.21",
     "faker": "^4.1.0",
     "html2canvas": "^1.0.0-rc.5",
     "normalize.css": "^8.0.1",
@@ -16,6 +17,7 @@
     "react-dom": "^16.13.1",
     "react-draggable": "^4.4.2",
     "react-hot-loader": "^4.12.21",
+    "react-intl": "^5.0.2",
     "react-redux": "7.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1"

@@ -17,12 +17,13 @@ module.exports = {
     alias: {
       'react-dom': '@hot-loader/react-dom',
       'api': path.resolve(__dirname, 'src/api/'),
-      'store': path.resolve(__dirname, 'src/store/'),
-      'constants': path.resolve(__dirname, 'src/constants/'),
-      'components': path.resolve(__dirname, 'src/components/'),
-      'containers': path.resolve(__dirname, 'src/containers/'),
       'assets': path.resolve(__dirname, 'src/assets/'),
+      'components': path.resolve(__dirname, 'src/components/'),
+      'constants': path.resolve(__dirname, 'src/constants/'),
+      'containers': path.resolve(__dirname, 'src/containers/'),
       'helpers': path.resolve(__dirname, 'src/helpers/'),
+      'languages': path.resolve(__dirname, 'src/languages/'),
+      'store': path.resolve(__dirname, 'src/store/')
     }
   },
   devServer: {

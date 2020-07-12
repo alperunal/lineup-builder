@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import imageSrc from 'assets/images/logo.png';
 import { Link } from 'react-router-dom';
 import Container from '../UI/Container/Container';
@@ -16,14 +17,23 @@ const Header: React.FC = () => (
                 <nav className="nav">
                     <ul className="nav__list">
                         <li className="nav__list-item">
-                            <Link to="/">Home</Link>
+                            <Link to="/">
+                                <FormattedMessage
+                                    id="header.home"
+                                    description="Homepage"
+                                    defaultMessage="Home"
+                                />
+                            </Link>
                         </li>
                         <li className="nav__list-item">
-                            <Link to="/tactic">Tactic Builder</Link>
+                            <Link to="/lineup">
+                                <FormattedMessage
+                                    id="header.lineup"
+                                    description="Lineup Builder"
+                                    defaultMessage="Lineup Builder"
+                                />
+                            </Link>
                         </li>
-                        {/* <li className="nav__list-item">
-                            <Link to="teams">Teams</Link>
-                        </li> */}
                     </ul>
                 </nav>
             </div>
