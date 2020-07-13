@@ -27,7 +27,7 @@ const Home: React.FC = () => (
                                 Customize and share it using image download, save and load features."
                             />
                         </p>
-                        <Link to="/tactic" className="hero__button">
+                        <Link to="/lineup" className="hero__button">
                             <FormattedMessage
                                 id="home.buildnow"
                                 defaultMessage="Build Now"

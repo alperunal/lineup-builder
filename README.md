@@ -1,6 +1,6 @@
 Voety
 ===
-Simple Football Formation Builder.
+Simple Football Lineup Builder.
 
 [![Build Status](https://travis-ci.org/alperunal/voet.svg?branch=master)](https://travis-ci.org/alperunal/voet)
 
@@ -33,4 +33,4 @@ If you are a total beginner to this, start here!
 Live Demo
 ---
 
-https://voet.surge.sh/
+https://www.voety.net/
