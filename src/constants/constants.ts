@@ -3,4 +3,4 @@ export const GROUND = {
     width: 350,
 };
 
-export const API = 'https://voety.netlify.app/.netlify/functions';
+export const API = 'https://voety.net/.netlify/functions';
