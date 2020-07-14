@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage, IntlShape } from 'react-intl';
 import { Container, Card } from 'components/UI';
 import heroImgSrc from 'assets/images/hero.png';
 import footballImgSrc from 'assets/images/football.jpg';
@@ -8,7 +8,11 @@ import footballFieldImgSrc from 'assets/images/football-field.jpg';
 import footballPlayersImgSrc from 'assets/images/football-players.jpg';
 import './Home.module.scss';
 
-const Home: React.FC = () => (
+interface IProps {
+    intl: IntlShape;
+}
+
+const Home: React.FC<IProps> = ({ intl }: IProps) => (
     <div className="home">
         <div className="hero">
             <Container>
@@ -42,28 +46,33 @@ const Home: React.FC = () => (
         </div>
         <div className="home__start">
             <Container>
-                <h1>How To Play</h1>
+                <h1>
+                    <FormattedMessage
+                        id="home.howtoplay"
+                        defaultMessage="How To Play"
+                    />
+                </h1>
                 <div className="home__cards">
                     <Card
                         customClass="home__card"
                         imageSrc={footballPlayersImgSrc}
                         imageAlt="Select Formation"
-                        title="Select Formation"
-                        description="Select one of the ready to use formations"
+                        title={intl.formatMessage({ id: 'home.card1.title', defaultMessage: 'Select Formation' })}
+                        description={intl.formatMessage({ id: 'home.card1.description', defaultMessage: 'Select one of the ready to use formations' })}
                     />
                     <Card
                         customClass="home__card"
                         imageSrc={footballFieldImgSrc}
                         imageAlt="Select Field"
-                        title="Select Field"
-                        description="Select a field type"
+                        title={intl.formatMessage({ id: 'home.card2.title', defaultMessage: 'Select Field' })}
+                        description={intl.formatMessage({ id: 'home.card2.description', defaultMessage: 'Select a field type' })}
                     />
                     <Card
                         customClass="home__card"
                         imageSrc={footballImgSrc}
                         imageAlt="Drag'n Drop"
-                        title="Drag'n Drop"
-                        description="Modify your formation via drag and drop"
+                        title={intl.formatMessage({ id: 'home.card3.title', defaultMessage: 'Drag\'n Drop' })}
+                        description={intl.formatMessage({ id: 'home.card3.description', defaultMessage: 'Modify your formation via drag and drop' })}
                     />
                 </div>
             </Container>
@@ -71,4 +80,4 @@ const Home: React.FC = () => (
     </div>
 );
 
-export default Home;
+export default injectIntl(Home);

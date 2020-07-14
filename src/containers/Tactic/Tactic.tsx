@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { injectIntl, FormattedMessage, IntlShape } from 'react-intl';
 import ColorPicker from 'components/UI/ColorPicker/ColorPicker';
 import Field from 'components/TacticBuilder/Field/Field';
 import Squad from 'components/TacticBuilder/Squad/Squad';
@@ -9,7 +10,11 @@ import { capture, save, load } from 'helpers/actions';
 import { Container } from 'components/UI';
 import './Tactic.module.scss';
 
-const Tactic: React.FC = () => {
+interface IProps {
+    intl: IntlShape;
+}
+
+const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
     const [name, setName] = useState('Default');
     const [mainColor, setMainColor] = useState('#a32638');
     const [secondaryColor, setSecondaryColor] = useState('#fcb514');
@@ -51,7 +56,12 @@ const Tactic: React.FC = () => {
     return (
         <div className="tactic">
             <Container>
-                <h1 className="heading">Lineup Builder</h1>
+                <h1 className="heading">
+                    <FormattedMessage
+                        id="lineup.heading"
+                        defaultMessage="Lineup Builder"
+                    />
+                </h1>
                 <div className="tactic__tactic-field">
                     <div className="tactic__field-wrapper">
                         <Field
@@ -70,7 +80,10 @@ const Tactic: React.FC = () => {
                                     type="button"
                                     onClick={downloadImage}
                                 >
-                                    Download as Image
+                                    <FormattedMessage
+                                        id="lineup.downloadimage"
+                                        defaultMessage="Download Image"
+                                    />
                                 </button>
                             </li>
                             <li>
@@ -78,7 +91,10 @@ const Tactic: React.FC = () => {
                                     type="button"
                                     onClick={saveTactic}
                                 >
-                                    Save
+                                    <FormattedMessage
+                                        id="lineup.save"
+                                        defaultMessage="Save"
+                                    />
                                 </button>
                             </li>
                             <li>
@@ -86,19 +102,30 @@ const Tactic: React.FC = () => {
                                     type="button"
                                     onClick={loadTactic}
                                 >
-                                    Load
+                                    <FormattedMessage
+                                        id="lineup.load"
+                                        defaultMessage="Load"
+                                    />
                                 </button>
                             </li>
                         </ul>
                     </div>
                     <div className="options">
                         <div className="options__header">
-                            <h3>Lineup Options</h3>
+                            <h3>
+                                <FormattedMessage
+                                    id="lineup.options.title"
+                                    defaultMessage="Lineup Options"
+                                />
+                            </h3>
                         </div>
                         <div className="options__content">
                             <div className="form-group">
                                 <label className="label" htmlFor="tacticName">
-                                    Lineup Name
+                                    <FormattedMessage
+                                        id="lineup.options.name"
+                                        defaultMessage="Lineup Name"
+                                    />
                                     <input
                                         className="input"
                                         id="tacticName"
@@ -110,28 +137,45 @@ const Tactic: React.FC = () => {
                             </div>
                             <div className="form-group">
                                 <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setFieldType(event?.target.value)} value={fieldType}>
-                                    <option value="grass">Grass</option>
-                                    <option value="wet-grass">Wet Grass</option>
-                                    <option value="dry-grass">Dry Grass</option>
-                                    <option value="hard">Hard</option>
+                                    <option value="grass">
+                                        {intl.formatMessage({ id: 'lineup.options.groundtype.grass', defaultMessage: 'Grass' })}
+                                    </option>
+                                    <option value="wet-grass">
+                                        {intl.formatMessage({ id: 'lineup.options.groundtype.wet-grass', defaultMessage: 'Wet Grass' })}
+                                    </option>
+                                    <option value="dry-grass">
+                                        {intl.formatMessage({ id: 'lineup.options.groundtype.dry-grass', defaultMessage: 'Dry Grass' })}
+                                    </option>
+                                    <option value="hard">
+                                        {intl.formatMessage({ id: 'lineup.options.groundtype.hard', defaultMessage: 'Hard' })}
+                                    </option>
                                 </select>
                             </div>
                             <div className="color-options">
                                 <div className="color-option">
                                     <span className="tactic__label">
-                                        Primary
+                                        <FormattedMessage
+                                            id="lineup.options.color.primary"
+                                            defaultMessage="Primary"
+                                        />
                                     </span>
                                     <ColorPicker color={mainColor} setColor={setMainColor} />
                                 </div>
                                 <div className="color-option">
                                     <span className="tactic__label">
-                                        Secondary
+                                        <FormattedMessage
+                                            id="lineup.options.color.secondary"
+                                            defaultMessage="Secondary"
+                                        />
                                     </span>
                                     <ColorPicker color={secondaryColor} setColor={setSecondaryColor} />
                                 </div>
                                 <div className="color-option">
                                     <span className="tactic__label">
-                                        Number
+                                        <FormattedMessage
+                                            id="lineup.options.color.number"
+                                            defaultMessage="Number"
+                                        />
                                     </span>
                                     <ColorPicker color={numberColor} setColor={setNumberColor} />
                                 </div>
@@ -145,4 +189,4 @@ const Tactic: React.FC = () => {
     );
 };
 
-export default Tactic;
+export default injectIntl(Tactic);

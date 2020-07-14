@@ -1,4 +1,27 @@
 {
     "header.home": "Home",
-    "header.lineup": "Lineup Builder"
+    "header.lineup": "Lineup Builder",
+    "home.slogan": "Build Your Lineup",
+    "home.description": "Create your football lineup using Voety Lineup Builder. Customize and share it via image download, save, and load features.",
+    "home.buildnow": "Build Now",
+    "home.howtoplay": "How To Play",
+    "home.card1.title": "Select Formation",
+    "home.card1.description": "Select one of the ready to use formations",
+    "home.card2.title": "Select Field",
+    "home.card2.description": "Select a field type",
+    "home.card3.title": "Drag'n Drop",
+    "home.card3.description": "Modify your formation via drag and drop",
+    "lineup.heading": "Lineup Builder",
+    "lineup.downloadimage": "Download Image",
+    "lineup.save": "Save",
+    "lineup.load": "Load",
+    "lineup.options.title": "Lineup Options",
+    "lineup.options.name": "Lineup Name",
+    "lineup.options.groundtype.grass": "Grass",
+    "lineup.options.groundtype.wet-grass": "Wet Grass",
+    "lineup.options.groundtype.dry-grass": "Dry Grass",
+    "lineup.options.groundtype.hard": "Hard",
+    "lineup.options.color.primary": "Primary",
+    "lineup.options.color.secondary": "Secondary",
+    "lineup.options.color.number": "Number"
 }
