@@ -11,6 +11,7 @@
     "eslint-plugin-formatjs": "^2.3.21",
     "faker": "^4.1.0",
     "html2canvas": "^1.0.0-rc.5",
+    "netlify-lambda": "^1.6.3",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
     "react-color": "^2.17.3",
@@ -73,6 +74,8 @@
     "start": "webpack-dev-server --hot --open --mode development",
     "build": "webpack -p --mode production",
     "build-dev": "webpack -d --mode development",
+    "lambda-serve": "netlify-lambda serve functions",
+    "lambda-build": "netlify-lambda build functions",
     "prettier": "prettier --write src/**/*.{ts,tsx,js,jsx}",
     "test": "jest"
   },
