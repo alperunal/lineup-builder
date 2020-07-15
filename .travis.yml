@@ -11,6 +11,6 @@ deploy:
   provider: surge
   skip_cleanup: true
   domain: voet.surge.sh
-  project: ./dist/
+  project: ./build/
 on:
   branch: master

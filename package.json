@@ -61,6 +61,7 @@
     "jest": "^26.1.0",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
+    "react-snap": "^1.23.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
@@ -78,7 +79,8 @@
     "lambda-serve": "netlify-lambda serve functions",
     "lambda-build": "netlify-lambda build functions",
     "prettier": "prettier --write src/**/*.{ts,tsx,js,jsx}",
-    "test": "jest"
+    "test": "jest",
+    "postbuild": "react-snap"
   },
   "jest": {
     "moduleFileExtensions": [
