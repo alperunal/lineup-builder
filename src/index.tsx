@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from 'react-dom';
+import { render, hydrate } from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import messagesEN from 'languages/en.json';
 import App from './containers/App/App';
@@ -10,12 +10,24 @@ const messages = {
 };
 const language = 'en';
 const rootElement = document.getElementById('root');
-render(
-    <IntlProvider
-        locale={language}
-        messages={messages[language]}
-    >
-        <App />
-    </IntlProvider>,
-    rootElement,
-);
+if (rootElement?.hasChildNodes()) {
+    hydrate(
+        <IntlProvider
+            locale={language}
+            messages={messages[language]}
+        >
+            <App />
+        </IntlProvider>,
+        rootElement,
+    );
+} else {
+    render(
+        <IntlProvider
+            locale={language}
+            messages={messages[language]}
+        >
+            <App />
+        </IntlProvider>,
+        rootElement,
+    );
+}
