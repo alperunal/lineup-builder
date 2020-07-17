@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-unused-expressions */
 import html2canvas from 'html2canvas';
 import { IPlayer, ITactic, IPosition } from '../constants/model';
 
@@ -22,11 +24,15 @@ function getPlayerPositions(): IPosition[] {
 }
 
 export function capture(element: HTMLElement): Promise<void | HTMLCanvasElement> {
+    const vp = document.getElementById('viewportMeta')?.getAttribute('content');
+    document.getElementById('viewportMeta')?.setAttribute('content', 'width=800');
     return html2canvas(element).then((canvas: HTMLCanvasElement) => {
         const link = document.createElement('a');
         link.download = 'tactic.png';
         link.href = canvas.toDataURL('image/png');
         link.click();
+    }).then(() => {
+        document.getElementById('viewportMeta')?.setAttribute('content', vp || 'width=device-width, initial-scale=1.0');
     });
 }
 

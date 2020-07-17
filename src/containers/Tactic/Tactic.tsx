@@ -8,6 +8,8 @@ import { GROUND } from 'constants/constants';
 import { generateData } from 'helpers/player-generator';
 import { capture, save, load } from 'helpers/actions';
 import { Container } from 'components/UI';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCamera, faSave, faUpload } from '@fortawesome/free-solid-svg-icons';
 import './Tactic.module.scss';
 
 interface IProps {
@@ -80,9 +82,10 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
                                     type="button"
                                     onClick={downloadImage}
                                 >
-                                    <FormattedMessage
-                                        id="lineup.downloadimage"
-                                        defaultMessage="Download Image"
+                                    <FontAwesomeIcon
+                                        icon={faCamera}
+                                        inverse
+                                        title={intl.formatMessage({ id: 'lineup.downloadimage', defaultMessage: 'Download Image' })}
                                     />
                                 </button>
                             </li>
@@ -91,9 +94,10 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
                                     type="button"
                                     onClick={saveTactic}
                                 >
-                                    <FormattedMessage
-                                        id="lineup.save"
-                                        defaultMessage="Save"
+                                    <FontAwesomeIcon
+                                        icon={faSave}
+                                        inverse
+                                        title={intl.formatMessage({ id: 'lineup.save', defaultMessage: 'Save' })}
                                     />
                                 </button>
                             </li>
@@ -102,9 +106,10 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
                                     type="button"
                                     onClick={loadTactic}
                                 >
-                                    <FormattedMessage
-                                        id="lineup.load"
-                                        defaultMessage="Load"
+                                    <FontAwesomeIcon
+                                        icon={faUpload}
+                                        inverse
+                                        title={intl.formatMessage({ id: 'lineup.load', defaultMessage: 'Load' })}
                                     />
                                 </button>
                             </li>

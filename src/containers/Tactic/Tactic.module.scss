@@ -20,6 +20,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
 
         @media(min-width: 1000px) {
             width: 50%;
@@ -28,24 +29,33 @@
 
     &__actions {
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-wrap: wrap;
-        margin-top: 10px;
-        border: 1px solid rgba(0,0,0,.07);
-        border-radius: 4px;
+        margin: 0;
         list-style: none;
         padding: 0;
+        position: absolute;
+        right: 0;
+        margin-right: 80px;
+        top: 4px;
 
         li {
-            border: 0.5px solid #ebedf3;
+            border: 0;
+            margin-left: 4px;
         }
 
         button {
-            background: transparent;
+            background: linear-gradient(135deg, #05ac50 0%,#21dd72 50%,#05c44e 51%,#05ac50 71%,#05ac50 100%);;
             padding: 10px;
             border: 0;
             cursor: pointer;
+            border-radius: 50%;
+            width: 36px;
+            opacity: .5;
+            box-shadow: 3px 3px 3px;
+
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 
