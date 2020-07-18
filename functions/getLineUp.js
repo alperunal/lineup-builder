@@ -100,7 +100,7 @@ function generate(type) {
     case 'number':
         return faker.random
             .number({
-                min: 1,
+                min: 2,
                 max: 25,
             })
             .toString();
@@ -116,7 +116,7 @@ function generateData() {
         const player = {
             id: faker.random.alphaNumeric(5),
             name: generate('name'),
-            num: generate('number'),
+            num: i === 10 ? '1' : generate('number'),
             position: positions.pop() || { x: 0, y: 0 },
         };
         players.push(player);

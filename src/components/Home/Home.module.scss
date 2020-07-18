@@ -1,4 +1,10 @@
 .home {
+    text-align: center;
+
+    @media(min-width: 1000px) {
+        text-align: left;
+    }
+
     .hero {
         background-image: radial-gradient(70% 70% at 50% 100%,#e8e8e8 0,#fafafa 100%);
         padding: 150px 0;
