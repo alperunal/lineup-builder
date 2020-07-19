@@ -3,9 +3,9 @@ import { injectIntl, FormattedMessage, IntlShape } from 'react-intl';
 import ColorPicker from 'components/UI/ColorPicker/ColorPicker';
 import Field from 'components/TacticBuilder/Field/Field';
 import Squad from 'components/TacticBuilder/Squad/Squad';
-import { IPosition } from 'constants/model';
-import { GROUND } from 'constants/constants';
-import { generateData } from 'helpers/player-generator';
+import { IPosition, IPlayer } from 'constants/model';
+import { ground, formations } from 'constants/constants';
+import { generatePlayers, getFormation } from 'helpers/player-generator';
 import { capture, save, load } from 'helpers/actions';
 import { Container } from 'components/UI';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,9 +22,10 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
     const [secondaryColor, setSecondaryColor] = useState('#fcb514');
     const [numberColor, setNumberColor] = useState('#ffffff');
     const [fieldType, setFieldType] = useState('grass');
-    const [players, setPlayers] = useState(generateData());
+    const [players, setPlayers] = useState(generatePlayers());
+    const [formation, setFormation] = useState('4-2-3-1');
 
-    function editPlayer(id: string, nName: string, nNum: string, nPosition: IPosition) {
+    function editPlayer(id: string, nName: string | null, nNum: string | null, nPosition: IPosition) {
         setPlayers(
             players.map((player) => {
                 if (player.id === id) {
@@ -55,6 +56,20 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
         load(setName, setMainColor, setSecondaryColor, setNumberColor, setPlayers);
     }
 
+    function changeFormation(formation: string) {
+        const positions = getFormation(formation);
+        const _players = players.map((player: IPlayer, i: number) => {
+            player.position = positions[i] || player.position;
+            return player;
+        });
+        setPlayers(_players);
+        setFormation(formation);
+    }
+
+    function setPlayerPosition(id: string, x: number, y: number) {
+        editPlayer(id, null, null, {x, y});
+    }
+
     return (
         <div className="tactic">
             <Container>
@@ -67,25 +82,26 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
                 <div className="tactic__tactic-field">
                     <div className="tactic__field-wrapper">
                         <Field
-                            width={GROUND.width}
-                            height={GROUND.height}
+                            width={ground.width}
+                            height={ground.height}
                             players={players}
                             mainColor={mainColor}
                             secondaryColor={secondaryColor}
                             numberColor={numberColor}
                             id="field"
                             fieldType={fieldType}
+                            setPlayerPosition={setPlayerPosition}
                         />
                         <ul className="tactic__actions">
                             <li>
                                 <button
                                     type="button"
                                     onClick={downloadImage}
+                                    title={intl.formatMessage({ id: 'lineup.downloadimage', defaultMessage: 'Download Image' })}
                                 >
                                     <FontAwesomeIcon
                                         icon={faCamera}
                                         inverse
-                                        title={intl.formatMessage({ id: 'lineup.downloadimage', defaultMessage: 'Download Image' })}
                                     />
                                 </button>
                             </li>
@@ -93,11 +109,11 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
                                 <button
                                     type="button"
                                     onClick={saveTactic}
+                                    title={intl.formatMessage({ id: 'lineup.save', defaultMessage: 'Save' })}
                                 >
                                     <FontAwesomeIcon
                                         icon={faSave}
                                         inverse
-                                        title={intl.formatMessage({ id: 'lineup.save', defaultMessage: 'Save' })}
                                     />
                                 </button>
                             </li>
@@ -105,11 +121,11 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
                                 <button
                                     type="button"
                                     onClick={loadTactic}
+                                    title={intl.formatMessage({ id: 'lineup.load', defaultMessage: 'Load' })}
                                 >
                                     <FontAwesomeIcon
                                         icon={faUpload}
                                         inverse
-                                        title={intl.formatMessage({ id: 'lineup.load', defaultMessage: 'Load' })}
                                     />
                                 </button>
                             </li>
@@ -131,14 +147,15 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
                                         id="lineup.options.name"
                                         defaultMessage="Lineup Name"
                                     />
-                                    <input
-                                        className="input"
-                                        id="tacticName"
-                                        type="text"
-                                        value={name}
-                                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}
-                                    />
                                 </label>
+                                <input
+                                    className="input"
+                                    id="tacticName"
+                                    name="tacticName"
+                                    type="text"
+                                    value={name}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}
+                                />
                             </div>
                             <div className="form-group">
                                 <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setFieldType(event?.target.value)} value={fieldType}>
@@ -154,6 +171,16 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
                                     <option value="hard">
                                         {intl.formatMessage({ id: 'lineup.options.groundtype.hard', defaultMessage: 'Hard' })}
                                     </option>
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <select
+                                    onChange={(event: React.ChangeEvent<HTMLSelectElement>) => changeFormation(event?.target.value)}
+                                    value={formation}
+                                >
+                                    {formations.map((_formation) => (
+                                        <option value={_formation}>{_formation}</option>
+                                    ))}
                                 </select>
                             </div>
                             <div className="color-options">

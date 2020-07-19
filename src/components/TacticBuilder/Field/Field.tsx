@@ -15,6 +15,7 @@ interface IProps {
     numberColor: string;
     fieldType: string;
     id: string;
+    setPlayerPosition: (id: string, x: number, y: number) => void;
 }
 
 function getFieldStyle(fieldType: string) {
@@ -33,7 +34,7 @@ function getFieldStyle(fieldType: string) {
 }
 
 const Field: React.FC<IProps> = ({
-    width, height, players, mainColor, secondaryColor, numberColor, id, fieldType,
+    width, height, players, mainColor, secondaryColor, numberColor, id, fieldType, setPlayerPosition,
 }: IProps) => (
     <div
         className="field"
@@ -87,6 +88,7 @@ const Field: React.FC<IProps> = ({
                     mainColor={mainColor}
                     secondaryColor={secondaryColor}
                     numberColor={numberColor}
+                    setPlayerPosition={setPlayerPosition}
                 />
             ))}
         </div>

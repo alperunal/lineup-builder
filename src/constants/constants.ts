@@ -1,9 +1,9 @@
-export const GROUND = {
+export const ground = {
     height: 500,
     width: 350,
 };
 
-export const API = 'https://voety.net/.netlify/functions';
+export const api = 'https://voety.net/.netlify/functions';
 
 export const formations = [
     '4-2-3-1',
