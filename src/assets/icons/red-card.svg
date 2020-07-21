@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>red-card-right-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="red-card-right-icon" sketch:type="MSArtboardGroup">
+            <rect id="Rectangle-557" sketch:type="MSShapeGroup" x="0" y="0" width="24" height="24"></rect>
+            <rect id="red" stroke="#B0120A" fill="#E51C23" sketch:type="MSShapeGroup" transform="translate(12.000000, 12.000000) rotate(14.000000) translate(-12.000000, -12.000000) " x="7" y="5" width="10" height="14" rx="2"></rect>
+        </g>
+    </g>
+</svg>
