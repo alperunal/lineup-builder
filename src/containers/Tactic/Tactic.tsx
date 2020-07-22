@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { injectIntl, FormattedMessage, IntlShape } from 'react-intl';
 import ColorPicker from 'components/UI/ColorPicker/ColorPicker';
@@ -25,7 +27,7 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
     const [players, setPlayers] = useState(generatePlayers());
     const [formation, setFormation] = useState('4-2-3-1');
 
-    function editPlayer(id: string, nName: string | null, nNum: string | null, nPosition: IPosition) {
+    function editPlayer(id: string, nName: string | null, nNum: string | null, nPosition: IPosition, nGoal: boolean | null, nYellowCard: boolean | null, nRedCard: boolean | null) {
         setPlayers(
             players.map((player) => {
                 if (player.id === id) {
@@ -34,6 +36,9 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
                         num: nNum !== null ? nNum : player.num,
                         id,
                         position: nPosition !== null ? nPosition : player.position,
+                        goal: nGoal !== null ? nGoal : player.goal,
+                        yellowCard: nYellowCard !== null ? nYellowCard : player.yellowCard,
+                        redCard: nRedCard !== null ? nRedCard : player.redCard,
                     };
                 }
                 return player;
@@ -56,18 +61,17 @@ const Tactic: React.FC<IProps> = ({ intl }: IProps) => {
         load(setName, setMainColor, setSecondaryColor, setNumberColor, setPlayers);
     }
 
-    function changeFormation(formation: string) {
-        const positions = getFormation(formation);
-        const _players = players.map((player: IPlayer, i: number) => {
+    function changeFormation(newFormation: string) {
+        const positions = getFormation(newFormation);
+        setPlayers(players.map((player: IPlayer, i: number) => {
             player.position = positions[i] || player.position;
             return player;
-        });
-        setPlayers(_players);
-        setFormation(formation);
+        }));
+        setFormation(newFormation);
     }
 
     function setPlayerPosition(id: string, x: number, y: number) {
-        editPlayer(id, null, null, {x, y});
+        editPlayer(id, null, null, { x, y }, null, null, null);
     }
 
     return (

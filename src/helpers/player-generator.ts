@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-spaces */
 import Faker from 'faker';
 import { IPlayer } from '../constants/model';
 
@@ -86,9 +87,9 @@ export function getFormation(formation: string) {
             { x: 100, y: 365 }, // DCL
             { x: 45, y: 300 },  // WBL
             { x: 230, y: 210 }, // MCR
-            { x: 160, y: 210 },  // MC
-            { x: 90, y: 210 }, // MCL
-            { x: 120, y: 60 }, // STL
+            { x: 160, y: 210 }, // MC
+            { x: 90, y: 210 },  // MCL
+            { x: 120, y: 60 },  // STL
             { x: 200, y: 60 },  // STR
         ];
     default:
