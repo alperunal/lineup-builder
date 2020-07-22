@@ -11,7 +11,25 @@ it('should render Player correctly', () => {
         id: '10',
         mainColor: '#FFFFFF',
         secondaryColor: '#000000',
+        goal: true,
+        yellowCard: true,
+        redCard: false,
+        setPlayerPosition: jest.fn(),
     };
-    const wrapper = shallow(<Player {...props} />);
+    const wrapper = shallow(
+        <Player
+            name={props.name}
+            x={props.x}
+            y={props.y}
+            num={props.num}
+            id={props.id}
+            mainColor={props.mainColor}
+            secondaryColor={props.secondaryColor}
+            goal={props.goal}
+            yellowCard={props.yellowCard}
+            redCard={props.redCard}
+            setPlayerPosition={props.setPlayerPosition}
+        />,
+    );
     expect(wrapper).toMatchSnapshot();
 });

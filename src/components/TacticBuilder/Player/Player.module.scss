@@ -38,4 +38,16 @@
             font-size: 15px;
         }
     }
+
+    &__goal {
+        position: absolute;
+        left: -10px;
+        top: 13px;
+    }
+
+    &__card {
+        position: absolute;
+        left: 15px;
+        top: -13px;
+    }
 }

@@ -88,6 +88,9 @@ const Field: React.FC<IProps> = ({
                     mainColor={mainColor}
                     secondaryColor={secondaryColor}
                     numberColor={numberColor}
+                    goal={player.goal || false}
+                    yellowCard={player.yellowCard || false}
+                    redCard={player.redCard || false}
                     setPlayerPosition={setPlayerPosition}
                 />
             ))}
