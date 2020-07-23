@@ -1,14 +1,23 @@
 .squad {
     box-sizing: border-box;
 
-    &__position-list {
-        list-style-type: none;
-        margin: 20px 0 0 0;
-        padding: 0;
-    }
+    .player-table {
+        overflow-x: auto;
 
-    &__position-list-item {
-        display: flex;
-        flex-direction: row;
+        &__name {
+            width: 200px;
+        }
+
+        &__no {
+            width: 60px;
+        }
+
+        &__icon {
+            padding-left: 5px;
+
+            @media (min-width: 1000px) {
+                padding-left: 15px;
+            }
+        }
     }
 }

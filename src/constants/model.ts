@@ -11,6 +11,10 @@ export interface IPlayer {
     id: string;
     num: string;
     name: string;
+    goal?: boolean;
+    yellowCard?: boolean;
+    yellowToRed?: boolean;
+    redCard?: boolean;
     position: IPosition;
 }
 

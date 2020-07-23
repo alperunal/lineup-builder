@@ -71,7 +71,7 @@ function getFormation(formation) {
             { x: 210, y: 250 }, // MCR
             { x: 25, y: 190 },  // ML
             { x: 105, y: 250 }, // MCL
-            { x: 120, y: 60 }, // STL
+            { x: 120, y: 60 },  // STL
             { x: 200, y: 60 },  // STR
         ];
     default:
