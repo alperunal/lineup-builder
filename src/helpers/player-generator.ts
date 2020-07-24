@@ -1,9 +1,8 @@
 /* eslint-disable no-multi-spaces */
 import { IPlayer, IPosition } from '../constants/model';
 
-export function generate(type: string): string {
-    let random = null;
-    const lastnames = [
+const generateName = (function () {
+    const initialNames = [
         'Green',
         'Smith',
         'Johnson',
@@ -42,20 +41,30 @@ export function generate(type: string): string {
         'Sato',
         'Wang',
     ];
+    let names = [...initialNames];
 
-    switch (type) {
-    case 'name':
-        random = lastnames[Math.floor(Math.random() * lastnames.length)];
-        break;
-    case 'number':
-        random = Math.floor(Math.random() * 25) + 2;
-        break;
-    default:
-        random = Math.floor(Math.random() * 99) + 1;
-        break;
-    }
-    return `${random}`;
-}
+    const generator = function (): string {
+        const index = Math.floor(Math.random() * names.length);
+        return `${names.splice(index, 1)}`;
+    };
+    generator.reset = function () {
+        names = [...initialNames];
+    };
+    return generator;
+}());
+
+const generateNumber = (function () {
+    const initialNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+    let numbers = [...initialNumbers];
+    const generator = function (): string {
+        const index = Math.floor(Math.random() * numbers.length);
+        return `${numbers.splice(index, 1)}`;
+    };
+    generator.reset = function () {
+        numbers = [...initialNumbers];
+    };
+    return generator;
+}());
 
 export function getFormation(formation: string): IPosition[] {
     switch (formation) {
@@ -149,11 +158,13 @@ export function getFormation(formation: string): IPosition[] {
 export function generatePlayers(): IPlayer[] {
     const positions = getFormation('4-2-3-1');
     const players: IPlayer[] = [];
+    generateName.reset();
+    generateNumber.reset();
     for (let i = 0; i < 11; i += 1) {
         const player: IPlayer = {
             id: `${i}`,
-            name: generate('name'),
-            num: i === 0 ? '1' : generate('number'),
+            name: generateName(),
+            num: i === 0 ? '1' : generateNumber(),
             position: positions.shift() || { x: 0, y: 0 },
         };
         players.push(player);
