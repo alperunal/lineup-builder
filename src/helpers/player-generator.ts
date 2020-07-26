@@ -1,26 +1,63 @@
 /* eslint-disable no-multi-spaces */
-import Faker from 'faker';
-import { IPlayer } from '../constants/model';
+import { IPlayer, IPosition } from '../constants/model';
 
 export function generate(type: string): string {
+    let random = null;
+    const lastnames = [
+        'Green',
+        'Smith',
+        'Johnson',
+        'Williams',
+        'Brown',
+        'Jones',
+        'Miller',
+        'Davis',
+        'Martinez',
+        'Rodriguez',
+        'Garcia',
+        'Perez',
+        'Yilmaz',
+        'Lee',
+        'Hansen',
+        'Ivanov',
+        'Andersson',
+        'De Jong',
+        'Martin',
+        'Muller',
+        'Rossi',
+        'Silva',
+        'Jovanovic',
+        'Papadopoulos',
+        'Hernandez',
+        'Gonzalez',
+        'Da Silva',
+        'Ali',
+        'Traore',
+        'Ndiaye',
+        'Gomes',
+        'Kamara',
+        'Diarra',
+        'Kim',
+        'Khan',
+        'Sato',
+        'Wang',
+    ];
+
     switch (type) {
     case 'name':
-        return `${Faker.name.lastName()}`;
-    case 'team':
-        return `${Faker.company.companySuffix()}`;
+        random = lastnames[Math.floor(Math.random() * lastnames.length)];
+        break;
     case 'number':
-        return Faker.random
-            .number({
-                min: 2,
-                max: 25,
-            })
-            .toString();
+        random = Math.floor(Math.random() * 25) + 2;
+        break;
     default:
-        return Faker.random.number(99).toString();
+        random = Math.floor(Math.random() * 99) + 1;
+        break;
     }
+    return `${random}`;
 }
 
-export function getFormation(formation: string) {
+export function getFormation(formation: string): IPosition[] {
     switch (formation) {
     case '4-2-3-1':
         return [
@@ -114,7 +151,7 @@ export function generatePlayers(): IPlayer[] {
     const players: IPlayer[] = [];
     for (let i = 0; i < 11; i += 1) {
         const player: IPlayer = {
-            id: Faker.random.alphaNumeric(5),
+            id: `${i}`,
             name: generate('name'),
             num: i === 0 ? '1' : generate('number'),
             position: positions.shift() || { x: 0, y: 0 },
