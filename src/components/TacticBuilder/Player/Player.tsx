@@ -3,6 +3,7 @@ import Draggable from 'react-draggable';
 import goalIcon from 'assets/icons/soccer-ball.svg';
 import yellowCardIcon from 'assets/icons/yellow-card.svg';
 import redCardIcon from 'assets/icons/red-card.svg';
+import yellowToRedCardIcon from 'assets/icons/yellow-to-red.svg';
 import './Player.module.scss';
 
 interface IProps {
@@ -65,6 +66,11 @@ const Player: React.FC<IProps> = ({
             {redCard && (
                 <div className="player__card">
                     <img src={redCardIcon} alt="red card" />
+                </div>
+            )}
+            {yellowCard && redCard && (
+                <div className="player__card">
+                    <img src={yellowToRedCardIcon} alt="yellow red card" />
                 </div>
             )}
         </div>
