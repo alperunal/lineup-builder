@@ -95,6 +95,6 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
 };
