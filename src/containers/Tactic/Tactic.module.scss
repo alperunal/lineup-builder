@@ -50,12 +50,17 @@
             cursor: pointer;
             border-radius: 50%;
             width: 36px;
-            opacity: .5;
+            opacity: .7;
             box-shadow: 3px 3px 3px;
 
             &:hover {
                 opacity: 1;
             }
+        }
+
+        img {
+            height: 16px;
+            filter: invert(1);
         }
     }
 

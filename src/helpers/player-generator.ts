@@ -1,26 +1,72 @@
 /* eslint-disable no-multi-spaces */
-import Faker from 'faker';
-import { IPlayer } from '../constants/model';
+import { IPlayer, IPosition } from '../constants/model';
 
-export function generate(type: string): string {
-    switch (type) {
-    case 'name':
-        return `${Faker.name.lastName()}`;
-    case 'team':
-        return `${Faker.company.companySuffix()}`;
-    case 'number':
-        return Faker.random
-            .number({
-                min: 2,
-                max: 25,
-            })
-            .toString();
-    default:
-        return Faker.random.number(99).toString();
-    }
-}
+const generateName = (function () {
+    const initialNames = [
+        'Green',
+        'Smith',
+        'Johnson',
+        'Williams',
+        'Brown',
+        'Jones',
+        'Miller',
+        'Davis',
+        'Martinez',
+        'Rodriguez',
+        'Garcia',
+        'Perez',
+        'Yilmaz',
+        'Lee',
+        'Hansen',
+        'Ivanov',
+        'Andersson',
+        'De Jong',
+        'Martin',
+        'Muller',
+        'Rossi',
+        'Silva',
+        'Jovanovic',
+        'Papadopoulos',
+        'Hernandez',
+        'Gonzalez',
+        'Da Silva',
+        'Ali',
+        'Traore',
+        'Ndiaye',
+        'Gomes',
+        'Kamara',
+        'Diarra',
+        'Kim',
+        'Khan',
+        'Sato',
+        'Wang',
+    ];
+    let names = [...initialNames];
 
-export function getFormation(formation: string) {
+    const generator = function (): string {
+        const index = Math.floor(Math.random() * names.length);
+        return `${names.splice(index, 1)}`;
+    };
+    generator.reset = function () {
+        names = [...initialNames];
+    };
+    return generator;
+}());
+
+const generateNumber = (function () {
+    const initialNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
+    let numbers = [...initialNumbers];
+    const generator = function (): string {
+        const index = Math.floor(Math.random() * numbers.length);
+        return `${numbers.splice(index, 1)}`;
+    };
+    generator.reset = function () {
+        numbers = [...initialNumbers];
+    };
+    return generator;
+}());
+
+export function getFormation(formation: string): IPosition[] {
     switch (formation) {
     case '4-2-3-1':
         return [
@@ -112,11 +158,13 @@ export function getFormation(formation: string) {
 export function generatePlayers(): IPlayer[] {
     const positions = getFormation('4-2-3-1');
     const players: IPlayer[] = [];
+    generateName.reset();
+    generateNumber.reset();
     for (let i = 0; i < 11; i += 1) {
         const player: IPlayer = {
-            id: Faker.random.alphaNumeric(5),
-            name: generate('name'),
-            num: i === 0 ? '1' : generate('number'),
+            id: `${i}`,
+            name: generateName(),
+            num: i === 0 ? '1' : generateNumber(),
             position: positions.shift() || { x: 0, y: 0 },
         };
         players.push(player);

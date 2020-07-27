@@ -1,6 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 import { IPlayer, IPosition } from 'constants/model';
+import JerseyIcon from 'assets/icons/football-uniform.svg';
+import NumberIcon from 'assets/icons/number.svg';
 import GoalIcon from 'assets/icons/goal_icon.svg';
 import YellowIcon from 'assets/icons/yellow_card_icon.svg';
 import RedIcon from 'assets/icons/red_card_icon.svg';
@@ -16,11 +18,21 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
         <table className="player-table">
             <thead>
                 <tr>
-                    <td className="player-table__name">Name</td>
-                    <td className="player-table__no"># No</td>
-                    <td className="player-table__icon"><img src={GoalIcon} alt="Goal" /></td>
-                    <td className="player-table__icon"><img src={YellowIcon} alt="Yellow Card" /></td>
-                    <td className="player-table__icon"><img src={RedIcon} alt="Red Card" /></td>
+                    <td className="player-table__name">
+                        <img src={JerseyIcon} alt="Player" />
+                    </td>
+                    <td className="player-table__no">
+                        <img src={NumberIcon} alt="Number" />
+                    </td>
+                    <td className="player-table__icon">
+                        <img src={GoalIcon} alt="Goal" />
+                    </td>
+                    <td className="player-table__icon">
+                        <img src={YellowIcon} alt="Yellow Card" />
+                    </td>
+                    <td className="player-table__icon">
+                        <img src={RedIcon} alt="Red Card" />
+                    </td>
                 </tr>
             </thead>
             <tbody>
@@ -84,7 +96,7 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
                                 <input
                                     type="checkbox"
                                     checked={player.yellowCard}
-                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, player.name, player.num, player.position, player.goal || false, event.target.checked, false)}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, player.name, player.num, player.position, player.goal || false, event.target.checked, player.redCard || false)}
                                 />
                             </span>
                         </td>
@@ -99,7 +111,7 @@ const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
                                 <input
                                     type="checkbox"
                                     checked={player.redCard}
-                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, player.name, player.num, player.position, player.goal || false, false, event.target.checked)}
+                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, player.name, player.num, player.position, player.goal || false, player.yellowCard || false, event.target.checked)}
                                 />
                             </span>
                         </td>
