@@ -21,7 +21,7 @@
     }
 
     &__logo {
-        height: 35px;
+        height: 50px;
         width: auto;
     }
 
@@ -42,6 +42,8 @@
 
             select {
                 margin-top: -3px;
+                border: 0;
+                color: #666666;
             }
         }
     }
