@@ -9,7 +9,7 @@
     min-height: 65px;
     transition: box-shadow .1s ease 0s;
     box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
-    background-color: #ffffff;
+    background-color: var(--color-header-background);
     height: 64px;
 
     &__content {
