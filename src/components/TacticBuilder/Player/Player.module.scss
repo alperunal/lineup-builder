@@ -1,3 +1,5 @@
+@import 'styles/_variables.scss';
+
 .player {
     border-radius: 50%;
     cursor: pointer;
@@ -10,7 +12,7 @@
     justify-content: center;
     align-items: center;
 
-    @media (min-width: 720px) {
+    @media (min-width: $breakpoint--md) {
         width: 30px;
         height: 30px;
     }
@@ -19,7 +21,7 @@
         font-size: 12px;
         font-weight: bold;
 
-        @media (min-width: 720px) {
+        @media (min-width: $breakpoint--md) {
             font-size: 16px;
         }
     }
@@ -33,7 +35,7 @@
         text-shadow: 2px 2px #000;
         white-space: nowrap;
 
-        @media (min-width: 720px) {
+        @media (min-width: $breakpoint--md) {
             top: 35px;
             font-size: 15px;
         }

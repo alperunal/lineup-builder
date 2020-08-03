@@ -1,26 +1,28 @@
+@import 'styles/_variables.scss';
+
 .home {
     text-align: center;
 
-    @media(min-width: 1000px) {
+    @media(min-width: $breakpoint--lg) {
         text-align: left;
     }
 
     .hero {
-        background-image: radial-gradient(70% 70% at 50% 100%,#e8e8e8 0,#fafafa 100%);
+        background: var(--color-hero-background);
         padding: 150px 0;
 
         &__items {
             display: flex;
             flex-direction: column;
 
-            @media(min-width: 1000px) {
+            @media(min-width: $breakpoint--lg) {
                 flex-direction: row;
             }
         }
     
         &__item {
 
-            @media(min-width: 1000px) {
+            @media(min-width: $breakpoint--lg) {
                 width: 50%;
             }
             
@@ -28,7 +30,7 @@
                 display: none;
                 justify-content: flex-end;
 
-                @media(min-width: 1000px) {
+                @media(min-width: $breakpoint--lg) {
                     display: flex;
                 }
             }
@@ -45,8 +47,7 @@
             animation: btn-gradient-animation 3s ease-in-out infinite;
             border: none;
             border-radius: 5px;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 500;
+            font-weight: bold;
             font-size: 18px;
             padding: 15px 68px;
             margin-top: 50px;
@@ -61,7 +62,7 @@
             letter-spacing: 3px;
             display: inline-block;
             background: #F17C35;
-            background: linear-gradient(45deg, #F17C35 0%, #E2336E 44%, #E2336E 56%, #F17C35 100%);
+            background: linear-gradient(45deg, #F17C35 0%, #E2336E 64%, #E2336E 56%, #F17C35 100%);
             background-size: 150% 150%;
             transition: background-position 0.7s ease-in-out;
         }
@@ -76,7 +77,7 @@
         flex-direction: column;
         align-items: center;
 
-        @media(min-width: 1000px) {
+        @media(min-width: $breakpoint--lg) {
             flex-direction: row;
             justify-content: center;
         }
@@ -86,7 +87,7 @@
         width: 250px;
         margin: 25px;
 
-        @media(min-width: 1000px) {
+        @media(min-width: $breakpoint--lg) {
             width: 25%;
         }
     }

@@ -40,23 +40,49 @@ $m-color_19: #060818;
 $m-color_20: #fafafa;
 $m-color_21: #445ede;
 $m-color_22: #304aca;
-
-
-$gradient-1: linear-gradient(45deg, #ceff1a 15%, #65FF00 65%);
+$m-color_23: #20232a;
+$m-color_24: #282c34;
 
 // Breakpoints
-$breakpoint-xs: 0;
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
+$breakpoint--xs: 0;
+$breakpoint--sm: 576px;
+$breakpoint--md: 768px;
+$breakpoint--lg: 992px;
+$breakpoint--xl: 1200px;
 
 :root {
     --color-page-background: #{$m-color_1};
+    --color-header-background: #{$white};
+    --color-header-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
+    --color-hero-background: radial-gradient(70% 70% at 50% 100%,#e8e8e8 0,#{$m-color_20} 100%);
+    --color-footer-background: #{$m-color_20};
+    --color-input-background: #{$m-color_20};
+    --color-border: #{$m-color_3};
     --color-text: #{$m-color_10};
+    --color-text-secondary: #{$m-color_8};
+    --color-link: #{$m-color_9};
+    --color-block-background: #{$m-color_20};
+
+    // constants
+    --color-primary: #{$primary};
+    --color-info: #{$info};
+    --color-success: #{$success};
+    --color-warning: #{$warning};
+    --color-danger: #{$danger};
+    --color-secondary: #{$secondary};
+    --color-dark: #{$dark};
 }
   
 .dark {
-    --color-page-background: #{$m-color_19};
-    --color-text: #{$m-color_6};
+    --color-page-background: #{$m-color_24};
+    --color-header-background: #{$m-color_24};
+    --color-header-shadow: rgba(255, 255, 255, 0.1) 0px -1px 0px 0px inset;
+    --color-hero-background: radial-gradient(70% 70% at 50% 100%,#{$m-color_23} 0,#{$m-color_24} 100%);
+    --color-footer-background: #{$m-color_23};
+    --color-input-background: #{$m-color_23};
+    --color-border: #{$m-color_19};
+    --color-text: #{$m-color_1};
+    --color-text-secondary: #{$m-color_5};
+    --color-link: #{$m-color_3};
+    --color-block-background: #{$m-color_23};
 }

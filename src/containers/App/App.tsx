@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
+import cn from 'classnames';
 import StoreContext from 'store';
 import Header from 'components/Header/Header';
 import Home from 'components/Home/Home';
@@ -9,6 +10,7 @@ import Footer from 'components/Footer/Footer';
 import Tactic from 'containers/Tactic/Tactic';
 import messagesEN from 'languages/en.json';
 import messagesTR from 'languages/tr.json';
+import './App.module.scss';
 
 const App: React.FC = () => {
     const [theme, setTheme] = useState(() => localStorage.getItem('THEME') || 'light');
@@ -40,18 +42,27 @@ const App: React.FC = () => {
                 messages={language === 'en' ? messages.en : messages.tr}
             >
                 <Router>
-                    <Header />
-                    <div>
-                        <Switch>
-                            <Route path="/lineup">
-                                <Tactic />
-                            </Route>
-                            <Route path="/">
-                                <Home />
-                            </Route>
-                        </Switch>
+                    <div
+                        className={
+                            cn(
+                                'app',
+                                { dark: theme === 'dark' },
+                            )
+                        }
+                    >
+                        <Header />
+                        <div className="content">
+                            <Switch>
+                                <Route path="/lineup">
+                                    <Tactic />
+                                </Route>
+                                <Route path="/">
+                                    <Home />
+                                </Route>
+                            </Switch>
+                        </div>
+                        <Footer />
                     </div>
-                    <Footer />
                 </Router>
             </IntlProvider>
         </StoreContext.Provider>

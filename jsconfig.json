@@ -11,7 +11,8 @@
         "containers/*": ["src/containers/*"],
         "helpers/*": ["src/helpers/*"],
         "languages/*": ["src/languages/*"],
-        "store/*": ["src/store/*"]
+        "store/*": ["src/store/*"],
+        "styles/*": ["src/styles/*"]
       }
     },
     "exclude": ["node_modules", "build"]

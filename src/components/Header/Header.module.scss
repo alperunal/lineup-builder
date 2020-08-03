@@ -8,8 +8,8 @@
     z-index: 101;
     min-height: 65px;
     transition: box-shadow .1s ease 0s;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px -1px 0px 0px inset;
-    background-color: #ffffff;
+    box-shadow: var(--color-header-shadow);
+    background-color: var(--color-header-background);
     height: 64px;
 
     &__content {
@@ -29,13 +29,14 @@
         &__list {
             list-style-type: none;
             display: flex;
+            line-height: 1;
         }
 
         &__list-item {
             text-decoration: none;
             transition: color .2s ease-in-out;
             text-transform: capitalize;
-            color: #666666;
+            color: var(--color-link);
             border: 0;
             font-size: 14px;
             padding: 10px;
@@ -43,7 +44,12 @@
             select {
                 margin-top: -3px;
                 border: 0;
-                color: #666666;
+                color: var(--color-link);
+                background-color: var(--color-header-background);
+            }
+
+            a {
+                color: var(--color-link)
             }
         }
     }

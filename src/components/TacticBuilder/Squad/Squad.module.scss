@@ -6,17 +6,28 @@
         overflow-x: auto;
 
         &__name {
-            width: 200px;
+            input {
+                width: 250px;
+            }
         }
 
         &__no {
-            width: 60px;
+            input {
+                width: 100px;
+            }
         }
 
         &__icon {
             padding-left: 5px;
+            width: 30px;
 
-            @media (min-width: 1000px) {
+            input {
+                display: block;
+                margin: auto;
+                width: 100%;
+            }
+
+            @media (min-width: var(--breakpoint-lg)) {
                 padding-left: 15px;
             }
         }

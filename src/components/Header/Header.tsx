@@ -3,12 +3,14 @@ import { FormattedMessage } from 'react-intl';
 import imageSrc from 'assets/images/logo.png';
 import { Link } from 'react-router-dom';
 import StoreContext from 'store';
-import Container from 'components/UI/Container/Container';
+import { Container, Switch } from 'components/UI';
 import './Header.module.scss';
 
 const Header: React.FC = () => {
     const context = useContext(StoreContext)!;
-    const { language, changeLanguage } = context;
+    const {
+        language, changeLanguage, theme, changeTheme,
+    } = context;
 
     return (
         <header className="header">
@@ -47,6 +49,14 @@ const Header: React.FC = () => {
                                     <option value="en">EN</option>
                                     <option value="tr">TR</option>
                                 </select>
+                            </li>
+                            <li className="nav__list-item">
+                                <Switch
+                                    id="theme-selector"
+                                    checked={theme === 'dark'}
+                                    size="small"
+                                    handleChange={() => changeTheme(theme === 'dark' ? 'light' : 'dark')}
+                                />
                             </li>
                         </ul>
                     </nav>

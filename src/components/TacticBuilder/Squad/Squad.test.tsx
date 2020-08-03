@@ -3,10 +3,11 @@ import { shallow } from 'enzyme';
 import Squad from './Squad';
 
 it('should render Squad correctly', () => {
-    const props = {
-        players: [],
-        editPlayer: jest.fn(),
-    };
-    const wrapper = shallow(<Squad {...props} />);
+    const wrapper = shallow(
+        <Squad
+            players={[]}
+            editPlayer={jest.fn()}
+        />,
+    );
     expect(wrapper).toMatchSnapshot();
 });

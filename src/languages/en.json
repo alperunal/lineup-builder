@@ -23,5 +23,7 @@
     "lineup.options.groundtype.hard": "Hard",
     "lineup.options.color.primary": "Primary",
     "lineup.options.color.secondary": "Secondary",
-    "lineup.options.color.number": "Number"
+    "lineup.options.color.number": "Number",
+    "squad.player": "Player",
+    "squad.no": "No"
 }

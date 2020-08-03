@@ -1,10 +1,14 @@
+@import 'styles/_variables.scss';
+
 .footer {
     display: none;
-    background: #fafafa;
-    border-top: 1px solid #eaeaea;
+    background-color: var(--color-footer-background);
+    border-color: var(--color-border);
+    border-top-width: 1px;
+    border-top-style: solid;
     width: 100%;
 
-    @media (min-width: 1200px) {
+    @media (min-width: $breakpoint--md) {
         display: block;
     }
 
@@ -26,11 +30,11 @@
         justify-content: space-between;
         padding: 0 0 48px 0;
         margin: auto;
-        color: #666666;
+        color: var(--color-text-secondary);
         font-size: 14px;
 
         a {
-            color: #555;
+            color: var(--color-link);
             font-weight: bold;
         }
     }
