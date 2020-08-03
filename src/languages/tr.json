@@ -23,5 +23,7 @@
     "lineup.options.groundtype.hard": "Sert Zemin",
     "lineup.options.color.primary": "Birincil",
     "lineup.options.color.secondary": "Ikincil",
-    "lineup.options.color.number": "Numara"
+    "lineup.options.color.number": "Numara",
+    "squad.player": "Futbolcu",
+    "squad.no": "No"
 }

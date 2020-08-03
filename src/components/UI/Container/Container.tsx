@@ -1,10 +1,10 @@
 import React from 'react';
-import './Container.scss';
+import './Container.module.scss';
 
-interface IProps {
-    children: React.ReactNode;
-}
+type Props = {
+    children: React.ReactNode,
+};
 
-const Container = ({ children }: IProps) => <div className="container">{children}</div>;
+const Container = ({ children }: Props): JSX.Element => <div className="container">{children}</div>;
 
 export default Container;

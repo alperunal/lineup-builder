@@ -1,28 +1,33 @@
 import React from 'react';
 import cn from 'classnames';
+import { FormattedMessage } from 'react-intl';
 import { IPlayer, IPosition } from 'constants/model';
-import JerseyIcon from 'assets/icons/football-uniform.svg';
-import NumberIcon from 'assets/icons/number.svg';
 import GoalIcon from 'assets/icons/goal_icon.svg';
 import YellowIcon from 'assets/icons/yellow_card_icon.svg';
 import RedIcon from 'assets/icons/red_card_icon.svg';
 import './Squad.module.scss';
 
-interface IProps {
-    players: IPlayer[];
-    editPlayer: (id: string, nName: string, nNum: string, nPosition: IPosition, nGoal: boolean, nYellowCard: boolean, nRedCard: boolean) => void;
+type Props = {
+    players: IPlayer[],
+    editPlayer: (id: string, nName: string, nNum: string, nPosition: IPosition, nGoal: boolean, nYellowCard: boolean, nRedCard: boolean) => void,
 }
 
-const Squad: React.FC<IProps> = ({ players, editPlayer }: IProps) => (
+const Squad: React.FC<Props> = ({ players, editPlayer }: Props) => (
     <div className="squad">
         <table className="player-table">
             <thead>
                 <tr>
                     <td className="player-table__name">
-                        <img src={JerseyIcon} alt="Player" />
+                        <FormattedMessage
+                            id="squad.player"
+                            defaultMessage="Player"
+                        />
                     </td>
                     <td className="player-table__no">
-                        <img src={NumberIcon} alt="Number" />
+                        <FormattedMessage
+                            id="squad.no"
+                            defaultMessage="No"
+                        />
                     </td>
                     <td className="player-table__icon">
                         <img src={GoalIcon} alt="Goal" />

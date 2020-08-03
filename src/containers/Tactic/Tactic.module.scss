@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import 'styles/_variables.scss';
 
 .tactic {
     padding: 25px 0 125px 0;
@@ -10,7 +10,7 @@
         margin-top: 50px;
         flex-direction: column;
 
-        @media(min-width: 1000px) {
+        @media(min-width: $breakpoint--lg) {
             flex-direction: row;
         }
     }
@@ -22,7 +22,7 @@
         align-items: center;
         position: relative;
 
-        @media(min-width: 1000px) {
+        @media(min-width: $breakpoint--lg) {
             width: 50%;
         }
     }
@@ -64,33 +64,11 @@
         }
     }
 
-    .heading {
-        font-size: 3em;
-        color: #181c32;
-    }
-
     .options {
         width: 100%;
-        box-shadow: 0 0 30px 0 rgba(82,63,105,.05);
-        border: 0;
-        border-radius: .42rem;
-        font-family: 'Poppins', sans-serif;
 
-        @media(min-width: 1000px) {
+        @media(min-width: $breakpoint--lg) {
             width: 50%;
-        }
-
-        &__header {
-            min-height: 70px;
-            padding: 0 2.25rem;
-            margin-bottom: 0;
-            border-bottom: 1px solid #ebedf3;
-            display: flex;
-            align-items: center;
-        }
-
-        &__content {
-            padding: 2.25rem;
         }
     }
     
@@ -104,5 +82,52 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+
+        label {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: .5rem;
+        }
+
+        input {
+            border: 1px solid var(--color-border);
+            background-color: var(--color-input-background);
+            color: var(--color-text);
+            font-size: 15px;
+            letter-spacing: 1px;
+            height: calc(1.4em + 1.4rem + 2px);
+            padding: .75rem 1.25rem;
+            border-radius: 6px;
+        }
+
+        select {
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            background-color: var(--color-input-background);
+            font-size: 15px;
+            letter-spacing: 1px;
+            height: calc(1.4em + 1.4rem + 2px);
+            padding: .5rem 1rem;
+            border-radius: 6px;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: calc(1.5em + .75rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            background-clip: padding-box;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
     }
 }

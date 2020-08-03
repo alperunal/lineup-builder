@@ -1,21 +1,21 @@
 import React from 'react';
-import classnames from 'classnames';
+import cn from 'classnames';
 import './Card.scss';
 
-interface IProps {
-    customClass?: string;
-    imageSrc?: string;
-    imageAlt?: string;
-    title?: string;
-    description?: string;
-}
+type Props = {
+    customClass?: string,
+    imageSrc?: string,
+    imageAlt?: string,
+    title?: string,
+    description?: string,
+};
 
-const Card: React.FC<IProps> = ({
+const Card: React.FC<Props> = ({
     title, description, customClass, imageSrc, imageAlt,
-}: IProps) => (
+}: Props) => (
     <div
         className={
-            classnames(
+            cn(
                 customClass,
                 'card',
             )
