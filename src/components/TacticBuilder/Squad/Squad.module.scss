@@ -1,3 +1,5 @@
+@import 'styles/_variables.scss';
+
 .squad {
     box-sizing: border-box;
     margin-top: 25px;
@@ -6,29 +8,27 @@
         overflow-x: auto;
 
         &__name {
+            width: 30%;
             input {
-                width: 250px;
+                width: 100%;
             }
         }
 
         &__no {
+            width: 15%;
             input {
-                width: 100px;
+                width: 100%;
             }
         }
 
         &__icon {
+            width: 10%;
             padding-left: 5px;
-            width: 30px;
+            text-align: center;
 
             input {
                 display: block;
                 margin: auto;
-                width: 100%;
-            }
-
-            @media (min-width: var(--breakpoint-lg)) {
-                padding-left: 15px;
             }
         }
 

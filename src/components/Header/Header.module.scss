@@ -1,3 +1,5 @@
+@import 'styles/_variables.scss';
+
 .header {
     position: sticky;
     top: 0;
@@ -25,11 +27,60 @@
         width: auto;
     }
 
+    .hamburger-button {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    .hamburger-menu {
+        height: 30px;
+        
+        @media(min-width: $breakpoint--md) {
+            display: none;
+        }
+
+        &--dark {
+            filter: invert(1);
+        }
+    }
+
+    .hamburger-nav {
+        position: absolute;
+        right: 0;
+        text-align: right;
+
+        ul {
+            border-radius: 5px;
+        }
+
+        li {
+            background-color: var(--color-header-background);
+            padding-right: 20px;
+        }
+
+        @media(min-width: $breakpoint--md) {
+            display: none;
+        }
+    }
+
     .nav {
+        display: none;
+
+        @media(min-width: $breakpoint--md) {
+            display: block;
+        }
+
         &__list {
             list-style-type: none;
             display: flex;
+            flex-direction: column;
             line-height: 1;
+
+            @media(min-width: $breakpoint--md) {
+                flex-direction: row;
+            }
         }
 
         &__list-item {

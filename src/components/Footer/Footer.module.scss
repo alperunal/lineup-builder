@@ -1,16 +1,11 @@
 @import 'styles/_variables.scss';
 
 .footer {
-    display: none;
     background-color: var(--color-footer-background);
     border-color: var(--color-border);
     border-top-width: 1px;
     border-top-style: solid;
     width: 100%;
-
-    @media (min-width: $breakpoint--md) {
-        display: block;
-    }
 
     &__logo {
         display: flex;
@@ -32,6 +27,11 @@
         margin: auto;
         color: var(--color-text-secondary);
         font-size: 14px;
+        flex-direction: column;
+
+        @media (min-width: $breakpoint--md) {
+            flex-direction: row;
+        }
 
         a {
             color: var(--color-link);
