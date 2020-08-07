@@ -24,6 +24,7 @@ function getPlayerPositions(): IPosition[] {
 }
 
 export function capture(element: HTMLElement): Promise<void | HTMLCanvasElement> {
+    window.scrollTo(0, 0);
     const vp = document.getElementById('viewportMeta')?.getAttribute('content');
     document.getElementById('viewportMeta')?.setAttribute('content', 'width=800');
     return html2canvas(element).then((canvas: HTMLCanvasElement) => {
