@@ -104,6 +104,7 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
                             id="field"
                             fieldType={fieldType}
                             setPlayerPosition={setPlayerPosition}
+                            showPositionAreas={false}
                         />
                         <ul className="tactic__actions">
                             <li>
@@ -194,7 +195,12 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
                                 className="form-control"
                             >
                                 {formations.map((_formation) => (
-                                    <option value={_formation}>{_formation}</option>
+                                    <option
+                                        key={_formation}
+                                        value={_formation}
+                                    >
+                                        {_formation}
+                                    </option>
                                 ))}
                             </select>
                         </div>

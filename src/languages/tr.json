@@ -1,6 +1,7 @@
 {
     "header.home": "Ana Sayfa",
     "header.lineup": "Taktik Araci",
+    "header.playbook": "Playbook",
     "home.slogan": "Taktigini Yarat",
     "home.description": "Voety Taktik Aracini kullanarak kendi futbol taktigini yarat. Resim indir, kaydet veya yukleyerek ozellestir ve arkadaslarinla paylas.",
     "home.buildnow": "Simdi Yarat",
@@ -25,5 +26,6 @@
     "lineup.options.color.secondary": "Ikincil",
     "lineup.options.color.number": "Numara",
     "squad.player": "Futbolcu",
-    "squad.no": "No"
+    "squad.no": "No",
+    "playbook.heading": "Playbook"
 }

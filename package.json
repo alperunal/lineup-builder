@@ -8,7 +8,6 @@
   "dependencies": {
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
-    "eslint-plugin-formatjs": "^2.3.21",
     "html2canvas": "^1.0.0-rc.5",
     "netlify-lambda": "^1.6.3",
     "normalize.css": "^8.0.1",
@@ -54,6 +53,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.5",
+    "eslint-plugin-formatjs": "^2.3.21",
     "file-loader": "^6.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^4.3.0",

@@ -1,6 +1,7 @@
 {
     "header.home": "Home",
     "header.lineup": "Lineup Builder",
+    "header.playbook": "Playbook",
     "home.slogan": "Build Your Lineup",
     "home.description": "Create your football lineup using Voety Lineup Builder. Customize and share it via image download, save, and load features.",
     "home.buildnow": "Build Now",
@@ -25,5 +26,6 @@
     "lineup.options.color.secondary": "Secondary",
     "lineup.options.color.number": "Number",
     "squad.player": "Player",
-    "squad.no": "No"
+    "squad.no": "No",
+    "playbook.heading": "Playbook"
 }

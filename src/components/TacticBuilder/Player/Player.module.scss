@@ -28,7 +28,7 @@
 
     &__name {
         position: absolute;
-        top: 30px;
+        top: 20px;
         font-size: 13px;
         font-weight: bold;
         color: #fff;
@@ -36,7 +36,7 @@
         white-space: nowrap;
 
         @media (min-width: $breakpoint--md) {
-            top: 35px;
+            top: 25px;
             font-size: 15px;
         }
     }

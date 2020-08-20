@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 import StoreContext from 'store';
 import { Container, Switch } from 'components/UI';
 import HamburgerIcon from 'assets/icons/hamburger-menu.svg';
+import { paths } from 'constants/routes';
 import './Header.module.scss';
+import { languageType } from 'constants/types';
 
 const Header: React.FC = () => {
     const context = useContext(StoreContext)!;
@@ -18,7 +20,7 @@ const Header: React.FC = () => {
     const linkList = (
         <ul className="nav__list">
             <li className="nav__list-item">
-                <Link to="/">
+                <Link to={paths.root}>
                     <FormattedMessage
                         id="header.home"
                         description="Homepage"
@@ -27,7 +29,7 @@ const Header: React.FC = () => {
                 </Link>
             </li>
             <li className="nav__list-item">
-                <Link to="/lineup">
+                <Link to={paths.lineup}>
                     <FormattedMessage
                         id="header.lineup"
                         description="Lineup Builder"
@@ -38,7 +40,7 @@ const Header: React.FC = () => {
             <li className="nav__list-item">
                 <select
                     value={language}
-                    onChange={(event: React.ChangeEvent<HTMLSelectElement>) => changeLanguage(event.target.value)}
+                    onChange={(event: React.ChangeEvent<HTMLSelectElement>) => changeLanguage(event.target.value as languageType)}
                 >
                     <option value="en">EN</option>
                     <option value="tr">TR</option>
@@ -61,7 +63,11 @@ const Header: React.FC = () => {
                 <div className="header__content">
                     <div>
                         <Link to="/">
-                            <img className="header__logo" src={imageSrc} alt="Voety" />
+                            <img
+                                className="header__logo"
+                                src={imageSrc}
+                                alt="Voety"
+                            />
                         </Link>
                     </div>
                     <div>
