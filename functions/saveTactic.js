@@ -16,10 +16,7 @@ exports.handler = async function saveTactic(event, context) {
     }
     try {
         await mongoose.connect(address, { useUnifiedTopology: true, useNewUrlParser: true });
-        console.log('connected------------------------------\n');
-        console.log('eventbody', event.body);
         const params = querystring.parse(event.body);
-        console.log('params', params);
         const dataStr = params.data;
         if(dataStr) {
             const decodedData = JSON.parse(Buffer.from(dataStr, 'base64').toString());
