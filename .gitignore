@@ -5,7 +5,7 @@ build/*
 !dist/index.html
 node_modules/
 *.log
-functions/config.env
+.env
 
 # OS generated files
 .DS_Store
