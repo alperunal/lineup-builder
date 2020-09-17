@@ -98,4 +98,7 @@ module.exports = {
     }),
     // new BundleAnalyzerPlugin(),
   ],
+  node: {
+    fs: 'empty',
+  }
 };
