@@ -13,7 +13,7 @@ let headers = {
     'Access-Control-Max-Age': '3600',
     'Access-Control-Allow-Credentials': 'true',
 };
-if(process.env.NODE_ENV) {
+if(process.env.ENV === 'dev') {
     headers['Access-Control-Allow-Origin'] = '*';
 }
 

@@ -1,10 +1,14 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 export const ground = {
     height: 500,
     width: 350,
 };
 
 export const api = ((): string => {
-    if (process.env.NODE_ENV) {
+    if (process.env.ENV === 'dev') {
         return 'http://localhost:9000/.netlify/functions';
     }
     return 'https://voety.net/.netlify/functions';
