@@ -6,7 +6,6 @@
   "main": "src/index.tsx",
   "license": "ISC",
   "dependencies": {
-    "@types/axios": "^0.14.0",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
@@ -32,6 +31,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@hot-loader/react-dom": "^16.13.0+4.12.20",
     "@testing-library/react": "^10.4.7",
+    "@types/axios": "^0.14.0",
     "@types/classnames": "^2.2.10",
     "@types/enzyme": "^3.10.1",
     "@types/enzyme-adapter-react-16": "^1.0.5",
