@@ -3,7 +3,12 @@ export const ground = {
     width: 350,
 };
 
-export const api = 'https://voety.net/.netlify/functions';
+export const api = ((): string => {
+    if (process.env.NODE_ENV) {
+        return 'http://localhost:9000/.netlify/functions';
+    }
+    return 'https://voety.net/.netlify/functions';
+})();
 
 export const formations = [
     '4-2-3-1',

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
+import { toast } from 'react-toastify';
 import cn from 'classnames';
 import StoreContext from 'store';
 
@@ -18,7 +19,9 @@ import { paths } from 'constants/routes';
 import { themeType, languageType } from 'constants/types';
 
 import './App.module.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 const App: React.FC = () => {
     const [theme, setTheme] = useState(() => localStorage.getItem('THEME') as themeType || 'light');
     const [language, setLanguage] = useState(() => localStorage.getItem('LANGUAGE') as languageType || 'en');
@@ -63,6 +66,9 @@ const App: React.FC = () => {
                         <Header />
                         <div className="content">
                             <Switch>
+                                <Route path={`${paths.lineup}/:lineupId`}>
+                                    <Tactic />
+                                </Route>
                                 <Route path={paths.lineup}>
                                     <Tactic />
                                 </Route>

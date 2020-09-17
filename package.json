@@ -6,6 +6,7 @@
   "main": "src/index.tsx",
   "license": "ISC",
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
@@ -20,7 +21,8 @@
     "react-intl": "^5.0.2",
     "react-redux": "7.1.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "react-toastify": "^6.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
