@@ -16,6 +16,7 @@
     "lineup.downloadimage": "Download Image",
     "lineup.save": "Save",
     "lineup.load": "Load",
+    "lineup.share": "Share",
     "lineup.options.title": "Lineup Options",
     "lineup.options.name": "Lineup Name",
     "lineup.options.groundtype.grass": "Grass",
@@ -25,6 +26,8 @@
     "lineup.options.color.primary": "Primary",
     "lineup.options.color.secondary": "Secondary",
     "lineup.options.color.number": "Number",
+    "lineup.sharemessage.heading": "Link To Share",
+    "lineup.sharemessage.clipboard": "Copy To Clipboard",
     "squad.player": "Player",
     "squad.no": "No",
     "playbook.heading": "Playbook"

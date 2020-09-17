@@ -130,4 +130,15 @@
             transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
         }
     }
+
+    .share-message {
+        &__header {
+            color: #000;
+            font-family: inherit;
+        }
+
+        &__input {
+            width: 100%;
+        }
+    }
 }

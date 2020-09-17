@@ -16,6 +16,7 @@
     "lineup.downloadimage": "Resim Indir",
     "lineup.save": "Kaydet",
     "lineup.load": "Yukle",
+    "lineup.share": "Paylas",
     "lineup.options.title": "Dizilis Ayarlari",
     "lineup.options.name": "Dizilis Ismi",
     "lineup.options.groundtype.grass": "Cim",
@@ -25,6 +26,8 @@
     "lineup.options.color.primary": "Birincil",
     "lineup.options.color.secondary": "Ikincil",
     "lineup.options.color.number": "Numara",
+    "lineup.sharemessage.heading": "Paylasim Linki",
+    "lineup.sharemessage.clipboard": "Linki Kopyala",
     "squad.player": "Futbolcu",
     "squad.no": "No",
     "playbook.heading": "Playbook"

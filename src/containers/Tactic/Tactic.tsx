@@ -1,23 +1,73 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { injectIntl, FormattedMessage, IntlShape } from 'react-intl';
+import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import ColorPicker from 'components/UI/ColorPicker/ColorPicker';
 import Field from 'components/TacticBuilder/Field/Field';
 import Squad from 'components/TacticBuilder/Squad/Squad';
 import { IPosition, IPlayer } from 'constants/model';
 import { ground, formations } from 'constants/constants';
 import { generatePlayers, getFormation } from 'helpers/player-generator';
-import { capture, save, load } from 'helpers/actions';
+import {
+    capture, save, load, share, loadSharedLineup,
+} from 'helpers/actions';
 import { Block, Container } from 'components/UI';
 import captureIcon from 'assets/icons/photo.svg';
 import saveIcon from 'assets/icons/save.svg';
+import shareIcon from 'assets/icons/share.svg';
 import loadIcon from 'assets/icons/upload.svg';
+import clipIcon from 'assets/icons/clippy.svg';
 import './Tactic.module.scss';
 
 type Props = {
     intl: IntlShape,
 };
+
+const ShareMessage = ({ link, intl }: { link: string, intl: IntlShape }) => (
+    <div className="share-message">
+        <h3 className="share-message__header">
+            <FormattedMessage
+                id="lineup.sharemessage.heading"
+                defaultMessage="Link to Share"
+            />
+        </h3>
+        <input
+            type="text"
+            disabled
+            value={link}
+            className="share-message__input"
+        />
+        <span>
+            <button
+                type="button"
+                onClick={
+                    () => {
+                        const textArea = document.createElement('textarea');
+                        textArea.value = link;
+                        textArea.style.top = '0';
+                        textArea.style.left = '0';
+                        textArea.style.position = 'fixed';
+
+                        document.body.appendChild(textArea);
+                        textArea.focus();
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                    }
+                }
+            >
+                <FormattedMessage
+                    id="lineup.sharemessage.clipboard"
+                    defaultMessage="Copy to Clipboard"
+                />
+                {' '}
+                <img src={clipIcon} width="13" alt={intl.formatMessage({ id: 'lineup.sharemessage.clipboard', defaultMessage: 'Copy to Clipboard' })} />
+            </button>
+        </span>
+    </div>
+);
 
 const Tactic: React.FC<Props> = ({ intl }: Props) => {
     const [name, setName] = useState('Default');
@@ -27,6 +77,13 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
     const [fieldType, setFieldType] = useState('grass');
     const [players, setPlayers] = useState(generatePlayers());
     const [formation, setFormation] = useState('4-2-3-1');
+    const { lineupId } = useParams() as { lineupId: string };
+
+    useEffect(() => {
+        if (lineupId) {
+            loadSharedLineup(lineupId, setName, setMainColor, setSecondaryColor, setNumberColor, setPlayers);
+        }
+    }, []);
 
     function editPlayer(
         id: string,
@@ -70,6 +127,20 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
         load(setName, setMainColor, setSecondaryColor, setNumberColor, setPlayers);
     }
 
+    async function shareTactic(): Promise<any> {
+        const url = await share(name, mainColor, secondaryColor, numberColor, players);
+        if (url !== 'error') {
+            toast(<ShareMessage link={url} intl={intl} />, {
+                position: 'top-center',
+                autoClose: false,
+                hideProgressBar: true,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: false,
+            });
+        }
+    }
+
     function changeFormation(newFormation: string): void {
         const positions = getFormation(newFormation);
         setPlayers(players.map((player: IPlayer, i: number) => {
@@ -86,6 +157,7 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
     return (
         <div className="tactic">
             <Container>
+                <ToastContainer />
                 <h1 className="heading">
                     <FormattedMessage
                         id="lineup.heading"
@@ -143,6 +215,19 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
                                         src={loadIcon}
                                         alt={intl.formatMessage({ id: 'lineup.load', defaultMessage: 'Load' })}
                                         title={intl.formatMessage({ id: 'lineup.load', defaultMessage: 'Load' })}
+                                    />
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    onClick={shareTactic}
+                                    title={intl.formatMessage({ id: 'lineup.share', defaultMessage: 'Share' })}
+                                >
+                                    <img
+                                        src={shareIcon}
+                                        alt={intl.formatMessage({ id: 'lineup.share', defaultMessage: 'Share' })}
+                                        title={intl.formatMessage({ id: 'lineup.share', defaultMessage: 'Share' })}
                                     />
                                 </button>
                             </li>

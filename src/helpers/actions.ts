@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-expressions */
 import html2canvas from 'html2canvas';
+import axios from 'axios';
+import { api } from 'constants/constants';
 import { IPlayer, ITactic, IPosition } from '../constants/model';
 
 function getPlayerPositions(): IPosition[] {
@@ -37,7 +39,7 @@ export function capture(element: HTMLElement): Promise<void | HTMLCanvasElement>
     });
 }
 
-export function save(name = 'default', mainColor: string, secondaryColor: string, numberColor: string, players: IPlayer[]): void {
+function encodeData(name = 'default', mainColor: string, secondaryColor: string, numberColor: string, players: IPlayer[]) {
     const positions = getPlayerPositions();
 
     const data: ITactic = {
@@ -55,7 +57,11 @@ export function save(name = 'default', mainColor: string, secondaryColor: string
     };
 
     const encodedData = btoa(JSON.stringify(data));
+    return encodedData;
+}
 
+export function save(name = 'default', mainColor: string, secondaryColor: string, numberColor: string, players: IPlayer[]): void {
+    const encodedData = encodeData(name, mainColor, secondaryColor, numberColor, players);
     const link = document.createElement('a');
     link.download = `voety_${name}.tac`;
     link.href = `data:text/plain;charset=utf-8,${encodedData}`;
@@ -95,4 +101,41 @@ export function load(
     };
     input.type = 'file';
     input.click();
+}
+
+export async function share(
+    name = 'default',
+    mainColor: string,
+    secondaryColor: string,
+    numberColor: string,
+    players: IPlayer[],
+): Promise<string> {
+    const encodedData = encodeData(name, mainColor, secondaryColor, numberColor, players);
+    const headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+    };
+    const res = await axios.post(`${api}/saveTactic`, {
+        headers,
+        data: encodedData,
+    });
+    if (res.status === 200) {
+        return `https://www.voety.net/lineup/${res.data?.id}`;
+    }
+    return 'error';
+}
+
+export async function loadSharedLineup(
+    id: string,
+    setName: (name: string) => void,
+    setMainColor: (color: string) => void,
+    setSecondaryColor: (color: string) => void,
+    setNumberColor: (color: string) => void,
+    setPlayers: (players: IPlayer[]) => void,
+): Promise<any> {
+    const res = await axios.get(`${api}/loadTactic?id=${id}`);
+    setName(res.data.data.name);
+    setMainColor(res.data.data.colors.mainColor);
+    setSecondaryColor(res.data.data.colors.secondaryColor);
+    setNumberColor(res.data.data.colors.numberColor);
+    setPlayers(res.data.data.players);
 }
