@@ -4,16 +4,16 @@ const { DB_HOST, DB_USER, DB_PASS } = process.env;
 const mongoose = require('mongoose');
 const address = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/voety?retryWrites=true&w=majority`;
 const LineUp = require('./lineup');
-let headers = {};
+let headers = {
+    'Access-Control-Allow-Origin': 'https://www.voety.net',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Methods': 'POST, PUT, GET, OPTIONS, DELETE',
+    'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,observe',
+    'Access-Control-Max-Age': '3600',
+    'Access-Control-Allow-Credentials': 'true',
+};
 if(process.env.NODE_ENV) {
-    headers = {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Methods': 'POST, PUT, GET, OPTIONS, DELETE',
-        'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,observe',
-        'Access-Control-Max-Age': '3600',
-        'Access-Control-Allow-Credentials': 'true',
-    };
+    headers['Access-Control-Allow-Origin'] = '*';
 }
 
 exports.handler = async function loadTactic(event, context) {
