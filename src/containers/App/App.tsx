@@ -11,6 +11,7 @@ import Home from 'components/Home/Home';
 import Footer from 'components/Footer/Footer';
 import Tactic from 'containers/Tactic/Tactic';
 import Playbook from 'containers/Playbook/Playbook';
+import { Spinner } from 'components/UI';
 
 import messagesEN from 'languages/en.json';
 import messagesTR from 'languages/tr.json';
@@ -25,6 +26,7 @@ toast.configure();
 const App: React.FC = () => {
     const [theme, setTheme] = useState(() => localStorage.getItem('THEME') as themeType || 'light');
     const [language, setLanguage] = useState(() => localStorage.getItem('LANGUAGE') as languageType || 'en');
+    const [isLoading, changeLoading] = useState(false);
 
     const changeTheme = (newTheme: themeType) => {
         setTheme(newTheme);
@@ -46,8 +48,10 @@ const App: React.FC = () => {
             value={{
                 theme,
                 language,
+                isLoading,
                 changeLanguage,
                 changeTheme,
+                changeLoading,
             }}
         >
             <IntlProvider
@@ -63,6 +67,7 @@ const App: React.FC = () => {
                             )
                         }
                     >
+                        {isLoading ? <Spinner /> : null}
                         <Header />
                         <div className="content">
                             <Switch>

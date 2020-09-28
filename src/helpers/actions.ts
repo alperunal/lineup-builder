@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-expressions */
 import html2canvas from 'html2canvas';
 import axios from 'axios';
-import { api } from 'constants/constants';
+import { api, lineupUrl } from 'constants/constants';
 import { IPlayer, ITactic, IPosition } from '../constants/model';
 
 function getPlayerPositions(): IPosition[] {
@@ -109,19 +109,28 @@ export async function share(
     secondaryColor: string,
     numberColor: string,
     players: IPlayer[],
+    setSpinner: (status: boolean) => void = () => { console.log('context error'); },
 ): Promise<string> {
+    setSpinner(true);
     const encodedData = encodeData(name, mainColor, secondaryColor, numberColor, players);
     const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
     };
-    const res = await axios.post(`${api}/saveTactic`, {
-        headers,
-        data: encodedData,
-    });
-    if (res.status === 200) {
-        return `https://www.voety.net/lineup/${res.data?.id}`;
+    try {
+        const res = await axios.post(`${api}/saveTactic`, {
+            headers,
+            data: encodedData,
+        });
+        setSpinner(false);
+        if (res.status === 200) {
+            return `${lineupUrl}/${res.data?.id}`;
+        }
+        return 'error';
+    } catch (e) {
+        console.log(e);
+        setSpinner(false);
+        return 'error';
     }
-    return 'error';
 }
 
 export async function loadSharedLineup(
@@ -131,11 +140,19 @@ export async function loadSharedLineup(
     setSecondaryColor: (color: string) => void,
     setNumberColor: (color: string) => void,
     setPlayers: (players: IPlayer[]) => void,
+    setSpinner: (status: boolean) => void = () => { console.log('context error'); },
 ): Promise<any> {
-    const res = await axios.get(`${api}/loadTactic?id=${id}`);
-    setName(res.data.data.name);
-    setMainColor(res.data.data.colors.mainColor);
-    setSecondaryColor(res.data.data.colors.secondaryColor);
-    setNumberColor(res.data.data.colors.numberColor);
-    setPlayers(res.data.data.players);
+    setSpinner(true);
+    try {
+        const res = await axios.get(`${api}/loadTactic?id=${id}`);
+        setName(res.data.data.name);
+        setMainColor(res.data.data.colors.mainColor);
+        setSecondaryColor(res.data.data.colors.secondaryColor);
+        setNumberColor(res.data.data.colors.numberColor);
+        setPlayers(res.data.data.players);
+        setSpinner(false);
+    } catch (e) {
+        console.log(e);
+        setSpinner(false);
+    }
 }

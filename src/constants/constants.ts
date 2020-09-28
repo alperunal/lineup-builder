@@ -7,6 +7,8 @@ export const ground = {
     width: 350,
 };
 
+export const lineupUrl = 'https://www.voety.net/lineup';
+
 export const api = ((): string => {
     if (process.env.ENV === 'dev') {
         return 'http://localhost:9000/.netlify/functions';

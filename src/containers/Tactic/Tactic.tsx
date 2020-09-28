@@ -1,9 +1,11 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { injectIntl, FormattedMessage, IntlShape } from 'react-intl';
 import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import StoreContext from 'store';
+
 import ColorPicker from 'components/UI/ColorPicker/ColorPicker';
 import Field from 'components/TacticBuilder/Field/Field';
 import Squad from 'components/TacticBuilder/Squad/Squad';
@@ -14,11 +16,13 @@ import {
     capture, save, load, share, loadSharedLineup,
 } from 'helpers/actions';
 import { Block, Container } from 'components/UI';
+
 import captureIcon from 'assets/icons/photo.svg';
 import saveIcon from 'assets/icons/save.svg';
 import shareIcon from 'assets/icons/share.svg';
 import loadIcon from 'assets/icons/upload.svg';
 import clipIcon from 'assets/icons/clippy.svg';
+
 import './Tactic.module.scss';
 
 type Props = {
@@ -78,10 +82,11 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
     const [players, setPlayers] = useState(generatePlayers());
     const [formation, setFormation] = useState('4-2-3-1');
     const { lineupId } = useParams() as { lineupId: string };
+    const context = useContext(StoreContext);
 
     useEffect(() => {
         if (lineupId) {
-            loadSharedLineup(lineupId, setName, setMainColor, setSecondaryColor, setNumberColor, setPlayers);
+            loadSharedLineup(lineupId, setName, setMainColor, setSecondaryColor, setNumberColor, setPlayers, context?.changeLoading);
         }
     }, []);
 
