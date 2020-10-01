@@ -32,6 +32,9 @@ interface IColors {
 export interface ITactic {
     name: string;
     date: Date;
-    colors: IColors;
+    'main_color': string;
+    'secondary_color': string;
+    'number_color': string;
     players: IPlayer[];
+    'user_id': string;
 }

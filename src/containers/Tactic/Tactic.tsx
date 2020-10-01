@@ -133,7 +133,7 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
     }
 
     async function shareTactic(): Promise<any> {
-        const url = await share(name, mainColor, secondaryColor, numberColor, players);
+        const url = await share(name, mainColor, secondaryColor, numberColor, players, context?.changeLoading);
         if (url !== 'error') {
             toast(<ShareMessage link={url} intl={intl} />, {
                 position: 'top-center',

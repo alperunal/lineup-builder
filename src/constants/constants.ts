@@ -10,10 +10,10 @@ export const ground = {
 export const lineupUrl = 'https://www.voety.net/lineup';
 
 export const api = ((): string => {
-    if (process.env.ENV === 'dev') {
-        return 'http://localhost:9000/.netlify/functions';
+    if (process.env.NODE_ENV === 'development') {
+        return 'http://localhost:8000/v1';
     }
-    return 'https://voety.net/.netlify/functions';
+    return 'https://voety.net/api/v1';
 })();
 
 export const formations = [
