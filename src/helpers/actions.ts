@@ -111,33 +111,8 @@ export async function share(
     setSpinner: (status: boolean) => void = () => { console.log('context error'); },
 ): Promise<string> {
     setSpinner(true);
-    const headers = {
-        'Content-Type': 'application/x-www-form-urlencoded',
-    };
     try {
         const positions = getPlayerPositions();
-        // const xhr = new XMLHttpRequest();
-        // xhr.open('POST', `${api}/lineups`, true);
-        // xhr.setRequestHeader('Content-Type', 'application/json');
-        // xhr.onreadystatechange = function () { // Call a function when the state changes.
-        //     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-        //         // Request finished. Do processing here.
-        //         console.log('donduuu', this);
-        //     }
-        // };
-        // xhr.send(JSON.stringify({
-        //     name,
-        //     date: `${new Date()}`,
-        //     main_color: mainColor,
-        //     secondary_color: secondaryColor,
-        //     number_color: numberColor,
-        //     players: JSON.stringify(players.map((player, index) => {
-        //         player.position = positions[index];
-        //         return player;
-        //     })),
-        //     user_id: '0',
-        //     version: '2',
-        // }));
         const res = await axios.post(`${api}/lineups`, {
             name,
             date: `${new Date()}`,
