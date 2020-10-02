@@ -6,4 +6,4 @@ build
 # don't lint nyc coverage output
 coverage
 webpack.config.js
-custom.d.ts
+server-build

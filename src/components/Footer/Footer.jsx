@@ -3,7 +3,7 @@ import { Container } from 'components/UI';
 import imageSrc from 'assets/images/logo.png';
 import './Footer.module.scss';
 
-const Footer: React.FC = () => (
+const Footer = () => (
     <footer className="footer">
         <Container>
             <div className="footer__logo">

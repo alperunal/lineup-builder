@@ -1,16 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
-import './Block.module.scss';
 
-type Props = {
-    title?: string,
-    customClass?: string,
-    children: React.ReactNode,
-};
+import './Block.module.scss';
 
 const Block = ({
     title, customClass, children,
-}: Props): JSX.Element => (
+}) => (
     <div
         className={
             cn(

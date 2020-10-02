@@ -1,7 +1,7 @@
 import React from 'react';
 import './Spinner.module.scss';
 
-const Spinner = (): JSX.Element => (
+const Spinner = () => (
     <div className="spinner">
         <div className="lds-ring">
             <div />

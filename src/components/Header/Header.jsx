@@ -8,10 +8,9 @@ import { Container, Switch } from 'components/UI';
 import HamburgerIcon from 'assets/icons/hamburger-menu.svg';
 import { paths } from 'constants/routes';
 import './Header.module.scss';
-import { languageType } from 'constants/types';
 
-const Header: React.FC = () => {
-    const context = useContext(StoreContext)!;
+const Header = () => {
+    const context = useContext(StoreContext);
     const {
         language, changeLanguage, theme, changeTheme,
     } = context;
@@ -40,7 +39,7 @@ const Header: React.FC = () => {
             <li className="nav__list-item">
                 <select
                     value={language}
-                    onChange={(event: React.ChangeEvent<HTMLSelectElement>) => changeLanguage(event.target.value as languageType)}
+                    onChange={(event) => changeLanguage(event.target.value)}
                 >
                     <option value="en">EN</option>
                     <option value="tr">TR</option>

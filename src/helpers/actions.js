@@ -1,17 +1,15 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-unused-expressions */
 import html2canvas from 'html2canvas';
 import axios from 'axios';
 import { api, lineupUrl } from 'constants/constants';
-import { IPlayer, ITactic, IPosition } from '../constants/model';
 
-function getPlayerPositions(): IPosition[] {
+function getPlayerPositions() {
     const players = document.getElementsByClassName('player');
     const positions = [];
 
     for (let i = 0; i < players.length; i += 1) {
         try {
-            const player = players[i] as HTMLElement;
+            const player = players[i];
             const styleStr = player.style.transform;
             const position = styleStr.split('(')[1].split(')')[0].split(',');
             positions.push({
@@ -25,11 +23,11 @@ function getPlayerPositions(): IPosition[] {
     return positions;
 }
 
-export function capture(element: HTMLElement): Promise<void | HTMLCanvasElement> {
+export function capture(element) {
     window.scrollTo(0, 0);
     const vp = document.getElementById('viewportMeta')?.getAttribute('content');
     document.getElementById('viewportMeta')?.setAttribute('content', 'width=800');
-    return html2canvas(element).then((canvas: HTMLCanvasElement) => {
+    return html2canvas(element).then((canvas) => {
         const link = document.createElement('a');
         link.download = 'tactic.png';
         link.href = canvas.toDataURL('image/png');
@@ -39,10 +37,10 @@ export function capture(element: HTMLElement): Promise<void | HTMLCanvasElement>
     });
 }
 
-function encodeData(name = 'default', mainColor: string, secondaryColor: string, numberColor: string, players: IPlayer[]) {
+function encodeData(name = 'default', mainColor, secondaryColor, numberColor, players) {
     const positions = getPlayerPositions();
 
-    const data: ITactic = {
+    const data = {
         name,
         date: new Date(),
         main_color: mainColor,
@@ -59,7 +57,7 @@ function encodeData(name = 'default', mainColor: string, secondaryColor: string,
     return encodedData;
 }
 
-export function save(name = 'default', mainColor: string, secondaryColor: string, numberColor: string, players: IPlayer[]): void {
+export function save(name = 'default', mainColor, secondaryColor, numberColor, players) {
     const encodedData = encodeData(name, mainColor, secondaryColor, numberColor, players);
     const link = document.createElement('a');
     link.download = `voety_${name}.tac`;
@@ -68,12 +66,12 @@ export function save(name = 'default', mainColor: string, secondaryColor: string
 }
 
 export function load(
-    setName: (name: string) => void,
-    setMainColor: (color: string) => void,
-    setSecondaryColor: (color: string) => void,
-    setNumberColor: (color: string) => void,
-    setPlayers: (players: IPlayer[]) => void,
-): void {
+    setName,
+    setMainColor,
+    setSecondaryColor,
+    setNumberColor,
+    setPlayers,
+) {
     const input = document.createElement('input');
     input.onchange = () => {
         try {
@@ -104,12 +102,12 @@ export function load(
 
 export async function share(
     name = 'default',
-    mainColor: string,
-    secondaryColor: string,
-    numberColor: string,
-    players: IPlayer[],
-    setSpinner: (status: boolean) => void = () => { console.log('context error'); },
-): Promise<string> {
+    mainColor,
+    secondaryColor,
+    numberColor,
+    players,
+    setSpinner,
+) {
     setSpinner(true);
     try {
         const positions = getPlayerPositions();
@@ -139,14 +137,14 @@ export async function share(
 }
 
 export async function loadSharedLineup(
-    id: string,
-    setName: (name: string) => void,
-    setMainColor: (color: string) => void,
-    setSecondaryColor: (color: string) => void,
-    setNumberColor: (color: string) => void,
-    setPlayers: (players: IPlayer[]) => void,
-    setSpinner: (status: boolean) => void = () => { console.log('context error'); },
-): Promise<any> {
+    id,
+    setName,
+    setMainColor,
+    setSecondaryColor,
+    setNumberColor,
+    setPlayers,
+    setSpinner,
+) {
     setSpinner(true);
     try {
         const res = await axios.get(`${api}/lineups/${id}`);

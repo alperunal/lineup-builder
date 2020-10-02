@@ -1,18 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
 import { FormattedMessage } from 'react-intl';
-import { IPlayer, IPosition } from 'constants/model';
+
 import GoalIcon from 'assets/icons/goal_icon.svg';
 import YellowIcon from 'assets/icons/yellow_card_icon.svg';
 import RedIcon from 'assets/icons/red_card_icon.svg';
+
 import './Squad.module.scss';
 
-type Props = {
-    players: IPlayer[],
-    editPlayer: (id: string, nName: string, nNum: string, nPosition: IPosition, nGoal: boolean, nYellowCard: boolean, nRedCard: boolean) => void,
-}
-
-const Squad: React.FC<Props> = ({ players, editPlayer }: Props) => (
+const Squad = ({ players, editPlayer }) => (
     <div className="squad">
         <table className="player-table">
             <thead>
@@ -41,7 +37,7 @@ const Squad: React.FC<Props> = ({ players, editPlayer }: Props) => (
                 </tr>
             </thead>
             <tbody>
-                {players.map((player: IPlayer) => (
+                {players.map((player) => (
                     <tr key={player.id}>
                         <td
                             className={
@@ -55,7 +51,7 @@ const Squad: React.FC<Props> = ({ players, editPlayer }: Props) => (
                                     type="text"
                                     spellCheck={false}
                                     value={player.name}
-                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, event.target.value, player.num, player.position, player.goal || false, player.yellowCard || false, player.redCard || false)}
+                                    onChange={(event) => editPlayer(player.id, event.target.value, player.num, player.position, player.goal || false, player.yellowCard || false, player.redCard || false)}
                                 />
                             </span>
                         </td>
@@ -71,7 +67,7 @@ const Squad: React.FC<Props> = ({ players, editPlayer }: Props) => (
                                     type="text"
                                     value={player.num}
                                     maxLength={2}
-                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, player.name, event.target.value, player.position, player.goal || false, player.yellowCard || false, player.redCard || false)}
+                                    onChange={(event) => editPlayer(player.id, player.name, event.target.value, player.position, player.goal || false, player.yellowCard || false, player.redCard || false)}
                                 />
                             </span>
                         </td>
@@ -86,7 +82,7 @@ const Squad: React.FC<Props> = ({ players, editPlayer }: Props) => (
                                 <input
                                     type="checkbox"
                                     checked={player.goal}
-                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, player.name, player.num, player.position, event.target.checked, player.yellowCard || false, player.redCard || false)}
+                                    onChange={(event) => editPlayer(player.id, player.name, player.num, player.position, event.target.checked, player.yellowCard || false, player.redCard || false)}
                                 />
                             </span>
                         </td>
@@ -101,7 +97,7 @@ const Squad: React.FC<Props> = ({ players, editPlayer }: Props) => (
                                 <input
                                     type="checkbox"
                                     checked={player.yellowCard}
-                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, player.name, player.num, player.position, player.goal || false, event.target.checked, player.redCard || false)}
+                                    onChange={(event) => editPlayer(player.id, player.name, player.num, player.position, player.goal || false, event.target.checked, player.redCard || false)}
                                 />
                             </span>
                         </td>
@@ -116,7 +112,7 @@ const Squad: React.FC<Props> = ({ players, editPlayer }: Props) => (
                                 <input
                                     type="checkbox"
                                     checked={player.redCard}
-                                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => editPlayer(player.id, player.name, player.num, player.position, player.goal || false, player.yellowCard || false, event.target.checked)}
+                                    onChange={(event) => editPlayer(player.id, player.name, player.num, player.position, player.goal || false, player.yellowCard || false, event.target.checked)}
                                 />
                             </span>
                         </td>

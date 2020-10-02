@@ -1,18 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
+
 import './Card.scss';
 
-type Props = {
-    customClass?: string,
-    imageSrc?: string,
-    imageAlt?: string,
-    title?: string,
-    description?: string,
-};
-
-const Card: React.FC<Props> = ({
+const Card = ({
     title, description, customClass, imageSrc, imageAlt,
-}: Props) => (
+}) => (
     <div
         className={
             cn(

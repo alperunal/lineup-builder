@@ -1,29 +1,16 @@
 import React from 'react';
 import Draggable from 'react-draggable';
+
 import goalIcon from 'assets/icons/soccer-ball.svg';
 import yellowCardIcon from 'assets/icons/yellow-card.svg';
 import redCardIcon from 'assets/icons/red-card.svg';
 import yellowToRedCardIcon from 'assets/icons/yellow-to-red.svg';
+
 import './Player.module.scss';
 
-interface IProps {
-    name: string;
-    num: string;
-    x: number;
-    y: number;
-    mainColor: string;
-    secondaryColor: string;
-    numberColor?: string;
-    id: string;
-    goal: boolean;
-    yellowCard: boolean;
-    redCard: boolean;
-    setPlayerPosition: (id: string, x: number, y: number) => void;
-}
-
-const Player: React.FC<IProps> = ({
+const Player = ({
     name, num, x, y, mainColor, secondaryColor, numberColor, id, goal, yellowCard, redCard, setPlayerPosition,
-}: IProps) => (
+}) => (
     <Draggable
         bounds={{
             left: 0,

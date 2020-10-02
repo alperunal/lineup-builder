@@ -1,6 +1,4 @@
 /* eslint-disable no-multi-spaces */
-import { IPlayer, IPosition } from '../constants/model';
-
 const generateName = (function () {
     const initialNames = [
         'Green',
@@ -43,7 +41,7 @@ const generateName = (function () {
     ];
     let names = [...initialNames];
 
-    const generator = function (): string {
+    const generator = function () {
         const index = Math.floor(Math.random() * names.length);
         return `${names.splice(index, 1)}`;
     };
@@ -56,7 +54,7 @@ const generateName = (function () {
 const generateNumber = (function () {
     const initialNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
     let numbers = [...initialNumbers];
-    const generator = function (): string {
+    const generator = function () {
         const index = Math.floor(Math.random() * numbers.length);
         return `${numbers.splice(index, 1)}`;
     };
@@ -66,7 +64,7 @@ const generateNumber = (function () {
     return generator;
 }());
 
-export function getFormation(formation: string): IPosition[] {
+export function getFormation(formation) {
     switch (formation) {
     case '4-2-3-1':
         return [
@@ -155,13 +153,13 @@ export function getFormation(formation: string): IPosition[] {
     }
 }
 
-export function generatePlayers(): IPlayer[] {
+export function generatePlayers() {
     const positions = getFormation('4-2-3-1');
-    const players: IPlayer[] = [];
+    const players = [];
     generateName.reset();
     generateNumber.reset();
     for (let i = 0; i < 11; i += 1) {
-        const player: IPlayer = {
+        const player = {
             id: `${i}`,
             name: generateName(),
             num: i === 0 ? '1' : generateNumber(),

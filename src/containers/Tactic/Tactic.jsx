@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect, useContext } from 'react';
 import { injectIntl, FormattedMessage, IntlShape } from 'react-intl';
 import { useParams } from 'react-router-dom';
@@ -9,7 +7,6 @@ import StoreContext from 'store';
 import ColorPicker from 'components/UI/ColorPicker/ColorPicker';
 import Field from 'components/TacticBuilder/Field/Field';
 import Squad from 'components/TacticBuilder/Squad/Squad';
-import { IPosition, IPlayer } from 'constants/model';
 import { ground, formations } from 'constants/constants';
 import { generatePlayers, getFormation } from 'helpers/player-generator';
 import {
@@ -25,11 +22,7 @@ import clipIcon from 'assets/icons/clippy.svg';
 
 import './Tactic.module.scss';
 
-type Props = {
-    intl: IntlShape,
-};
-
-const ShareMessage = ({ link, intl }: { link: string, intl: IntlShape }) => (
+const ShareMessage = ({ link, intl }) => (
     <div className="share-message">
         <h3 className="share-message__header">
             <FormattedMessage
@@ -73,7 +66,7 @@ const ShareMessage = ({ link, intl }: { link: string, intl: IntlShape }) => (
     </div>
 );
 
-const Tactic: React.FC<Props> = ({ intl }: Props) => {
+const Tactic = ({ intl }) => {
     const [name, setName] = useState('Default');
     const [mainColor, setMainColor] = useState('#a32638');
     const [secondaryColor, setSecondaryColor] = useState('#fcb514');
@@ -81,7 +74,7 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
     const [fieldType, setFieldType] = useState('grass');
     const [players, setPlayers] = useState(generatePlayers());
     const [formation, setFormation] = useState('4-2-3-1');
-    const { lineupId } = useParams() as { lineupId: string };
+    const { lineupId } = useParams();
     const context = useContext(StoreContext);
 
     useEffect(() => {
@@ -91,14 +84,14 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
     }, []);
 
     function editPlayer(
-        id: string,
-        nName: string | null,
-        nNum: string | null,
-        nPosition: IPosition,
-        nGoal: boolean | null,
-        nYellowCard: boolean | null,
-        nRedCard: boolean | null,
-    ): void {
+        id,
+        nName,
+        nNum,
+        nPosition,
+        nGoal,
+        nYellowCard,
+        nRedCard,
+    ) {
         setPlayers(
             players.map((player) => {
                 if (player.id === id) {
@@ -117,22 +110,22 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
         );
     }
 
-    function downloadImage(): void {
+    function downloadImage() {
         const field = document.getElementById('field');
         if (field) {
             capture(field);
         }
     }
 
-    function saveTactic(): void {
+    function saveTactic() {
         save(name, mainColor, secondaryColor, numberColor, players);
     }
 
-    function loadTactic(): void {
+    function loadTactic() {
         load(setName, setMainColor, setSecondaryColor, setNumberColor, setPlayers);
     }
 
-    async function shareTactic(): Promise<any> {
+    async function shareTactic() {
         const url = await share(name, mainColor, secondaryColor, numberColor, players, context?.changeLoading);
         if (url !== 'error') {
             toast(<ShareMessage link={url} intl={intl} />, {
@@ -146,16 +139,16 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
         }
     }
 
-    function changeFormation(newFormation: string): void {
+    function changeFormation(newFormation) {
         const positions = getFormation(newFormation);
-        setPlayers(players.map((player: IPlayer, i: number) => {
+        setPlayers(players.map((player, i) => {
             player.position = positions[i] || player.position;
             return player;
         }));
         setFormation(newFormation);
     }
 
-    function setPlayerPosition(id: string, x: number, y: number): void {
+    function setPlayerPosition(id, x, y) {
         editPlayer(id, null, null, { x, y }, null, null, null);
     }
 
@@ -255,12 +248,12 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
                                 name="tacticName"
                                 type="text"
                                 value={name}
-                                onChange={(event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}
+                                onChange={(event) => setName(event.target.value)}
                             />
                         </div>
                         <div className="form-group">
                             <select
-                                onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setFieldType(event?.target.value)}
+                                onChange={(event) => setFieldType(event?.target.value)}
                                 value={fieldType}
                                 className="form-control"
                             >
@@ -280,7 +273,7 @@ const Tactic: React.FC<Props> = ({ intl }: Props) => {
                         </div>
                         <div className="form-group">
                             <select
-                                onChange={(event: React.ChangeEvent<HTMLSelectElement>) => changeFormation(event?.target.value)}
+                                onChange={(event) => changeFormation(event?.target.value)}
                                 value={formation}
                                 className="form-control"
                             >

@@ -7,9 +7,9 @@ export const ground = {
     width: 350,
 };
 
-export const lineupUrl = 'https://www.voety.net/lineup';
+export const lineupUrl = 'https://www.voety.net/#/lineup';
 
-export const api = ((): string => {
+export const api = (() => {
     if (process.env.NODE_ENV === 'development') {
         return 'http://localhost:8000/v1';
     }

@@ -4,38 +4,30 @@
         "es2020": true,
         "jest": true
     },
+    "parser": "babel-eslint",
     "extends": [
+        "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
         "airbnb"
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 11,
-        "sourceType": "module"
-    },
     "plugins": [
-        "react",
-        "@typescript-eslint"
+        "react"
     ],
     "rules": {
         "import/extensions": "off",
         "indent": ["error", 4],
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
-        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
         "linebreak-style": "off",
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.ts", "**/*.test.tsx"]}],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.test.jsx"]}],
         "max-len": "off",
         "func-names": "off"
     },
     "settings": {
         "import/resolver": {
             "node": {
-                "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                "extensions": [".js", ".jsx"],
                 "paths": ["./src"]
             }
         }

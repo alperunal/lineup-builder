@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { injectIntl, FormattedMessage, IntlShape } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 import { Container, Card } from 'components/UI';
 import heroImgSrc from 'assets/images/hero.png';
 import footballImgSrc from 'assets/images/football.jpg';
@@ -8,11 +8,7 @@ import footballFieldImgSrc from 'assets/images/football-field.jpg';
 import footballPlayersImgSrc from 'assets/images/football-players.jpg';
 import './Home.module.scss';
 
-interface IProps {
-    intl: IntlShape;
-}
-
-const Home: React.FC<IProps> = ({ intl }: IProps) => (
+const Home = ({ intl }) => (
     <div className="home">
         <div className="hero">
             <Container>

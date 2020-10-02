@@ -1,6 +1,4 @@
-/* eslint-disable lines-between-class-members */
 import React from 'react';
-import { positionType } from 'constants/types';
 
 export const Positions = {
     ST: {
@@ -174,21 +172,13 @@ export const Positions = {
 };
 
 export class PositionArea {
-    name: positionType;
-    color: string;
-
-    constructor(name: positionType, color: string) {
+    constructor(name, color) {
         this.name = name;
         this.color = color;
     }
 
-    getStyle(): {
-        top: string,
-        left: string,
-        width: string,
-        height: string,
-        } {
-        const pos = Positions[this.name as positionType];
+    getStyle() {
+        const pos = Positions[this.name];
         return {
             top: `${pos.dimensions.y0}px`,
             left: `${pos.dimensions.x0}px`,
@@ -197,7 +187,7 @@ export class PositionArea {
         };
     }
 
-    getArea(): JSX.Element {
+    getArea() {
         return (
             <div
                 style={{

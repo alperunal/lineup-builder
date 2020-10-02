@@ -1,26 +1,15 @@
 import React from 'react';
+
 import Player from 'components/TacticBuilder/Player/Player';
-import { IPlayer } from 'constants/model';
 import { PositionArea } from 'constants/position';
+
 import grassTile from 'assets/tiles/grass-tile.png';
 import wetGrassTile from 'assets/tiles/wet-grass-tile.png';
 import dryGrassTile from 'assets/tiles/dry-grass-tile.png';
+
 import './Field.module.scss';
 
-type Props = {
-    width: number;
-    height: number;
-    players: IPlayer[];
-    mainColor: string;
-    secondaryColor: string;
-    numberColor: string;
-    fieldType: string;
-    id: string;
-    setPlayerPosition: (id: string, x: number, y: number) => void;
-    showPositionAreas: boolean;
-}
-
-function getFieldStyle(fieldType: string) {
+function getFieldStyle(fieldType) {
     switch (fieldType) {
     case 'hard':
         return 'none';
@@ -35,9 +24,9 @@ function getFieldStyle(fieldType: string) {
     }
 }
 
-const Field: React.FC<Props> = ({
+const Field = ({
     width, height, players, mainColor, secondaryColor, numberColor, id, fieldType, setPlayerPosition, showPositionAreas,
-}: Props) => {
+}) => {
     const positionList = [
         new PositionArea('ST', '#4d4dff'),
         new PositionArea('WL', '#a862ea'),
@@ -98,7 +87,7 @@ const Field: React.FC<Props> = ({
             </div>
             {showPositionAreas ? (
                 <>
-                    {positionList.map((position: PositionArea) => (
+                    {positionList.map((position) => (
                         position.getArea()
                     ))}
                 </>

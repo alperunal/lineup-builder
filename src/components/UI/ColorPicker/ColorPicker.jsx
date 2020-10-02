@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import { SketchPicker } from 'react-color';
 import './ColorPicker.scss';
 
-interface IProps {
-    color: string;
-    setColor: (color: string) => void;
-}
-
-const ColorPicker = ({ color, setColor }: IProps) => {
+const ColorPicker = ({ color, setColor }) => {
     const [displayColorPicker, setDisplayColorPicker] = useState(false);
 
     return (
