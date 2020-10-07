@@ -1,5 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
+
 import './Switch.module.scss';
 
 const Switch = ({
@@ -27,5 +29,12 @@ const Switch = ({
         />
     </label>
 );
+
+Switch.propTypes = {
+    id: PropTypes.string.isRequired,
+    checked: PropTypes.bool.isRequired,
+    size: PropTypes.string.isRequired,
+    handleChange: PropTypes.func.isRequired,
+};
 
 export default Switch;

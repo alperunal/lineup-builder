@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { Container } from 'components/UI';
+
 import imageSrc from 'assets/images/logo.png';
+
 import './Footer.module.scss';
 
 const Footer = () => (

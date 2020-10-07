@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { injectIntl, FormattedMessage, IntlShape } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import StoreContext from 'store';
+import PropTypes from 'prop-types';
 
 import ColorPicker from 'components/UI/ColorPicker/ColorPicker';
-import Field from 'components/TacticBuilder/Field/Field';
-import Squad from 'components/TacticBuilder/Squad/Squad';
-import { ground, formations } from 'constants/constants';
-import { generatePlayers, getFormation } from 'helpers/player-generator';
+import Field from 'components/LineupBuilder/Field/Field';
+import Squad from 'components/LineupBuilder/Squad/Squad';
+import { GROUND, FORMATIONS } from 'constants';
 import {
-    capture, save, load, share, loadSharedLineup,
-} from 'helpers/actions';
+    capture, save, load, share, loadSharedLineup, generatePlayers, getFormation,
+} from 'utils';
 import { Block, Container } from 'components/UI';
 
 import captureIcon from 'assets/icons/photo.svg';
@@ -20,7 +20,7 @@ import shareIcon from 'assets/icons/share.svg';
 import loadIcon from 'assets/icons/upload.svg';
 import clipIcon from 'assets/icons/clippy.svg';
 
-import './Tactic.module.scss';
+import './Lineup.module.scss';
 
 const ShareMessage = ({ link, intl }) => (
     <div className="share-message">
@@ -142,8 +142,9 @@ const Tactic = ({ intl }) => {
     function changeFormation(newFormation) {
         const positions = getFormation(newFormation);
         setPlayers(players.map((player, i) => {
-            player.position = positions[i] || player.position;
-            return player;
+            const playerElement = player;
+            playerElement.position = positions[i] || player.position;
+            return playerElement;
         }));
         setFormation(newFormation);
     }
@@ -165,8 +166,8 @@ const Tactic = ({ intl }) => {
                 <div className="tactic__tactic-field">
                     <div className="tactic__field-wrapper">
                         <Field
-                            width={ground.width}
-                            height={ground.height}
+                            width={GROUND.width}
+                            height={GROUND.height}
                             players={players}
                             mainColor={mainColor}
                             secondaryColor={secondaryColor}
@@ -236,7 +237,7 @@ const Tactic = ({ intl }) => {
                         customClass="options"
                     >
                         <div className="form-group">
-                            <label className="label" htmlFor="tacticName">
+                            <label className="label" htmlFor="tactic-name">
                                 <FormattedMessage
                                     id="lineup.options.name"
                                     defaultMessage="Lineup Name"
@@ -244,8 +245,8 @@ const Tactic = ({ intl }) => {
                             </label>
                             <input
                                 className="input form-control"
-                                id="tacticName"
-                                name="tacticName"
+                                id="tactic-name"
+                                name="tactic-name"
                                 type="text"
                                 value={name}
                                 onChange={(event) => setName(event.target.value)}
@@ -277,7 +278,7 @@ const Tactic = ({ intl }) => {
                                 value={formation}
                                 className="form-control"
                             >
-                                {formations.map((_formation) => (
+                                {FORMATIONS.map((_formation) => (
                                     <option
                                         key={_formation}
                                         value={_formation}
@@ -322,6 +323,19 @@ const Tactic = ({ intl }) => {
             </Container>
         </div>
     );
+};
+
+ShareMessage.propTypes = {
+    link: PropTypes.string.isRequired,
+    intl: PropTypes.shape({
+        formatMessage: PropTypes.func.isRequired,
+    }).isRequired,
+};
+
+Tactic.propTypes = {
+    intl: PropTypes.shape({
+        formatMessage: PropTypes.func.isRequired,
+    }).isRequired,
 };
 
 export default injectIntl(Tactic);

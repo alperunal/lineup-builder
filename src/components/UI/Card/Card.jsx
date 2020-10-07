@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 
 import './Card.scss';
 
@@ -31,6 +32,14 @@ const Card = ({
         </div>
     </div>
 );
+
+Card.propTypes = {
+    customClass: PropTypes.string,
+    imageSrc: PropTypes.string,
+    imageAlt: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+};
 
 Card.defaultProps = {
     customClass: '',

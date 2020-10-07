@@ -1,5 +1,6 @@
 import React from 'react';
 import Draggable from 'react-draggable';
+import PropTypes from 'prop-types';
 
 import goalIcon from 'assets/icons/soccer-ball.svg';
 import yellowCardIcon from 'assets/icons/yellow-card.svg';
@@ -63,6 +64,21 @@ const Player = ({
         </div>
     </Draggable>
 );
+
+Player.propTypes = {
+    name: PropTypes.string.isRequired,
+    num: PropTypes.string.isRequired,
+    x: PropTypes.number.isRequired,
+    y: PropTypes.number.isRequired,
+    mainColor: PropTypes.string.isRequired,
+    secondaryColor: PropTypes.string.isRequired,
+    numberColor: PropTypes.string,
+    goal: PropTypes.bool.isRequired,
+    yellowCard: PropTypes.bool.isRequired,
+    redCard: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired,
+    setPlayerPosition: PropTypes.func.isRequired,
+};
 
 Player.defaultProps = {
     numberColor: '#FFFFFF',

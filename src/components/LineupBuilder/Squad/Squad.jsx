@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
 
 import GoalIcon from 'assets/icons/goal_icon.svg';
 import YellowIcon from 'assets/icons/yellow_card_icon.svg';
@@ -122,5 +123,22 @@ const Squad = ({ players, editPlayer }) => (
         </table>
     </div>
 );
+
+Squad.propTypes = {
+    players: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired,
+            position: PropTypes.shape({
+                x: PropTypes.number.isRequired,
+                y: PropTypes.number.isRequired,
+            }).isRequired,
+            goal: PropTypes.bool.isRequired,
+            yellowCard: PropTypes.bool.isRequired,
+            redCard: PropTypes.bool.isRequired,
+        }),
+    ).isRequired,
+    editPlayer: PropTypes.func.isRequired,
+};
 
 export default Squad;

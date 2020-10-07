@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { injectIntl, FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
+
 import { Container, Card } from 'components/UI';
+
 import heroImgSrc from 'assets/images/hero.png';
 import footballImgSrc from 'assets/images/football.jpg';
 import footballFieldImgSrc from 'assets/images/football-field.jpg';
 import footballPlayersImgSrc from 'assets/images/football-players.jpg';
+
 import './Home.module.scss';
 
 const Home = ({ intl }) => (
@@ -75,5 +79,11 @@ const Home = ({ intl }) => (
         </div>
     </div>
 );
+
+Home.propTypes = {
+    intl: PropTypes.shape({
+        formatMessage: PropTypes.func.isRequired,
+    }).isRequired,
+};
 
 export default injectIntl(Home);

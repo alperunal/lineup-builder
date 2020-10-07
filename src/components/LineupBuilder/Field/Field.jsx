@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import Player from 'components/TacticBuilder/Player/Player';
+import Player from 'components/LineupBuilder/Player/Player';
 import { PositionArea } from 'constants/position';
 
 import grassTile from 'assets/tiles/grass-tile.png';
@@ -113,6 +114,21 @@ const Field = ({
             </div>
         </div>
     );
+};
+
+Field.propTypes = {
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    players: PropTypes.arrayOf(
+        PropTypes.shape().isRequired,
+    ).isRequired,
+    mainColor: PropTypes.string.isRequired,
+    secondaryColor: PropTypes.string.isRequired,
+    numberColor: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    fieldType: PropTypes.string.isRequired,
+    setPlayerPosition: PropTypes.func.isRequired,
+    showPositionAreas: PropTypes.func.isRequired,
 };
 
 export default Field;

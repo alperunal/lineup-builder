@@ -9,7 +9,7 @@
         "components/*": ["src/components/*"],
         "constants/*": ["src/constants/*"],
         "containers/*": ["src/containers/*"],
-        "helpers/*": ["src/helpers/*"],
+        "utils/*": ["src/utils/*"],
         "languages/*": ["src/languages/*"],
         "store/*": ["src/store/*"],
         "styles/*": ["src/styles/*"]

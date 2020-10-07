@@ -8,16 +8,16 @@ import StoreContext from 'store';
 import Header from 'components/Header/Header';
 import Home from 'components/Home/Home';
 import Footer from 'components/Footer/Footer';
-import Tactic from 'containers/Tactic/Tactic';
+import Lineup from 'containers/Lineup/Lineup';
 import { Spinner } from 'components/UI';
 
 import messagesEN from 'languages/en.json';
 import messagesTR from 'languages/tr.json';
 
-import { paths } from 'constants/routes';
+import Routes from 'routes';
 
 import './App.module.scss';
-// import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure();
 const App = () => {
@@ -71,13 +71,13 @@ const App = () => {
                     <Header />
                     <div className="content">
                         <Switch>
-                            <Route path={`${paths.lineup}/:lineupId`}>
-                                <Tactic />
+                            <Route path={`${Routes.lineup.path}/:lineupId`}>
+                                <Lineup />
                             </Route>
-                            <Route path={paths.lineup}>
-                                <Tactic />
+                            <Route path={Routes.lineup.path}>
+                                <Lineup />
                             </Route>
-                            <Route path={paths.root}>
+                            <Route path={Routes.home.path}>
                                 <Home />
                             </Route>
                         </Switch>

@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import cn from 'classnames';
-import imageSrc from 'assets/images/logo.png';
 import { Link } from 'react-router-dom';
+
 import StoreContext from 'store';
 import { Container, Switch } from 'components/UI';
+import Routes from 'routes';
+
 import HamburgerIcon from 'assets/icons/hamburger-menu.svg';
-import { paths } from 'constants/routes';
+import imageSrc from 'assets/images/logo.png';
+
 import './Header.module.scss';
 
 const Header = () => {
@@ -19,7 +22,7 @@ const Header = () => {
     const linkList = (
         <ul className="nav__list">
             <li className="nav__list-item">
-                <Link to={paths.root}>
+                <Link to={Routes.home.path}>
                     <FormattedMessage
                         id="header.home"
                         description="Homepage"
@@ -28,7 +31,7 @@ const Header = () => {
                 </Link>
             </li>
             <li className="nav__list-item">
-                <Link to={paths.lineup}>
+                <Link to={Routes.lineup.path}>
                     <FormattedMessage
                         id="header.lineup"
                         description="Lineup Builder"
