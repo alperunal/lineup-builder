@@ -1,13 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
-    './src/index.tsx'
+    './src/index.js'
   ],
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -15,18 +13,18 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.jsx', '.js'],
     alias: {
-      'react-dom': '@hot-loader/react-dom',
       'api': path.resolve(__dirname, 'src/api/'),
       'assets': path.resolve(__dirname, 'src/assets/'),
       'components': path.resolve(__dirname, 'src/components/'),
       'constants': path.resolve(__dirname, 'src/constants/'),
       'containers': path.resolve(__dirname, 'src/containers/'),
-      'helpers': path.resolve(__dirname, 'src/helpers/'),
+      'utils': path.resolve(__dirname, 'src/utils/'),
       'languages': path.resolve(__dirname, 'src/languages/'),
       'store': path.resolve(__dirname, 'src/store/'),
-      'styles': path.resolve(__dirname, 'src/styles/')
+      'styles': path.resolve(__dirname, 'src/styles/'),
+      'routes': path.resolve(__dirname, 'src/routes/')
     }
   },
   devServer: {
@@ -79,12 +77,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader'],
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: 'ts-loader',
+        loader: 'file-loader',
+        options: {
+          outputPath: 'assets',
+        },
       },
     ],
   },
@@ -98,7 +94,6 @@ module.exports = {
       React: 'react',
     }),
     new Dotenv(),
-    // new BundleAnalyzerPlugin(),
   ],
   node: {
     fs: 'empty',

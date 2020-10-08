@@ -1,117 +1,100 @@
 {
-  "name": "voety",
-  "version": "2.0.0",
-  "description": "Football Formation Builder",
-  "keywords": [],
-  "main": "src/index.tsx",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "classnames": "^2.2.6",
-    "dotenv": "^8.2.0",
-    "html2canvas": "^1.0.0-rc.5",
-    "netlify-lambda": "^1.6.3",
-    "normalize.css": "^8.0.1",
-    "react": "^16.13.1",
-    "react-color": "^2.17.3",
-    "react-dom": "^16.13.1",
-    "react-draggable": "^4.4.2",
-    "react-hot-loader": "^4.12.21",
-    "react-intl": "^5.0.2",
-    "react-redux": "7.1.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1",
-    "react-toastify": "^6.0.8"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/plugin-transform-runtime": "^7.10.5",
-    "@babel/preset-env": "^7.10.3",
-    "@babel/preset-react": "^7.10.1",
-    "@babel/preset-typescript": "^7.3.3",
-    "@hot-loader/react-dom": "^16.13.0+4.12.20",
-    "@testing-library/react": "^10.4.7",
-    "@types/axios": "^0.14.0",
-    "@types/classnames": "^2.2.10",
-    "@types/enzyme": "^3.10.1",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/jest": "^24.0.15",
-    "@types/node": "^14.0.14",
-    "@types/react": "^16.9.41",
-    "@types/react-color": "^3.0.4",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-redux": "^7.1.1",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/styled-components": "^4.1.16",
-    "@typescript-eslint/eslint-plugin": "^3.5.0",
-    "@typescript-eslint/parser": "^3.5.0",
-    "babel-jest": "^26.1.0",
-    "babel-loader": "^8.1.0",
-    "css-loader": "^3.6.0",
-    "dotenv-webpack": "^2.0.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "eslint": "^7.4.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-formatjs": "^2.3.21",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.3",
-    "eslint-plugin-react-hooks": "^4.0.5",
-    "file-loader": "^6.0.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^4.3.0",
-    "jest": "^26.1.0",
-    "mongoose": "^5.10.0",
-    "node-sass": "^4.14.1",
-    "prettier": "^2.0.5",
-    "react-snap": "^1.23.0",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.1",
-    "ts-loader": "^7.0.5",
-    "typescript": "^3.9.6",
-    "url-loader": "^4.1.0",
-    "webpack": "^4.43.0",
-    "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
-  },
-  "scripts": {
-    "start": "webpack-dev-server --hot --open --mode development",
-    "build": "webpack -p --mode production",
-    "build-dev": "webpack -d --mode development",
-    "lambda-serve": "netlify-lambda serve functions",
-    "lambda-build": "netlify-lambda build functions",
-    "prettier": "prettier --write src/**/*.{ts,tsx,js,jsx}",
-    "test": "jest",
-    "postbuild": "react-snap"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "ts",
-      "tsx"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
+    "name": "voety",
+    "version": "2.0.0",
+    "description": "Football Formation Builder",
+    "keywords": [],
+    "main": "src/index.js",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "classnames": "^2.2.6",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "html2canvas": "^1.0.0-rc.5",
+        "normalize.css": "^8.0.1",
+        "prop-types": "^15.7.2",
+        "react": "^16.13.1",
+        "react-color": "^2.17.3",
+        "react-dom": "^16.13.1",
+        "react-draggable": "^4.4.2",
+        "react-intl": "^5.0.2",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "^3.4.1",
+        "react-toastify": "^6.0.8"
     },
-    "setupFilesAfterEnv": [
-      "./src/setupTests.ts"
-    ],
-    "modulePaths": [
-      "src"
+    "devDependencies": {
+        "@babel/core": "^7.10.3",
+        "@babel/plugin-transform-runtime": "^7.10.5",
+        "@babel/preset-env": "^7.10.3",
+        "@babel/preset-react": "^7.10.1",
+        "@testing-library/react": "^10.4.7",
+        "babel-jest": "^26.1.0",
+        "babel-loader": "^8.1.0",
+        "css-loader": "^3.6.0",
+        "dotenv-webpack": "^2.0.0",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
+        "eslint": "^7.4.0",
+        "eslint-config-airbnb": "^18.2.0",
+        "eslint-plugin-formatjs": "^2.3.21",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-react": "^7.21.2",
+        "eslint-plugin-react-hooks": "^4.0.5",
+        "file-loader": "^6.0.0",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^4.3.0",
+        "isomorphic-style-loader": "^5.1.0",
+        "jest": "^26.1.0",
+        "node-sass": "^4.14.1",
+        "nodemon": "^2.0.4",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.0.5",
+        "sass": "^1.26.5",
+        "sass-loader": "^8.0.2",
+        "style-loader": "^1.2.1",
+        "url-loader": "^4.1.0",
+        "webpack": "^4.43.0",
+        "webpack-bundle-analyzer": "^3.8.0",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0",
+        "webpack-node-externals": "^2.5.2"
+    },
+    "scripts": {
+        "start": "webpack-dev-server --open --mode development",
+        "dev:build-server": "NODE_ENV=development webpack --config webpack.server.js --mode=development -w",
+        "dev:start": "nodemon ./server-build/index.js",
+        "dev": "npm-run-all --parallel build dev:*",
+        "build": "webpack -p --mode production",
+        "build-dev": "webpack -d --mode development",
+        "prettier": "prettier --write src/**/*.{ts,tsx,js,jsx}",
+        "test": "jest",
+        "clean": "rm -rf node_modules",
+        "eslint": "eslint ."
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "jsx"
+        ],
+        "moduleDirectories": [
+            "node_modules"
+        ],
+        "moduleNameMapper": {
+            "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js"
+        },
+        "setupFilesAfterEnv": [
+            "./src/setupTests.js"
+        ],
+        "modulePaths": [
+            "src"
+        ]
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
     ]
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
 }

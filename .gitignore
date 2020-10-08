@@ -1,11 +1,12 @@
 .cache/
 coverage/
-dist/*
-build/*
+dist/
+build/
 !dist/index.html
 node_modules/
 *.log
 .env
+server-build/
 
 # OS generated files
 .DS_Store
