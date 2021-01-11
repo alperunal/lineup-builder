@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import { Container, Card } from 'components/UI';
 
 import heroImgSrc from 'assets/images/hero.png';
-import footballImgSrc from 'assets/images/football.jpg';
-import footballFieldImgSrc from 'assets/images/football-field.jpg';
-import footballPlayersImgSrc from 'assets/images/football-players.jpg';
+import footballImgSrc from 'assets/images/dragndrop.png';
+import footballFieldImgSrc from 'assets/images/fieldtype.png';
+import footballPlayersImgSrc from 'assets/images/formation.png';
 
 import './Home.module.scss';
 
