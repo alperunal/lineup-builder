@@ -1,41 +1,41 @@
 @import 'styles/_variables.scss';
 
 .footer {
-    background-color: var(--color-footer-background);
-    border-color: var(--color-border);
-    border-top-width: 1px;
-    border-top-style: solid;
-    width: 100%;
+  background-color: var(--color-footer-background);
+  border-color: var(--color-border);
+  border-top-width: 1px;
+  border-top-style: solid;
+  width: 100%;
 
-    &__logo {
-        display: flex;
-        text-align: center;
-        padding: 24px 0;
-        margin: auto;
+  &__logo {
+    display: flex;
+    text-align: center;
+    padding: 24px 0;
+    margin: auto;
 
-        img {
-            height: 35px;
-            width: auto;
-        }
+    img {
+      height: 35px;
+      width: auto;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 48px 0;
+    margin: auto;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    flex-direction: column;
+
+    @media (min-width: $breakpoint--md) {
+      flex-direction: row;
     }
 
-    &__copyright {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 0 48px 0;
-        margin: auto;
-        color: var(--color-text-secondary);
-        font-size: 14px;
-        flex-direction: column;
-
-        @media (min-width: $breakpoint--md) {
-            flex-direction: row;
-        }
-
-        a {
-            color: var(--color-link);
-            font-weight: bold;
-        }
+    a {
+      color: var(--color-link);
+      font-weight: bold;
     }
+  }
 }

@@ -1,36 +1,31 @@
-Voety
-===
-Simple Football Lineup Builder.
+# Voety
 
-[![Build Status](https://travis-ci.org/alperunal/voet.svg?branch=master)](https://travis-ci.org/alperunal/voet)
+Voety - Simple Football Lineup Builder
 
-How to run?
----
+## How to run?
 
 If you are a total beginner to this, start here!
 
 1. Install
 
-    ```
-    git clone https://github.com/alperunal/voety.git
-    cd voety
-    yarn install
-    ```
+   ```
+   git clone https://github.com/alperunal/voety.git
+   cd voety
+   yarn install
+   ```
 
 2. Run
 
-    `yarn start`
+   `yarn start`
 
 3. Build
 
-    `yarn build`
+   `yarn build`
 
 4. Test
 
-    `yarn test`
+   `yarn test`
 
-
-Live Demo
----
+## Live
 
 https://www.voety.net/

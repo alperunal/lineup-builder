@@ -4,37 +4,22 @@ import PropTypes from 'prop-types';
 
 import './Block.module.scss';
 
-const Block = ({
-    title, customClass, children,
-}) => (
-    <div
-        className={
-            cn(
-                'block',
-                customClass,
-            )
-        }
-    >
-        {title ? (
-            <div className="heading">
-                {title}
-            </div>
-        ) : null}
-        <div className="content">
-            {children}
-        </div>
-    </div>
+const Block = ({ title, customClass, children }) => (
+  <div className={cn('block', customClass)}>
+    {title ? <div className="heading">{title}</div> : null}
+    <div className="content">{children}</div>
+  </div>
 );
 
 Block.propTypes = {
-    title: PropTypes.string,
-    customClass: PropTypes.string,
-    children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+  customClass: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 Block.defaultProps = {
-    title: '',
-    customClass: '',
+  title: '',
+  customClass: '',
 };
 
 export default Block;
