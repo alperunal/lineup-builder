@@ -1,8 +1,6 @@
 # Voety
 
-Simple Football Lineup Builder.
-
-[![Build Status](https://travis-ci.org/alperunal/voet.svg?branch=master)](https://travis-ci.org/alperunal/voet)
+Voety - Simple Football Lineup Builder
 
 ## How to run?
 
@@ -28,6 +26,6 @@ If you are a total beginner to this, start here!
 
    `yarn test`
 
-## Live Demo
+## Live
 
 https://www.voety.net/

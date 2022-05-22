@@ -67,7 +67,7 @@
     "prettier": "prettier --write src/**/*.{ts,tsx,js,jsx}",
     "test": "jest",
     "clean": "rm -rf node_modules && rm package-lock.json",
-    "eslint": "./node_modules/.bin/eslint ."
+    "lint": "./node_modules/.bin/eslint ."
   },
   "jest": {
     "moduleFileExtensions": [
