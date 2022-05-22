@@ -1,78 +1,78 @@
 .field {
-    position: relative;
-    height: 500px;
+  position: relative;
+  height: 500px;
+  width: 100%;
+  background-color: #1b7e45;
+  overflow: auto;
+
+  @media (min-width: 350px) {
+    overflow: hidden;
+  }
+
+  &__drag-layer {
+    position: absolute;
     width: 100%;
-    background-color: #1b7e45;
-    overflow: auto;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
 
-    @media(min-width: 350px) {
-        overflow: hidden;
-    }
+  &__grass-texture {
+    position: absolute;
+    background-repeat: repeat;
+    background-size: 75px 75px;
+    background-position: -20px -20px;
+  }
 
-    &__drag-layer {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-    }
+  &__field-lines {
+    width: 350px;
+    height: 500px;
+    border: solid 3px rgba(255, 255, 255, 0.5);
+    position: relative;
+  }
 
-    &__grass-texture {
-        position: absolute;
-        background-repeat: repeat;
-        background-size: 75px 75px;
-        background-position: -20px -20px;
-    }
+  &__goal-line {
+    width: 16%;
+    height: 6%;
+    border: solid 3px rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-    &__field-lines {
-        width: 350px;
-        height: 500px;
-        border: solid 3px rgba(255, 255, 255, 0.5);
-        position: relative;
-    }
+  &__penalty-line {
+    position: absolute;
+    width: 44%;
+    height: 14%;
+    border: solid 3px rgba(255, 255, 255, 0.5);
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
 
-    &__goal-line {
-        width: 16%;
-        height: 6%;
-        border: solid 3px rgba(255, 255, 255, 0.5);
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+  &__middle-line {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 0;
+    border: solid 2px rgba(255, 255, 255, 0.5);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+  }
 
-    &__penalty-line {
-        position: absolute;
-        width: 44%;
-        height: 14%;
-        border: solid 3px rgba(255, 255, 255, 0.5);
-        left: 0;
-        right: 0;
-        margin: auto;
-    }
-
-    &__middle-line {
-        position: absolute;
-        box-sizing: border-box;
-        width: 100%;
-        height: 0;
-        border: solid 2px rgba(255, 255, 255, 0.5);
-        top: 50%;
-        transform: translateY(-50%);
-        left: 0;
-        right: 0;
-    }
-
-    &__middle-circle {
-        position: absolute;
-        box-sizing: border-box;
-        width: 20%;
-        height: 16%;
-        border: solid 3px rgba(255, 255, 255, 0.5);
-        top: 50%;
-        transform: translateY(-50%);
-        left: 0;
-        right: 0;
-        margin: auto;
-        border-radius: 50%;
-    }
+  &__middle-circle {
+    position: absolute;
+    box-sizing: border-box;
+    width: 20%;
+    height: 16%;
+    border: solid 3px rgba(255, 255, 255, 0.5);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 50%;
+  }
 }

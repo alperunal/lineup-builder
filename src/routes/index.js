@@ -1,10 +1,10 @@
 export default {
-    home: {
-        path: '/',
-        name: 'home',
-    },
-    lineup: {
-        path: '/lineup',
-        name: 'lineup',
-    },
+  home: {
+    path: '/',
+    name: 'home',
+  },
+  lineup: {
+    path: '/lineup',
+    name: 'lineup',
+  },
 };

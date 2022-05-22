@@ -6,5 +6,5 @@ import Switch from './Switch/Switch';
 import Spinner from './Spinner/Spinner';
 
 export {
-    Block, Card, Container, ColorPicker, Switch, Spinner,
+  Block, Card, Container, ColorPicker, Switch, Spinner,
 };

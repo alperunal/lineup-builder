@@ -1,55 +1,55 @@
 @import 'styles/_variables.scss';
 
 .player {
-    border-radius: 50%;
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $breakpoint--md) {
+    width: 30px;
+    height: 30px;
+  }
+
+  &__num {
+    font-size: 12px;
+    font-weight: bold;
 
     @media (min-width: $breakpoint--md) {
-        width: 30px;
-        height: 30px;
+      font-size: 16px;
     }
+  }
 
-    &__num {
-        font-size: 12px;
-        font-weight: bold;
+  &__name {
+    position: absolute;
+    top: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+    white-space: nowrap;
 
-        @media (min-width: $breakpoint--md) {
-            font-size: 16px;
-        }
+    @media (min-width: $breakpoint--md) {
+      top: 25px;
+      font-size: 15px;
     }
+  }
 
-    &__name {
-        position: absolute;
-        top: 20px;
-        font-size: 13px;
-        font-weight: bold;
-        color: #fff;
-        text-shadow: 2px 2px #000;
-        white-space: nowrap;
+  &__goal {
+    position: absolute;
+    left: -10px;
+    top: 13px;
+  }
 
-        @media (min-width: $breakpoint--md) {
-            top: 25px;
-            font-size: 15px;
-        }
-    }
-
-    &__goal {
-        position: absolute;
-        left: -10px;
-        top: 13px;
-    }
-
-    &__card {
-        position: absolute;
-        left: 15px;
-        top: -13px;
-    }
+  &__card {
+    position: absolute;
+    left: 15px;
+    top: -13px;
+  }
 }

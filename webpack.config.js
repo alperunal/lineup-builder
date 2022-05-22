@@ -4,32 +4,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.jsx', '.js'],
     alias: {
-      'api': path.resolve(__dirname, 'src/api/'),
-      'assets': path.resolve(__dirname, 'src/assets/'),
-      'components': path.resolve(__dirname, 'src/components/'),
-      'constants': path.resolve(__dirname, 'src/constants/'),
-      'containers': path.resolve(__dirname, 'src/containers/'),
-      'utils': path.resolve(__dirname, 'src/utils/'),
-      'languages': path.resolve(__dirname, 'src/languages/'),
-      'store': path.resolve(__dirname, 'src/store/'),
-      'styles': path.resolve(__dirname, 'src/styles/'),
-      'routes': path.resolve(__dirname, 'src/routes/')
-    }
+      api: path.resolve(__dirname, 'src/api/'),
+      assets: path.resolve(__dirname, 'src/assets/'),
+      components: path.resolve(__dirname, 'src/components/'),
+      constants: path.resolve(__dirname, 'src/constants/'),
+      containers: path.resolve(__dirname, 'src/containers/'),
+      utils: path.resolve(__dirname, 'src/utils/'),
+      languages: path.resolve(__dirname, 'src/languages/'),
+      store: path.resolve(__dirname, 'src/store/'),
+      styles: path.resolve(__dirname, 'src/styles/'),
+      routes: path.resolve(__dirname, 'src/routes/'),
+    },
   },
   devServer: {
     contentBase: './build',
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -97,5 +95,5 @@ module.exports = {
   ],
   node: {
     fs: 'empty',
-  }
+  },
 };

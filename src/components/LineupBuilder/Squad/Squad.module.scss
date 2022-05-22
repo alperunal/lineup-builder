@@ -1,39 +1,39 @@
 @import 'styles/_variables.scss';
 
 .squad {
-    box-sizing: border-box;
-    margin-top: 25px;
+  box-sizing: border-box;
+  margin-top: 25px;
 
-    .player-table {
-        overflow-x: auto;
+  .player-table {
+    overflow-x: auto;
 
-        &__name {
-            width: 30%;
-            input {
-                width: 100%;
-            }
-        }
-
-        &__no {
-            width: 15%;
-            input {
-                width: 100%;
-            }
-        }
-
-        &__icon {
-            width: 10%;
-            padding-left: 5px;
-            text-align: center;
-
-            input {
-                display: block;
-                margin: auto;
-            }
-        }
-
-        img {
-            height: 24px;
-        }
+    &__name {
+      width: 30%;
+      input {
+        width: 100%;
+      }
     }
+
+    &__no {
+      width: 15%;
+      input {
+        width: 100%;
+      }
+    }
+
+    &__icon {
+      width: 10%;
+      padding-left: 5px;
+      text-align: center;
+
+      input {
+        display: block;
+        margin: auto;
+      }
+    }
+
+    img {
+      height: 24px;
+    }
+  }
 }

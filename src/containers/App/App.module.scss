@@ -1,14 +1,14 @@
 @import 'styles/_variables.scss';
 
 .app {
-    .content {
-        background-color: var(--color-page-background);
-        color: var(--color-text);
+  .content {
+    background-color: var(--color-page-background);
+    color: var(--color-text);
 
-        min-height: calc(100vh - 65px - 174px);
+    min-height: calc(100vh - 65px - 174px);
 
-        @media(min-width: $breakpoint--lg) {
-            min-height: calc(100vh - 65px - 153px);
-        }
+    @media (min-width: $breakpoint--lg) {
+      min-height: calc(100vh - 65px - 153px);
     }
+  }
 }
