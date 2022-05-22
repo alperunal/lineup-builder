@@ -16,9 +16,6 @@ const Footer = () => (
         <span className="footer__copyright-text">
           Copyright © 2020 Voety. All rights reserved.
         </span>
-        <span className="footer__made-by">
-          Made with ❤ by <a href="https://www.alperunal.com/">Alper Unal</a>
-        </span>
       </div>
     </Container>
   </footer>
