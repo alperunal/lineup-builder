@@ -1,104 +1,108 @@
 @import 'styles/_variables.scss';
 
 .home {
-    text-align: center;
+  text-align: center;
 
-    @media(min-width: $breakpoint--lg) {
-        text-align: left;
+  @media (min-width: $breakpoint--lg) {
+    text-align: left;
+  }
+
+  .hero {
+    background: var(--color-hero-background);
+    padding: 150px 0;
+
+    &__items {
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: $breakpoint--lg) {
+        flex-direction: row;
+      }
     }
 
-    .hero {
-        background: var(--color-hero-background);
-        padding: 150px 0;
+    &__item {
+      @media (min-width: $breakpoint--lg) {
+        width: 50%;
+      }
 
-        &__items {
-            display: flex;
-            flex-direction: column;
+      &--right {
+        display: none;
+        justify-content: flex-end;
 
-            @media(min-width: $breakpoint--lg) {
-                flex-direction: row;
-            }
+        @media (min-width: $breakpoint--lg) {
+          display: flex;
         }
-    
-        &__item {
-
-            @media(min-width: $breakpoint--lg) {
-                width: 50%;
-            }
-            
-            &--right {
-                display: none;
-                justify-content: flex-end;
-
-                @media(min-width: $breakpoint--lg) {
-                    display: flex;
-                }
-            }
-        }
-
-        &__description {
-            font-size:18px;
-            letter-spacing:-0.01em;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-
-        &__button {
-            animation: btn-gradient-animation 3s ease-in-out infinite;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 18px;
-            padding: 15px 68px;
-            margin-top: 50px;
-            color: #fff !important;
-            text-decoration: none !important;
-            cursor: pointer;
-            outline: 0;
-            text-transform: uppercase;
-            vertical-align: middle;
-            -webkit-tap-highlight-color: transparent;
-            text-align: center;
-            letter-spacing: 3px;
-            display: inline-block;
-            background: #F17C35;
-            background: linear-gradient(45deg, #F17C35 0%, #E2336E 64%, #E2336E 56%, #F17C35 100%);
-            background-size: 150% 150%;
-            transition: background-position 0.7s ease-in-out;
-        }
+      }
     }
 
-    &__start {
-        padding: 125px 0;
+    &__description {
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      line-height: 1.7;
+      font-weight: 400;
     }
 
-    &__cards {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        @media(min-width: $breakpoint--lg) {
-            flex-direction: row;
-            justify-content: center;
-        }
+    &__button {
+      animation: btn-gradient-animation 3s ease-in-out infinite;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 15px 68px;
+      margin-top: 50px;
+      color: #fff !important;
+      text-decoration: none !important;
+      cursor: pointer;
+      outline: 0;
+      text-transform: uppercase;
+      vertical-align: middle;
+      -webkit-tap-highlight-color: transparent;
+      text-align: center;
+      letter-spacing: 3px;
+      display: inline-block;
+      background: #f17c35;
+      background: linear-gradient(
+        45deg,
+        #f17c35 0%,
+        #e2336e 64%,
+        #e2336e 56%,
+        #f17c35 100%
+      );
+      background-size: 150% 150%;
+      transition: background-position 0.7s ease-in-out;
     }
+  }
 
-    &__card {
-        width: 250px;
-        margin: 25px;
+  &__start {
+    padding: 125px 0;
+  }
 
-        @media(min-width: $breakpoint--lg) {
-            width: 25%;
-        }
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $breakpoint--lg) {
+      flex-direction: row;
+      justify-content: center;
     }
+  }
 
-    
-    h1 {
-        font-size: 3em;
-    }
+  &__card {
+    width: 250px;
+    margin: 25px;
 
-    h2 {
-        font-size: 2em;
-        color: #666666;
+    @media (min-width: $breakpoint--lg) {
+      width: 25%;
     }
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2em;
+    color: #666666;
+  }
 }

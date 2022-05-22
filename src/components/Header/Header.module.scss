@@ -1,107 +1,107 @@
 @import 'styles/_variables.scss';
 
 .header {
-    position: sticky;
-    top: 0;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  z-index: 101;
+  min-height: 65px;
+  transition: box-shadow 0.1s ease 0s;
+  box-shadow: var(--color-header-shadow);
+  background-color: var(--color-header-background);
+  height: 64px;
+
+  &__content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    max-width: 100%;
-    z-index: 101;
-    min-height: 65px;
-    transition: box-shadow .1s ease 0s;
-    box-shadow: var(--color-header-shadow);
-    background-color: var(--color-header-background);
-    height: 64px;
+    height: 100%;
+  }
 
-    &__content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: 100%;
+  &__logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .hamburger-button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .hamburger-menu {
+    height: 30px;
+
+    @media (min-width: $breakpoint--md) {
+      display: none;
     }
 
-    &__logo {
-        height: 50px;
-        width: auto;
+    &--dark {
+      filter: invert(1);
+    }
+  }
+
+  .hamburger-nav {
+    position: absolute;
+    right: 0;
+    text-align: right;
+
+    ul {
+      border-radius: 5px;
     }
 
-    .hamburger-button {
-        padding: 0;
-        margin: 0;
+    li {
+      background-color: var(--color-header-background);
+      padding-right: 20px;
+    }
+
+    @media (min-width: $breakpoint--md) {
+      display: none;
+    }
+  }
+
+  .nav {
+    display: none;
+
+    @media (min-width: $breakpoint--md) {
+      display: block;
+    }
+
+    &__list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+
+      @media (min-width: $breakpoint--md) {
+        flex-direction: row;
+      }
+    }
+
+    &__list-item {
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+      text-transform: capitalize;
+      color: var(--color-link);
+      border: 0;
+      font-size: 14px;
+      padding: 10px;
+
+      select {
+        margin-top: -3px;
         border: 0;
-        background: transparent;
+        color: var(--color-link);
+        background-color: var(--color-header-background);
+      }
+
+      a {
+        color: var(--color-link);
+      }
     }
-
-    .hamburger-menu {
-        height: 30px;
-        
-        @media(min-width: $breakpoint--md) {
-            display: none;
-        }
-
-        &--dark {
-            filter: invert(1);
-        }
-    }
-
-    .hamburger-nav {
-        position: absolute;
-        right: 0;
-        text-align: right;
-
-        ul {
-            border-radius: 5px;
-        }
-
-        li {
-            background-color: var(--color-header-background);
-            padding-right: 20px;
-        }
-
-        @media(min-width: $breakpoint--md) {
-            display: none;
-        }
-    }
-
-    .nav {
-        display: none;
-
-        @media(min-width: $breakpoint--md) {
-            display: block;
-        }
-
-        &__list {
-            list-style-type: none;
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-
-            @media(min-width: $breakpoint--md) {
-                flex-direction: row;
-            }
-        }
-
-        &__list-item {
-            text-decoration: none;
-            transition: color .2s ease-in-out;
-            text-transform: capitalize;
-            color: var(--color-link);
-            border: 0;
-            font-size: 14px;
-            padding: 10px;
-
-            select {
-                margin-top: -3px;
-                border: 0;
-                color: var(--color-link);
-                background-color: var(--color-header-background);
-            }
-
-            a {
-                color: var(--color-link)
-            }
-        }
-    }
+  }
 }

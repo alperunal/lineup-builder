@@ -1,19 +1,19 @@
 {
-    "compilerOptions": {
-      "target": "es2017",
-      "allowSyntheticDefaultImports": false,
-      "baseUrl": "./",
-      "paths": {
-        "api/*": ["src/api/*"],
-        "assets/*": ["src/assets/*"],
-        "components/*": ["src/components/*"],
-        "constants/*": ["src/constants/*"],
-        "containers/*": ["src/containers/*"],
-        "utils/*": ["src/utils/*"],
-        "languages/*": ["src/languages/*"],
-        "store/*": ["src/store/*"],
-        "styles/*": ["src/styles/*"]
-      }
-    },
-    "exclude": ["node_modules", "build"]
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "api/*": ["src/api/*"],
+      "assets/*": ["src/assets/*"],
+      "components/*": ["src/components/*"],
+      "constants/*": ["src/constants/*"],
+      "containers/*": ["src/containers/*"],
+      "utils/*": ["src/utils/*"],
+      "languages/*": ["src/languages/*"],
+      "store/*": ["src/store/*"],
+      "styles/*": ["src/styles/*"]
+    }
+  },
+  "exclude": ["node_modules", "build"]
 }

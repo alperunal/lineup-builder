@@ -6,17 +6,17 @@ import './styles/style.scss';
 
 const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) {
-    hydrate(
-        <Router>
-            <App />
-        </Router>,
-        rootElement,
-    );
+  hydrate(
+    <Router>
+      <App />
+    </Router>,
+    rootElement,
+  );
 } else {
-    render(
-        <Router>
-            <App />
-        </Router>,
-        rootElement,
-    );
+  render(
+    <Router>
+      <App />
+    </Router>,
+    rootElement,
+  );
 }
