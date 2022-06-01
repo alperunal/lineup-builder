@@ -7,7 +7,7 @@ import yellowCardIcon from 'assets/icons/yellow-card.svg';
 import redCardIcon from 'assets/icons/red-card.svg';
 import yellowToRedCardIcon from 'assets/icons/yellow-to-red.svg';
 
-import './Player.module.scss';
+import './Player.scss';
 
 const Player = ({
   name,

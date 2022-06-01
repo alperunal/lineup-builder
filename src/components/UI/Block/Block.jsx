@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import './Block.module.scss';
+import './Block.scss';
 
 const Block = ({ title, customClass, children }) => (
   <div className={cn('block', customClass)}>

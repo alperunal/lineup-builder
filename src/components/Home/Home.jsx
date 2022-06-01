@@ -7,7 +7,7 @@ import { Container } from 'components/UI';
 
 import heroImgSrc from 'assets/images/hero.png';
 
-import './Home.module.scss';
+import './Home.scss';
 
 const Home = () => (
   <div className="home">

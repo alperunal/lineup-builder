@@ -16,7 +16,7 @@ import messagesTR from 'languages/tr.json';
 
 import Routes from 'routes';
 
-import './App.module.scss';
+import './App.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure();
@@ -63,7 +63,7 @@ const App = () => {
         <div className={cn('app', { dark: theme === 'dark' })}>
           {isLoading ? <Spinner /> : null}
           <Header />
-          <div className="content">
+          <div className="app__content">
             <Switch>
               <Route path={`${Routes.lineup.path}/:lineupId`}>
                 <Lineup />

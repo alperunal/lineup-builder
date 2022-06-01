@@ -4,7 +4,7 @@ import { Container } from 'components/UI';
 
 import imageSrc from 'assets/images/logo.png';
 
-import './Footer.module.scss';
+import './Footer.scss';
 
 const Footer = () => (
   <footer className="footer">

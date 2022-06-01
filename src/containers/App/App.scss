@@ -1,7 +1,7 @@
 @import 'styles/_variables.scss';
 
 .app {
-  .content {
+  &__content {
     background-color: var(--color-page-background);
     color: var(--color-text);
 

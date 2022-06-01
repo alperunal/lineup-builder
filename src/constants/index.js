@@ -1,7 +1,3 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
-
 export const GROUND = {
   height: 500,
   width: 350,

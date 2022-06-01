@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: ['./src/index.js'],
@@ -23,10 +22,20 @@ module.exports = {
       store: path.resolve(__dirname, 'src/store/'),
       styles: path.resolve(__dirname, 'src/styles/'),
       routes: path.resolve(__dirname, 'src/routes/'),
+      process: 'process/browser',
+    },
+    fallback: {
+      fs: false,
+      path: false,
+      os: false,
     },
   },
   devServer: {
-    contentBase: './build',
+    static: {
+      directory: path.resolve(__dirname, "public")
+    },
+    compress: true,
+    open: true,
     historyApiFallback: true,
   },
   module: {
@@ -59,7 +68,9 @@ module.exports = {
             },
           },
           // sass-loader
-          { loader: 'sass-loader' },
+          {
+            loader: 'sass-loader',
+          },
         ],
       },
       {
@@ -91,9 +102,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
-    new Dotenv(),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
   ],
-  node: {
-    fs: 'empty',
-  },
 };

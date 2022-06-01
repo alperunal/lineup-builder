@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 
-import './Switch.module.scss';
+import './Switch.scss';
 
 const Switch = ({ id, checked, size, handleChange }) => (
   <label className="switch" htmlFor={`switch-${id}`}>
