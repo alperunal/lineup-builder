@@ -10,7 +10,7 @@ import Routes from 'routes';
 import HamburgerIcon from 'assets/icons/hamburger-menu.svg';
 import imageSrc from 'assets/images/logo.png';
 
-import './Header.module.scss';
+import './Header.scss';
 
 const Header = () => {
   const context = useContext(StoreContext);

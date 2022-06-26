@@ -8,7 +8,7 @@ import grassTile from 'assets/tiles/grass-tile.png';
 import wetGrassTile from 'assets/tiles/wet-grass-tile.png';
 import dryGrassTile from 'assets/tiles/dry-grass-tile.png';
 
-import './Field.module.scss';
+import './Field.scss';
 
 function getFieldStyle(fieldType) {
   switch (fieldType) {

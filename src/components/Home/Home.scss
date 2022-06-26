@@ -106,3 +106,33 @@
     color: #666666;
   }
 }
+
+.contact {
+  padding: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+
+  h1, h2 {
+    margin: 0;
+  }
+
+  input, textarea {
+    width: 100%;
+  }
+
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+}

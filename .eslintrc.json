@@ -26,7 +26,8 @@
       { "devDependencies": ["**/*.test.js", "**/*.test.jsx"] }
     ],
     "max-len": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "object-curly-newline": "off"
   },
   "settings": {
     "import/resolver": {

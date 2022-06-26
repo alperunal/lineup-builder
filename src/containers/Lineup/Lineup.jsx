@@ -26,7 +26,7 @@ import shareIcon from 'assets/icons/share.svg';
 import loadIcon from 'assets/icons/upload.svg';
 import clipIcon from 'assets/icons/clippy.svg';
 
-import './Lineup.module.scss';
+import './Lineup.scss';
 
 const ShareMessage = ({ link, intl }) => (
   <div className="share-message">
