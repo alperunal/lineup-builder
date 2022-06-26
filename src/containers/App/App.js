@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { IntlProvider } from 'react-intl';
 import { Switch, Route } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import cn from 'classnames';
 import StoreContext from 'store';
 
@@ -19,7 +18,6 @@ import Routes from 'routes';
 import './App.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
-toast.configure();
 const App = () => {
   const [theme, setTheme] = useState(() => (typeof window !== 'undefined'
     ? localStorage.getItem('THEME') || 'light'

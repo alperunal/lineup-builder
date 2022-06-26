@@ -38,6 +38,23 @@ const Home = () => (
         </div>
       </Container>
     </div>
+    <div className="contact">
+      <Container>
+        <form action="https://formspree.io/f/meqnwrpq" method="POST" className="form-group contact-form">
+          <h2>Feedback</h2>
+          <h3>We would like your feedback to improve our service</h3>
+          <label>
+            <div>Your email:</div>
+            <input placeholder="info@voety.net" type="email" name="email" required />
+          </label>
+          <label>
+            <div>Your message:</div>
+            <textarea placeholder="Your suggestions about lineup builder" name="message" rows="4" required />
+          </label>
+          <button type="submit">Send</button>
+        </form>
+      </Container>
+    </div>
   </div>
 );
 
