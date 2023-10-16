@@ -27,9 +27,5 @@ If you are a total beginner to this, start here!
    `yarn test`
 
 ## Live
+[live demo](https://voety.netlify.app/)
 
-https://www.voety.net/
-
-## Newer Version
-
-[Lineup11 - Lineup builder](https://www.lineup11.net/)
